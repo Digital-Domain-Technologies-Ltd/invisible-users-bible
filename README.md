@@ -55,20 +55,21 @@ This is the complete "Bible" version of The Invisible Users, containing:
 
 ### Core Chapters
 
-1. **Chapter 0:** What Are AI Agents?
-2. **Chapter 1:** What You Will Learn
-3. **Chapter 2:** The Invisible Failure
-4. **Chapter 3:** The Architectural Conflict
-5. **Chapter 4:** The Business Reality
-6. **Chapter 5:** The Content Creator's Dilemma
-7. **Chapter 6:** The Security Maze
-8. **Chapter 7:** The Legal Landscape
-9. **Chapter 8:** The Human Cost
-10. **Chapter 9:** The Platform Race
-11. **Chapter 10:** Generative Engine Optimization
-12. **Chapter 11:** Designing for Both
-13. **Chapter 12:** Technical Advice
-14. **Chapter 13:** What Agent Creators Must Build
+**Note:** Chapter 0 (What Are AI Agents?) is a shared introduction used across all books and is located in the main repository at `docs/shared-chapters/chapter-00-what-are-ai-agents.md`.
+
+1. **Chapter 1:** What You Will Learn
+2. **Chapter 2:** The Invisible Failure
+3. **Chapter 3:** The Architectural Conflict
+4. **Chapter 4:** The Business Reality
+5. **Chapter 5:** The Content Creator's Dilemma
+6. **Chapter 6:** The Security Maze
+7. **Chapter 7:** The Legal Landscape
+8. **Chapter 8:** The Human Cost
+9. **Chapter 9:** The Platform Race
+10. **Chapter 10:** Generative Engine Optimization
+11. **Chapter 11:** Designing for Both
+12. **Chapter 12:** Technical Advice
+13. **Chapter 13:** What Agent Creators Must Build
 
 ### Supporting Materials
 
