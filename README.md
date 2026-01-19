@@ -17,6 +17,25 @@ AI agents are machines with technical limitations that parallel human disabiliti
 
 Miss any stage, the entire commerce journey breaks. JavaScript-rendered content, generic class names, and visual-only feedback break this journey at multiple points.
 
+## Repository Purpose and Structure
+
+**This is a content-only repository used as a git submodule.**
+
+This repository exists for **separation of concerns** - keeping content version-controlled independently from build tooling and orchestration. Key characteristics:
+
+- **No package.json** - No npm packages, no dependencies, no scripts, no dependency management
+- **No build tooling** - Cannot be built independently
+- **Content focus** - Pure markdown content for version control
+- **Parent repository controls building** - All build commands, PDF generation, and linting are executed from the parent `invisible-users` repository
+
+To work with this content:
+
+1. Use the parent repository (`invisible-users`) for all build operations
+2. Edit content directly in this submodule
+3. Commit changes here first, then update the parent repository pointer
+
+See the parent repository's [CLAUDE.md](../../CLAUDE.md) and [docs/repo/GIT-README.md](../../docs/repo/GIT-README.md) for comprehensive guidance.
+
 ## Overview
 
 This is the complete "Bible" version of The Invisible Users, containing:
