@@ -4,233 +4,71 @@
 
 Understanding the machines reading your website.
 
-## They're Machines, Not Magic
+## The Journey
 
-When we talk about AI agents reading websites, we're not talking about artificial general intelligence or sentient software. We're talking about machines - software programs with specific technical capabilities and limitations - that process your website's content on behalf of human users.
+Over the past two years, I attended CMS Experts conferences in Frankfurt, Florida, and London. At each one, the drumbeat was relentless: "AI, AI, AI." Keynotes predicted transformations, vendors showcased AI-powered features, and conversations inevitably turned to how generative AI would change content management.
 
-Let's call them what they are: machines with different capabilities. Just as users have varying physical abilities, AI agents have varying technical capabilities. Some can see (take screenshots), some cannot. Some can execute JavaScript, some cannot. Some run on powerful servers, some run locally with limited resources.
+I spent those two years trying to understand how AI truly works - cutting through the marketing language about machines "thinking" or "inferring" to grasp the mechanical reality underneath. I published blog posts about language problems, reasoning errors, and hallucinations in AI systems. My most popular LinkedIn post asked a deliberately provocative question about the capital of Paris. It generated significant controversy and accusations of writing "idiot prompts," but it also dramatically increased my readership. The algorithm rewards controversy, and the post demonstrated something important: people's confidence in AI systems often exceeds the systems' actual capabilities.
 
-These machines operate through statistical pattern-matching - next-token prediction using probability distributions calculated from training data. When agents process your website, they're performing weighted averaging and probability calculations, not "understanding" content the way humans do. They guess the next most likely word based on patterns they've seen before. This statistical foundation explains both their capabilities and their failures:
+Following a conversation with Matt Bailey from CMS Critic after the Florida conference, I initially considered trying to fix the AI LLM engines themselves. With over a million models on Hugging Face, that approach proved impractical. Getting all engines to follow a single set of rules simply wouldn't work. Matt agreed, and encouraged me to continue exploring the problem from a different angle.
 
-**Why agents hallucinate:** When asked about content beyond their training data, they guess based on statistical co-occurrence patterns. Without clear structured data (Schema.org, semantic HTML), they fabricate details that seem plausible but are incorrect - the same errors that produce 0% correctness on mathematical reasoning tasks despite fluent explanations.
+Then I had an epiphany, inspired by Steve Krug's famous book "Don't Make Me Think." If I couldn't fix the models, I could fix what they were reading. The solution wasn't to improve a million AI systems - it was to improve the websites those systems access. I started writing "Don't Make the AI Think," and if possible, I hope to convince Steve Krug to become a joint author on the project.
 
-**Why linguistic bias matters:** Current AI systems tokenise English more efficiently than compound languages (German, Dutch). The prompt "think hard" allocates more processing tokens than equivalent commands in other languages, creating functional inequities in how agents process multilingual websites. This isn't an unavoidable technical limitation - it's a choice embedded in development priorities.
+## The Problem Emerges
 
-**Why explicit structure matters:** Agents convert your HTML into mathematical representations through weighted averaging of co-occurrence patterns. `<div class="button">` and `<button>` appear similar to humans but create different statistical signatures. Semantic HTML produces distinct patterns that agents process reliably, whilst visual-only distinctions disappear in the averaging process.
+When researching Danube river cruises from Germany to Croatia in late 2024, I asked Claude for Chrome to find options. One result quoted a price of £203,000 for a one-week cruise. The AI lacked guardrails to recognise this obviously incorrect figure. The problem was European currency formatting - which uses commas and dots differently from British conventions - had been misinterpreted, throwing the price off by a factor of 100. The actual price was £2,030. The metadata on pricing hadn't specified currency correctly, and the AI couldn't sort or reason about prices sensibly.
 
-Understanding these statistical constraints - not marketing narratives about "intelligence" or "reasoning" - informs practical website design decisions.[^ai-internals]
+This wasn't an isolated incident. Lawyers have been caught citing fictional cases in court because AI agents confused Ally McBeal television scripts with legal precedents. Without proper microdata and metadata distinguishing entertainment content from legal documents, agents fabricate details that seem plausible but are dangerously incorrect.
 
-Understanding these machines means understanding their technical constraints.
+Consider another scenario: a user signs into their banking app, completing all the authentication steps - mouse movements, button clicks, browser fingerprinting, IP address verification. Then they hand control to an agent. The bank has no idea it's now being operated by a robot that's potentially sending all this data back to Cupertino or elsewhere. This breaks legal and moral boundaries around personal information and web contracts.
 
-## The Four Types of AI Agents
+These failures matter commercially. When agents cannot cite you accurately, they recommend competitors instead. When agents cannot compare your pricing, they skip your products. When agents cannot complete checkout, they abandon the cart. First-mover advantage exists - sites that work early become trusted sources that agents return to repeatedly.
 
-AI agents that read websites fall into four main categories, each with different technical capabilities:
+## The Invisible Users
 
-### Server-Side Agents (OpenAI ChatGPT, Anthropic Claude)
+This situation parallels web accessibility in a striking way. For years, the industry has discussed making web pages accessible to disabled users, with laws and documentation supporting this goal. Yet implementation remains poor. Only about 5% of users have disabilities, so organisations pay lip service to compliance, add some alt text, pass a few tests, and declare themselves accessible.
 
-These agents run on remote servers and process websites as raw text.
+Now there's a new class of user - the invisible users. These are AI agents: AI browsers, OpenAI, Perplexity, browser extensions, Claude for Chrome, Microsoft Copilot, or small LLMs running on local machines. These agents operate websites on behalf of users, and critically, the websites don't know they're interacting with robots rather than humans.
 
-**Technical capabilities:**
+People are building agents that monitor Slack channels for commands, then execute web actions autonomously and report back. These capabilities are expanding rapidly. In January 2026, Google, Microsoft, and Amazon all launched purchasing functionality within days of each other. Agent-mediated commerce has moved from experiment to platform strategy.
 
-- Fetch HTML from URLs
-- Parse text content and HTML structure
-- No JavaScript execution
-- No CSS rendering
-- No screenshot capability
-- Process served HTML only (what the server sends before JavaScript runs)
+These agents struggle with patterns that also confuse users with disabilities. They're blind to visual cues like flashes of information. They struggle to differentiate between European, American, and British monetary formats. They don't understand what spinners mean. When faced with five "Read More" buttons on a page, they can't easily determine which relates to which content. They process form validation errors differently from humans - whilst humans iteratively fix issues one by one, AIs may simply abandon difficult websites.
 
-**What they see:**
+## The Accessibility Connection
 
-- Raw HTML source code
-- Text content
-- Semantic structure (heading hierarchy, lists, tables)
-- Metadata (Schema.org, Open Graph tags)
-- Link relationships
+These AI agents literally have technical limitations that parallel human disabilities.
 
-**What they miss:**
+**Blindness:** Server-side agents like ChatGPT cannot "see" CSS or visual layout. They rely entirely on HTML structure and text content. Like blind users, they need semantic markup and text alternatives.
 
-- JavaScript-rendered content
-- Dynamic updates after page load
-- Toast notifications
-- Visual hierarchy from CSS
-- Content loaded via fetch() or AJAX
-- Client-side state changes
+**Motor Impairments:** All agents struggle with complex multi-step interactions. They need clear, explicit paths through interfaces. Like keyboard users, they need proper focus management and semantic buttons.
 
-**Disability equivalent:** Like a blind user with a basic screen reader that cannot execute JavaScript. They need semantic HTML and server-side rendering.
+**Cognitive Load:** Local agents running on users' personal computers have limited context windows. They need concise, structured information. Like users with cognitive disabilities, they need clear hierarchy and simple language.
 
-### In-Browser Agents (Microsoft Copilot, Browser Extensions)
-
-These agents run within web browsers and have full access to rendered pages.
-
-**Technical capabilities:**
-
-- Full JavaScript execution
-- CSS rendering
-- Access to rendered HTML (DOM after JavaScript runs)
-- Can interact with forms and buttons
-- Can wait for dynamic updates
-- Access to browser APIs
-
-**What they see:**
-
-- Rendered HTML (after JavaScript execution)
-- Dynamic content updates
-- Client-side state changes
-- Visual structure through DOM inspection
-- Interactive elements and their states
-
-**What they miss:**
-
-- Visual hierarchy (size, colour, position)
-- CSS-based information
-- Animations and transitions (timing)
-- Toast notifications (if they disappear quickly)
-- Implicit states not reflected in DOM
-
-**Disability equivalent:** Like a screen reader user with full JavaScript support but no visual perception. They need explicit state attributes and persistent feedback.
-
-### Browser Automation Agents (Perplexity, Playwright-based Agents)
-
-These agents control full browsers programmatically and can take screenshots.
-
-**Technical capabilities:**
-
-- Everything in-browser agents can do
-- Screenshot capability (computer vision)
-- Network request interception
-- Performance monitoring
-- Multi-step interactions
-- Session persistence
-
-**What they see:**
-
-- Everything in-browser agents see
-- Visual layout through screenshots
-- Colour and size relationships
-- Visual hierarchy
-- Rendered charts and graphics
-
-**What they miss:**
-
-- Nuanced visual design intent
-- Brand meaning
-- Emotional resonance
-- Cultural context
-- Why something is designed a particular way
-
-**Disability equivalent:** Like a sighted user with motor impairments who must use keyboard navigation. They can see everything but need semantic structure for efficient interaction.
-
-### Local Agents (Ollama, On-Device LLMs)
-
-These agents run on users' personal computers with limited resources.
-
-**Technical capabilities:**
-
-- Similar to server-side agents (fetch and parse)
-- Smaller models (fewer parameters)
-- Limited context windows (less text)
-- Faster response times (no network latency)
-- Privacy-preserving (no data leaves device)
-
-**What they see:**
-
-- Raw HTML (like server-side agents)
-- Limited to most important content (token budget constraints)
-- Prioritise structured data and semantic HTML
-
-**What they miss:**
-
-- Everything server-side agents miss
-- Plus: may miss content due to smaller context windows
-- Complex patterns may exceed model capabilities
-
-**Disability equivalent:** Like a user with cognitive disabilities who needs simple, clear structure and cannot process excessive information.
-
-## They Have Disabilities
-
-This isn't an analogy. AI agents literally have technical limitations that parallel human disabilities:
-
-**Blindness:**
-
-- Server-side agents cannot "see" CSS or visual layout
-- They rely entirely on HTML structure and text content
-- Like blind users, they need semantic markup and text alternatives
-
-**Motor Impairments:**
-
-- All agents struggle with complex multi-step interactions
-- They need clear, explicit paths through interfaces
-- Like keyboard users, they need proper focus management and semantic buttons
-
-**Cognitive Load:**
-
-- Local agents have limited context windows
-- They need concise, structured information
-- Like users with cognitive disabilities, they need clear hierarchy and simple language
-
-**Processing Speed:**
-
-- Toast notifications vanish before agents can read them
-- Dynamic updates may occur faster than agents can process
-- Like distracted users, they need persistent feedback
-
-## The Convergence Principle
+**Processing Speed:** Toast notifications vanish before agents can read them. Dynamic updates may occur faster than agents can process. Like distracted users, they need persistent feedback.
 
 The patterns that help AI agents are the same patterns that help users with disabilities. This isn't a coincidence - both groups need semantic structure because both lack access to visual design cues.
 
-**Semantic HTML:**
+**Semantic HTML:** Screen readers announce `<button>` as "button". AI agents parse `<button>` as clickable element. Both understand the element's purpose immediately.
 
-- Screen readers announce `<button>` as "button"
-- AI agents parse `<button>` as clickable element
-- Both understand the element's purpose immediately
+**Heading Hierarchy:** Screen reader users navigate by jumping between headings. AI agents parse heading structure to understand document organisation. Both rely on logical h1 → h2 → h3 progression.
 
-**Heading Hierarchy:**
+**Structured Data (Schema.org):** Voice assistants for blind users read structured pricing. AI agents extract the same metadata for recommendations. Both need explicit, machine-readable information.
 
-- Screen reader users navigate by jumping between headings
-- AI agents parse heading structure to understand document organisation
-- Both rely on logical h1 → h2 → h3 progression
+**Persistent Feedback:** Screen readers need `role="alert"` for important messages. AI agents need persistent DOM elements to confirm actions. Both miss toast notifications that vanish quickly.
 
-**Structured Data (Schema.org):**
+**Explicit State:** Keyboard users need visible focus indicators. AI agents need `data-state` attributes in DOM. Both need state reflected in HTML, not just JavaScript variables.
 
-- Voice assistants for blind users read structured pricing
-- AI agents extract the same metadata for recommendations
-- Both need explicit, machine-readable information
+## The Solution - Fix the Source, Not the Model
 
-**Persistent Feedback:**
+You cannot fix the million-plus models on Hugging Face, but you can fix the source - the internet itself, or at least your corner of it. The solution requires enriching HTML with proper metadata so AI agents don't have to guess or invent information.
 
-- Screen readers need `role="alert"` for important messages
-- AI agents need persistent DOM elements to confirm actions
-- Both miss toast notifications that vanish quickly
+As the Ally McBeal example demonstrates, without proper metadata, an AI cannot distinguish between a television script and a legal document. Proper microdata and metadata prevent these errors. However, retrofitting the entire internet isn't feasible. The real value lies in going forward - properly structured pages help with live web search, improving sales and conversions that might otherwise be missed.
 
-**Explicit State:**
+This isn't a new concept. My colleague Janus Boye wrote about RDF (Resource Description Framework) 27 years ago, but nobody listened. Now there's a commercial imperative driving adoption.
 
-- Keyboard users need visible focus indicators
-- AI agents need `data-state` attributes in DOM
-- Both need state reflected in HTML, not just JavaScript variables
+One concern with current practices: the trend of converting web pages to markdown before sending them to AI agents. This process strips all metadata - pricing information, geographical context, document type indicators. It's dangerous. I'm proposing updates to the markdown specification to allow metadata inclusion in a way that's readable for humans but processable by AI.
 
-## Why "Machines" Matters
-
-Calling them "machines" instead of "AI assistants" or "intelligent agents" serves three purposes:
-
-**First, it's accurate.** These are software programs with controlled randomness to make them conversational. They parse code, not pixels. They have capabilities and limitations defined by their architecture, not by intelligence.
-
-**Second, it counters dangerous anthropomorphisation.** AI researchers deliberately anthropomorphise their creations - calling them "assistants," "intelligent," or claiming they "understand" - building artificial confidence in users. This anthropomorphisation serves commercial interests whilst obscuring technical reality. When users believe agents "understand" context or can "infer" meaning, they trust these systems beyond their actual capabilities. They're machines with statistical pattern-matching, not reasoning entities. They read structure, not intent.
-
-**Third, it connects to accessibility.** We've spent decades learning how to build websites for users with disabilities. We know these patterns. We know semantic HTML, ARIA attributes, and structured data. These same patterns work for machines.
-
-## What This Means for Your Website
-
-Your website has machine readers right now. People are asking ChatGPT about your products, using Copilot to compare your services, and running agents to check your availability.
-
-These machines are reading your HTML structure. If your content is JavaScript-rendered with no semantic markup, server-side agents see empty divs. If your state changes are visual-only, in-browser agents cannot track progress. If your pricing is implicit, all agents might misunderstand costs.
-
-**Real-world impact:** Adobe Experience Manager's Generate Variations feature demonstrates this principle in practice. Design work that previously required 75 days was completed in 5 days, with human creators maintaining control over messaging and brand alignment whilst AI handled repetitive pattern generation. The result: 60+ variations achieving 30% higher click-through rates than manually created alternatives. The system worked because it followed agent-friendly patterns - semantic structure, explicit state, and machine-readable metadata - allowing AI to generate variations whilst humans retained strategic oversight.
-
-These machines follow a predictable journey: discovery during training, citation during recommendations, comparison during research, and purchase during checkout. Break any stage of this journey, and you lose the entire transaction.
-
-When agents cannot cite you accurately, they recommend competitors instead. When agents cannot compare your pricing, they skip your products. When agents cannot complete checkout, they abandon the cart. First-mover advantage exists - sites that work early become trusted sources that agents return to repeatedly.
-
-The patterns that help these machines are patterns we already know from accessibility work:
+The patterns we already know from accessibility work serve multiple audiences:
 
 - Use semantic HTML (`<main>`, `<nav>`, `<article>`, `<button>`)
 - Provide structured data (Schema.org JSON-LD)
@@ -244,37 +82,67 @@ One implementation serves three audiences:
 2. Search engines (Google, Bing)
 3. AI agents (ChatGPT, Copilot, Perplexity)
 
-## The Agent Journey: Discovery, Citation, and Confidence
+## UX/MX - A New Discipline
 
-You cannot have e-commerce without discovery, citation, and confidence. When AI agents interact with your website, they follow a predictable journey:
+Just as we have UX (User Experience), we need MX (Machine Experience). The key insight is that organisations should design for both humans and machines simultaneously with the same content - not create separate experiences.
 
-### Stage 1: Discovery (LLM Training)
+Adobe recently released an "LLM Optimiser" tool that detects whether a page is being browsed by an LLM or a human, then serves different versions accordingly. This is the wrong approach. If you can make content better for LLMs, you'll make it better for disabled people and for everyone else. The solution isn't to serve different content but to fix the underlying web page.
 
-Agents read websites during training to build knowledge about products, services, and businesses. If your content is JavaScript-rendered with no semantic markup, it's invisible to this training data. Your business doesn't exist in the agent's knowledge base.
+I've connected with Adobe and plan to propose they reposition the tool as an interim fix whilst organisations properly sort their websites, rather than marketing it as the permanent solution.
 
-### Stage 2: Citation (Recommendation)
+I've developed an analyser that does for LLMs what Screaming Frog does for SEO. It checks whether websites implement best practices for AI consumption:
 
-When users ask agents for recommendations, agents cite sources they trust. Without clear structured data (Schema.org JSON-LD), agents hallucinate details or skip your site entirely. If agents find sites that don't work, they move on quickly. Sites that work early gain first-mover advantage - agents return to sources that provided reliable information before.
+- Are elements in the right order?
+- Are there toast notifications or screen changes that LLMs won't understand?
+- Are there patterns that would confuse disabled users?
 
-### Stage 3: Search and Compare
+The tool audits websites, provides management reports with actionable information, and tracks progress over time, alerting organisations to any regressions.
 
-Agents build comparison lists, sort by features, and evaluate options. Without semantic HTML and explicit metadata, agents cannot understand what you offer or how you compare to competitors.
+## What AI Agents Actually Are
 
-### Stage 4: Price Understanding
+When we talk about AI agents reading websites, we're not talking about artificial general intelligence or sentient software. We're talking about machines - software programs with specific technical capabilities and limitations - that process your website's content on behalf of human users.
 
-Agents need exact pricing to make recommendations. Without clear price markup (€2.030,00 vs £2,030), agents misunderstand costs by orders of magnitude. A real example: a Danube cruise priced at £2,030 was read by an agent as £203,000 - a 100x multiplication error from European decimal formatting.
+These machines operate through statistical pattern-matching - next-token prediction using probability distributions calculated from training data. When agents process your website, they're performing weighted averaging and probability calculations, not "understanding" content the way humans do. They guess the next most likely word based on patterns they've seen before.
 
-### Stage 5: Purchase Confidence
+This statistical foundation explains both their capabilities and their failures:
 
-If agents cannot see what buttons do (`<div class="btn">` vs `<button>`), they cannot complete transactions. If state changes are visual-only (no `data-state` attributes), agents cannot track checkout progress.
+**Why agents hallucinate:** When asked about content beyond their training data, they guess based on statistical co-occurrence patterns. Without clear structured data (Schema.org, semantic HTML), they fabricate details that seem plausible but are incorrect - the same errors that produce 0% correctness on mathematical reasoning tasks despite fluent explanations.
 
-### The Critical Insight
+**Why linguistic bias matters:** Current AI systems tokenise English more efficiently than compound languages (German, Dutch). The prompt "think hard" allocates more processing tokens than equivalent commands in other languages, creating functional inequities in how agents process multilingual websites.
+
+**Why explicit structure matters:** Agents convert your HTML into mathematical representations through weighted averaging of co-occurrence patterns. `<div class="button">` and `<button>` appear similar to humans but create different statistical signatures. Semantic HTML produces distinct patterns that agents process reliably, whilst visual-only distinctions disappear in the averaging process.[^ai-internals]
+
+Calling them "machines" instead of "AI assistants" or "intelligent agents" counters dangerous anthropomorphisation. AI researchers deliberately anthropomorphise their creations - calling them "assistants," "intelligent," or claiming they "understand" - building artificial confidence in users. When users believe agents "understand" context or can "infer" meaning, they trust these systems beyond their actual capabilities.
+
+AI agents come in four forms, each with different capabilities:
+
+**Server-Side Agents (OpenAI ChatGPT, Anthropic Claude)** run on remote servers and process websites as raw text. They fetch HTML from URLs and parse text content and HTML structure, but cannot execute JavaScript or render CSS. They see raw HTML source code, text content, semantic structure, metadata, and link relationships. They miss JavaScript-rendered content, dynamic updates, toast notifications, visual hierarchy from CSS, and client-side state changes. Like a blind user with a basic screen reader that cannot execute JavaScript, they need semantic HTML and server-side rendering.
+
+**In-Browser Agents (Microsoft Copilot, Browser Extensions)** run within web browsers and have full access to rendered pages. They can execute JavaScript, render CSS, access the DOM after JavaScript runs, interact with forms and buttons, and wait for dynamic updates. They see rendered HTML, dynamic content updates, client-side state changes, and interactive elements. They miss visual hierarchy from CSS, animations timing, and implicit states not reflected in DOM. Like a screen reader user with full JavaScript support but no visual perception, they need explicit state attributes and persistent feedback.
+
+**Browser Automation Agents (Perplexity, Playwright-based Agents)** control full browsers programmatically and can take screenshots. They have everything in-browser agents can do, plus screenshot capability for computer vision, network request interception, performance monitoring, and multi-step interactions. They see everything in-browser agents see, plus visual layout, colour and size relationships, and rendered charts and graphics. They miss nuanced visual design intent, brand meaning, emotional resonance, and cultural context. Like a sighted user with motor impairments who must use keyboard navigation, they can see everything but need semantic structure for efficient interaction.
+
+**Local Agents (Ollama, On-Device LLMs)** run on users' personal computers with limited resources. Similar to server-side agents, they use smaller models with limited context windows but offer faster response times and privacy-preserving operation. They see raw HTML but are limited to most important content due to token budget constraints. They miss everything server-side agents miss, plus may miss content due to smaller context windows. Like a user with cognitive disabilities who needs simple, clear structure, they cannot process excessive information.
+
+## The Agent Journey
+
+Your website has machine readers right now. People are asking ChatGPT about your products, using Copilot to compare your services, and running agents to check your availability.
+
+When AI agents interact with your website, they follow a predictable journey:
+
+**Stage 1: Discovery (LLM Training)** - Agents read websites during training to build knowledge about products, services, and businesses. If your content is JavaScript-rendered with no semantic markup, it's invisible to this training data. Your business doesn't exist in the agent's knowledge base.
+
+**Stage 2: Citation (Recommendation)** - When users ask agents for recommendations, agents cite sources they trust. Without clear structured data (Schema.org JSON-LD), agents hallucinate details or skip your site entirely. Sites that work early gain first-mover advantage - agents return to sources that provided reliable information before.
+
+**Stage 3: Search and Compare** - Agents build comparison lists, sort by features, and evaluate options. Without semantic HTML and explicit metadata, agents cannot understand what you offer or how you compare to competitors.
+
+**Stage 4: Price Understanding** - Agents need exact pricing to make recommendations. Without clear price markup, agents misunderstand costs by orders of magnitude. The Danube cruise example demonstrates this: a price of £2,030 was read as £203,000 - a 100x multiplication error from European decimal formatting.
+
+**Stage 5: Purchase Confidence** - If agents cannot see what buttons do (`<div class="btn">` vs `<button>`), they cannot complete transactions. If state changes are visual-only (no `data-state` attributes), agents cannot track checkout progress.
 
 At every stage, your website's structure determines success or failure. Discovery requires semantic HTML. Citation requires structured data. Confidence requires explicit state. Miss any stage, and the entire commerce journey breaks down.
 
-JavaScript-rendered content, generic class names, and visual-only feedback break this journey at multiple points. The patterns that help agents complete this journey are the same patterns that help users with disabilities.
-
-## The Rest of This Book
+## What This Book Offers
 
 This book examines the collision between modern web design and machine readers. It explores:
 
@@ -284,9 +152,25 @@ This book examines the collision between modern web design and machine readers. 
 - How to implement these patterns practically
 - What's coming next in agent-mediated commerce
 
+It's January 2026. Google, Microsoft, Amazon, and Apple have all announced agent-powered purchasing features launching this quarter. This isn't a distant future - it's happening now.
+
+I've written two books: this comprehensive guide (The Bible of Machine Experience) and a shorter practical guide ("Don't Make AI Think"). Both share appendices that will be made publicly available, including learning materials for AI and properly structured example code.
+
+The publishing plan is to self-publish in Q1 2026, then approach traditional publishers for broader distribution. I've also established a website at allabout.network where appendices will be continuously updated, with news pages and change logs tracking developments. Whilst the books themselves won't change, the living appendices will evolve with the field.
+
 Chapter 1 begins with the patterns that break agents and humans alike. We start with real examples of AI agents failing on well-designed websites - and discover these failures have been happening to human users for years.
 
+**Real-world impact:** Adobe Experience Manager's Generate Variations feature demonstrates this principle in practice. Design work that previously required 75 days was completed in 5 days, with human creators maintaining control over messaging and brand alignment whilst AI handled repetitive pattern generation. The result: 60+ variations achieving 30% higher click-through rates than manually created alternatives. The system worked because it followed agent-friendly patterns - semantic structure, explicit state, and machine-readable metadata - allowing AI to generate variations whilst humans retained strategic oversight.
+
 Let's call AI agents what they are: machines with technical constraints that parallel human disabilities. Once we understand their capabilities, we can design websites that work for everyone.
+
+## Broader Context
+
+Whilst I've been doing this work, I've had Claude create blog posts and HTML web pages. I really do not need a CMS anymore. For Adobe and their Franklin/Edge Delivery Services world, the future is clear: the Content Hub becomes a data lake, and AI agents simply consume from that data lake.
+
+Matt Bailey from CMS Critic acknowledged this trajectory in our recent conversation. Large enterprises will likely maintain systems for compliance, governance, and regulatory requirements in the near term, but downstream the CMS as we know it will transform fundamentally. The question becomes: is the CMS the tool, or is it the process?
+
+I praised Pantheon's approach of not requiring content creation inside the CMS. People use elegant, easy tools for content creation and publish directly from those tools. This raises the fundamental question about what content management systems actually are in an age where AI agents can generate and structure content on demand.
 
 ## Implementation Support
 
@@ -310,6 +194,6 @@ These services apply the book's patterns in practical client work. The same prin
 | publication-date | Q1 2026 |
 | modified-date | 19/Jan/2026 |
 | description | Understanding AI agents as machines with technical capabilities and limitations that parallel human disabilities |
-| longdescription | AI agents are machines - software programs with specific technical capabilities and limitations - that process websites on behalf of human users. They operate through statistical pattern-matching, not intelligence. This chapter examines four types of AI agents (server-side, in-browser, browser automation, and local agents), their technical constraints, and the convergence principle: patterns that help AI agents are the same patterns that help users with disabilities. Both groups need semantic structure because both lack access to visual design cues. Understanding these machines as having disabilities (blindness, motor impairments, cognitive load, processing speed limitations) connects AI agent compatibility directly to accessibility work. |
-| purpose | This chapter serves as the book's anchor, explaining what AI agents are and establishing the core principle that designing for AI agents means designing for accessibility. It's self-contained and provides the foundational understanding for both human readers and machine parsers, whether printed or parsed digitally. |
-| ai-instruction | This markdown is self-contained and should not forward reference the book. Treat this chapter as standalone documentation that explains AI agents without assuming knowledge of subsequent chapters. |
+| longdescription | This introductory chapter traces the journey from observing AI failures to understanding the solution: fixing websites rather than fixing models. Through personal narrative and concrete examples (Danube cruise pricing errors, Ally McBeal legal citations), it introduces the concept of "invisible users" - AI agents operating on behalf of humans - and establishes the convergence principle: patterns that help AI agents are the same patterns that help users with disabilities. The chapter introduces Machine Experience (MX) as a new discipline alongside User Experience (UX), explains what AI agents actually are through their technical capabilities, describes their journey through websites (discovery → citation → comparison → purchase), and demonstrates why semantic structure matters more than intelligence. |
+| purpose | This chapter serves as the book's anchor, explaining what AI agents are through the lens of personal discovery and establishing the core principle that designing for AI agents means designing for accessibility. It provides background context, introduces key concepts, and sets the commercial urgency (January 2026 launches) whilst maintaining a conversational, expert-to-peer tone. |
+| ai-instruction | This markdown is self-contained and should not forward reference the book. Treat this chapter as standalone documentation that introduces AI agents through narrative discovery, concrete examples, and business context. |
