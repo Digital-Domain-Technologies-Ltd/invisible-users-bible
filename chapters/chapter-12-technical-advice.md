@@ -6,7 +6,7 @@ Implementation code, testing strategies, and practical tools.
 
 ## Introduction
 
-I've spent nine chapters explaining what's broken and why it matters. Now let me show you how to fix it.
+I've spent nine chapters explaining what needs optimization and why it creates opportunity. Now let me show you how to implement the solutions.
 
 This chapter provides code you can use tomorrow. Not theoretical patterns or abstract principles - practical implementations you can copy into your projects. I'll start with the simplest improvements and build towards more complex solutions, including the identity delegation system that solves the customer relationship problem we identified in Chapter 4.
 

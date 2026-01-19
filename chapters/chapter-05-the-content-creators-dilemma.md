@@ -2,7 +2,7 @@
 
 # Chapter 5 - Content Creator's Dilemma
 
-How AI consumption threatens existing business models.
+How AI-mediated discovery transforms existing business models.
 
 ## Introduction
 

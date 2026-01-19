@@ -6,7 +6,7 @@ Solutions that work for agents without degrading human experience.
 
 ## Introduction
 
-The patterns that break AI agents are the same patterns that have frustrated humans for years. This isn't a coincidence. It's the key to solving both problems at once.
+The patterns that need optimization for AI agents are the same patterns that have frustrated humans for years. This isn't a coincidence. It's the key to improving experiences for both audiences simultaneously.
 
 In Chapter 1, I mentioned that what agents need is mostly what everyone needs. Now let me show you precisely what that means - and why it creates a single design target rather than competing requirements.
 

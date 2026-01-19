@@ -2,7 +2,7 @@
 
 # Chapter 2 - The Invisible Failure
 
-When websites break for AI agents.
+When websites and agents need better integration.
 
 ## Introduction
 
@@ -16,17 +16,17 @@ The agent had missed it entirely. It clicked Submit, saw no visible errors on th
 
 This is the invisible failure. Not a crash. Not an error screen. A quiet misunderstanding between an interface designed for human attention patterns and a machine that processes pages differently.
 
-This chapter catalogues the specific patterns that cause these failures. Each one makes sense for human users. Each one breaks for agents. In most cases, site owners are unaware that it's happening.
+This chapter catalogues the specific patterns that create these integration gaps. Each one makes sense for human users. Each one needs optimization for agents. The opportunity: addressing these patterns improves experiences for both humans with accessibility needs and AI agents simultaneously. In most cases, site owners are unaware that optimization opportunities exist.
 
 **A note on agent types:** The failures described here affect agents differently depending on their architecture. Server-based agents parsing static HTML miss toast notifications entirely because the DOM element is removed before they scan that area. Browser agents with JavaScript execution might catch some toasts if their timing aligns perfectly, but still fail on rapid animations. Browser extension assistants inherit your authenticated session and proof-of-humanity tokens, so they bypass some challenges - but they still struggle with visual-only state indicators. CLI and local agents fetch content remotely and parse HTML sequentially, making them vulnerable to all timing-based patterns. Throughout this chapter, when I describe how "agents" experience a pattern, I'm describing behaviour common across this ecosystem. Where agent type matters to understanding a specific failure mode, I'll note it explicitly.
 
 ![The Anatomy of Invisible Failure - common patterns that silently break AI agents](illustrations/chapter-02-illustration.png)
 
-## Six Types of Invisible Failure: Summary
+## Six Patterns Needing Optimization: Summary
 
-| Pattern | Problem | Agent Impact | Human Impact | Example |
-| ------- | ------- | ------------ | ------------ | ------- |
-| **Toast Notifications** | Appear for 3 seconds and disappear | Agent reports success when task actually failed | Elderly users, people with processing delays miss critical feedback | Form submission confirmation that vanishes before being read |
+| Pattern | Design Intent | Agent Integration Gap | Human Impact | Example |
+| ------- | ------------- | --------------------- | ------------ | ------- |
+| **Toast Notifications** | Provide feedback without interrupting flow | Timing mismatch - agent processes differently than visual users | Elderly users, people with processing delays miss critical feedback | Form submission confirmation that vanishes before being read |
 | **Hidden Content** | Information behind pagination, tabs, accordions, or below the fold | Agent only sees visible content, makes decisions on incomplete data | Users with cognitive disabilities, screen readers struggle with fragmented content | Tour itinerary split across 14 pages; specifications hidden in collapsed tabs |
 | **Single-Page Applications** | Content updates without URL changes | Agent can't tell if action succeeded, no reliable state tracking | Users who rely on browser history, bookmarking lose navigation cues | Shopping cart that updates via JavaScript with no URL change |
 | **Delayed Validation** | Form errors shown only after submission | Agent doesn't know requirements upfront, multiple failed submission attempts | All users face trial-and-error form completion | Password requirements not shown until invalid submission |

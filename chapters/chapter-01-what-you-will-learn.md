@@ -6,7 +6,7 @@ Introduction and the accessibility connection.
 
 ## Introduction
 
-The patterns that break AI agents also break humans. We didn't notice.
+The patterns that need optimization for AI agents also need optimization for humans. We didn't notice until now.
 
 The elderly user who misses a three-second toast notification. The person with ADHD who can't track state changes across paginated screens. The screen reader user who can't navigate the visual hierarchy. The stressed parent trying to complete a form whilst distracted.
 
@@ -15,6 +15,8 @@ They've all been struggling with modern web design for years. We filed it under 
 Now AI agents are struggling with the same patterns. And suddenly there's commercial pressure to fix them - because agents represent customers who will shop elsewhere if your site doesn't work.
 
 This book is about that collision. It's about how we built a web optimised for a narrow definition of "user" and what happens now that a new kind of user has arrived. It's about the business implications, the technical solutions, and the unexpected benefit: by building for machines, we might finally create the clearer, more honest web we should have built all along.
+
+**A note on perspective:** This book isn't a criticism of AI technology. I genuinely admire what these systems have achieved - the ability to generate coherent responses, understand context, and complete complex tasks across countless domains represents remarkable engineering. My focus isn't on pointing out AI failures or edge cases. Instead, this book explores how better-structured websites create better outcomes for everyone. When we provide well-crafted inputs (semantic HTML, explicit metadata, clear state management) and AI creators implement appropriate guardrails, the results improve dramatically. Hallucinations decrease. Citations become accurate. Commerce transactions complete successfully. This is about collaboration, not criticism.
 
 For the story of how this problem was discovered and why this book exists, see the Preface.
 
@@ -52,11 +54,11 @@ AI agents behave with similar directness. They skip your carefully crafted brand
 
 This simplicity-focused behaviour creates business challenges (explored in Chapter 4) and requires fundamental rethinking of how we design user journeys.
 
-And most of it is failing.
+And much of it needs optimization.
 
-Not dramatically. Not with error messages and crash reports. Failing quietly. Agents that report success when they've actually failed. Agents that miss information hidden behind pagination or tabs. Agents that make recommendations based on incomplete data. Agents that give up on tasks humans could complete easily.
+Not dramatically broken interfaces with error screens. Instead, quiet misalignments between design intent and agent capabilities. Agents that process pages differently from humans, missing information presented through timing-based patterns. Agents that make recommendations based on the subset of information they can reliably extract. Agents that need different structural cues than visual users require.
 
-Your analytics won't show this. Your error logs won't capture it. Your customer support won't hear about it. The agent fails, the human moves on to a competitor's site, and you never know the sale was lost.
+Your analytics won't capture this gap. Your error logs won't record it. Your customer support won't hear about it. The agent processes what it can access, the human receives incomplete information, and you never know the opportunity was missed.
 
 This is occurring at a smaller scale today across the web, and it is growing larger every day.
 

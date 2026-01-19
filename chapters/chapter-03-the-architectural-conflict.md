@@ -2,15 +2,15 @@
 
 # Chapter 3 - Architectural Conflict
 
-How modern web architecture creates the problem.
+How modern web architecture evolved separately from agent needs.
 
 ## Introduction
 
-Every design decision that breaks for AI agents was made for good reason. Toast notifications, progressive disclosure, smooth animations, single-page applications - these aren't mistakes. They're thoughtful responses to how human minds process information.
+Every design decision that needs optimization for AI agents was made for good reason. Toast notifications, progressive disclosure, smooth animations, single-page applications - these aren't mistakes. They're thoughtful responses to how human minds process information.
 
-The problem isn't bad design. It's that we're now serving two fundamentally different user types with interfaces optimised for only one.
+The opportunity isn't fixing bad design. It's recognizing that we're now serving two fundamentally different user types with interfaces optimized for only one.
 
-This chapter examines the root cause: the architectural conflict between human cognition and machine parsing. Understanding why these patterns exist - and why they fail - is the first step toward designing interfaces that work for both.
+This chapter examines the architectural difference between human cognition and machine parsing. Understanding why these patterns exist - and how they create integration gaps with agents - is the first step toward designing interfaces that work for both.
 
 ![The Architectural Conflict - comparing human cognition vs machine parsing](illustrations/chapter-03-illustration.png)
 
