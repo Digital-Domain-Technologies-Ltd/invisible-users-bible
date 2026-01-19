@@ -90,6 +90,30 @@ Adobe recently released an "LLM Optimiser" tool that detects whether a page is b
 
 I've connected with Adobe and plan to propose they reposition the tool as an interim fix whilst organisations properly sort their websites, rather than marketing it as the permanent solution.
 
+### MX Requires Dedicated Roles
+
+Organisational psychology research demonstrates a consistent principle: when responsibility is shared across everyone, accountability evaporates. This phenomenon, known as diffusion of responsibility, shows that as group size increases, individual accountability decreases. Studies document this pattern clearly: 85% of individuals respond to emergencies when alone, but only 31% respond when four other people are present.[^responsibility]
+
+The workplace manifestation is predictable. When "quality is everyone's responsibility," organisations may proclaim quality as a shared value but assign no one specific accountability for maintaining standards. Research across DevOps implementations confirms this pattern: whilst successful DevOps cultures spread quality awareness throughout teams, they simultaneously maintain dedicated QA engineers who focus specifically on defining quality standards, designing validation frameworks, and preventing defects before production deployment.[^devops-qa]
+
+MX follows the same organisational pattern. Whilst everyone should understand MX principles - just as everyone should understand security principles or accessibility guidelines - accountability must rest with specific roles. Without designated MX ownership, organisations default to reactive fixes rather than proactive design.
+
+Consider the alternative: in companies where accessibility is "everyone's responsibility" without dedicated specialists, accessibility often becomes nobody's priority until legal pressure forces attention. The 5% user base doesn't generate enough urgency. Similarly, if MX becomes "everyone's job," it will vanish under pressure from visible users until AI-mediated commerce failures create business impact.
+
+Successful organisations structure MX accountability clearly:
+
+**Dedicated MX Specialists:** These roles focus specifically on defining agent-readability standards, auditing implementations, and preventing agent failures before deployment. They work alongside UX designers, frontend developers, and accessibility specialists, bringing specific expertise in semantic structure, metadata schemas, and agent behaviour patterns.
+
+**Distributed MX Awareness:** Frontend developers, content creators, and UX designers understand MX principles as part of their core competencies - just as they understand responsive design or browser compatibility. They implement MX patterns in daily work but rely on specialists for complex decisions and validation.
+
+**Executive Accountability:** Senior leadership assigns clear ownership for MX outcomes, provides resources for specialist roles, and tracks MX metrics alongside traditional performance indicators. Without executive commitment, MX specialists lack authority to influence architectural decisions.[^organizational]
+
+The convergence between MX and accessibility creates practical advantages: organisations can expand existing accessibility roles rather than create entirely new teams. A senior accessibility specialist who understands semantic HTML already possesses foundational MX knowledge. Adding Schema.org expertise, agent behaviour patterns, and metadata validation to their skill set creates an MX specialist without requiring separate headcount.
+
+This approach works because the technical patterns overlap substantially. Both disciplines require semantic structure, explicit state, persistent feedback, and clear hierarchy. The difference lies in application: accessibility focuses on user outcomes (can screen reader users navigate?), whilst MX focuses on machine outcomes (can agents extract pricing accurately?).
+
+The commercial urgency makes dedicated roles essential. Google, Microsoft, Amazon, and Apple launched agent-powered purchasing features in January 2026. First-mover advantage exists - sites that work early become trusted sources that agents return to repeatedly. Organisations treating MX as "everyone's responsibility" will fall behind competitors who assign clear accountability.
+
 I've developed an analyser that does for LLMs what Screaming Frog does for SEO. It checks whether websites implement best practices for AI consumption:
 
 - Are elements in the right order?
@@ -183,6 +207,12 @@ These services apply the book's patterns in practical client work. The same prin
 ---
 
 [^ai-internals]: For deeper exploration of AI statistical foundations and linguistic bias, see my blog posts: [The Stripped-Down Truth: How AI Actually Works Without the Fancy Talk](https://allabout.network/blogs/ddt/ai/the-stripped-down-truth-how-ai-actually-works-without-the-fancy-talk), [Does AI Mean Algorithmic Interpolation?](https://allabout.network/blogs/ddt/ai/does-ai-mean-algorithmic-interpolation), [The Digital Language Caste System](https://allabout.network/blogs/ddt/ai/the-digital-language-caste-system), [The Mathematical Heartbeat of AI](https://allabout.network/blogs/ddt/ai/the-mathematical-heartbeat-of-ai), [The Tokenization Trap: How AI Actually Processes German](https://allabout.network/blogs/ddt/ai/the-tokenization-trap-how-ai-actually-processes-german), [The "No Elephants" Problem: Why AI Struggles With What NOT to Do](https://allabout.network/blogs/ddt/ai/the-no-elephants-problem-why-ai-struggles-with-what-not-to-do), [When a Five-Year-Old Beats an AI at Its Own Game](https://allabout.network/blogs/ddt/ai/when-a-five-year-old-beats-an-ai-at-its-own-game), and [A Framework for Evaluating AI Confidence](https://allabout.network/blogs/ddt/ai/a-framework-for-evaluating-ai-confidence).
+
+[^responsibility]: Diffusion of responsibility research demonstrates predictable patterns: individual action rates drop from 85% (alone) to 62% (one other person) to 31% (four others). See [Bystander Effect In Psychology](https://www.simplypsychology.org/bystander-effect.html) and [Diffusion of Responsibility - The Decision Lab](https://thedecisionlab.com/reference-guide/psychology/diffusion-of-responsibility) for comprehensive reviews of the phenomenon and its workplace applications.
+
+[^devops-qa]: DevOps implementations demonstrate the balance between shared responsibility and specialized roles. Whilst everyone takes responsibility for quality, dedicated QA engineers focus on defining standards, designing test frameworks, and preventing bugs. See [DevOps Model: The Role of QA Redefined](https://www.qamadness.com/devops-and-the-role-of-qa/) and [Common DevOps Roles and Responsibilities Today](https://www.splunk.com/en_us/blog/learn/devops-roles-responsibilities.html) for role structure analysis.
+
+[^organizational]: Research shows 82% of respondents have limited ability to hold others accountable, and only 14% of employees feel their performance is managed in ways that inspire responsibility. Clear ownership structures address this gap. See [Accountability in Organizational Design](https://www.forrestadvisors.com/insights/organizational-design/accountability-organizational-design-fostering-responsibility/) and [Responsibility, Accountability, and Ownership](https://medium.com/@csw11235/responsibility-accountability-and-ownership-da054169fcce) for frameworks implementing effective accountability.
 
 ---
 
