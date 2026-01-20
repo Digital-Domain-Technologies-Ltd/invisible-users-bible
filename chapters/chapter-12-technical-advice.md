@@ -2016,10 +2016,6 @@ See [code-examples/wordpress/functions-headers.php](../code-examples/wordpress/f
 
 The WordPress examples use `posts_per_page` instead of the deprecated `numberposts` parameter.
 
-**Adobe Edge Delivery Services**: Query index configuration.
-
-See [code-examples/eds/helix-query.yaml](../code-examples/eds/helix-query.yaml)
-
 **Static Site Generators**: Universal index generator for Hugo, Jekyll, Gatsby, or any markdown-based static site.
 
 See [code-examples/static-site/generate-index.js](../code-examples/static-site/generate-index.js)

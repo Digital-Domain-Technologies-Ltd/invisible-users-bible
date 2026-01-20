@@ -67,7 +67,7 @@ This is why designing for both matters. Keep the clean semantic HTML structure. 
 
 The three layers of discovery described below represent what markdown converters remove. Implementing these layers means agents can extract accurate information whether they process full HTML or need to convert to simpler formats.
 
-**Alternative approach:** Instead of converting HTML to markdown and losing metadata, write markdown with embedded metadata from the start using metadata tables. See Appendix L, Pattern 4 for the EDS markdown metadata table pattern, which preserves structured metadata within markdown files for both agent parsing and human readability.
+**Alternative approach:** Instead of converting HTML to markdown and losing metadata, write markdown with embedded metadata from the start using Pandoc YAML frontmatter. See Appendix L, Pattern 4 for the Pandoc YAML frontmatter pattern, which preserves structured metadata within markdown files for both agent parsing and build system integration.
 
 ## Three Layers of Discovery
 
