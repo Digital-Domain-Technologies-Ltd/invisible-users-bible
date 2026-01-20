@@ -51,6 +51,12 @@ This is the complete "Bible" version of The Invisible Users, containing:
 **Word count:** ~78,000 words core manuscript
 **Current state:** Complete and ready for publication
 
+## Market Context
+
+The book's publication timing aligns with significant industry developments. In January 2026, Amazon (Alexa+), Microsoft (Copilot Checkout), and Google (UCP + Shopping Agent) launched AI agent commerce systems within seven days. This convergence validates the book's thesis and accelerates the transition from experimental technology to baseline infrastructure.
+
+The book documents these developments (Chapter 9: The Platform Race) and provides implementation patterns applicable across all platforms and future developments.
+
 ## Contents
 
 ### Core Chapters
