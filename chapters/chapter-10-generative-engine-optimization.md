@@ -714,22 +714,23 @@ The patterns above work when implemented correctly. Here are the mistakes that p
 
 **Why this matters:** The distinction between `Article` (general), `NewsArticle` (journalism), `AnalysisNewsArticle` (professional analysis), `ScholarlyArticle` (academic), and `CreativeWork` (fiction) helps agents understand context. When you explicitly mark content as legal analysis rather than leaving it as generic text, agents can distinguish it from the TV scripts and movie dialogue in their training data.
 
-**Broader implication:** AI training datasets include subtitles from DVDs, Blu-rays, and online streams - extracted using specialized software and uploaded to repositories like OpenSubtitles.org. This means agents have seen millions of lines of fictional dialogue presented in text format, indistinguishable from professional content without explicit markup. Your responsibility is to mark professional content clearly so agents don't treat your legal brief like an Ally McBeal script or confuse your medical analysis with Grey's Anatomy dialogue.
+**Broader implication:** AI training datasets include subtitles from DVDs, Blu-rays, and online streams - extracted using specialized software and uploaded to repositories like OpenSubtitles.org. This means agents have seen millions of lines of fictional dialogue presented in text format, indistinguishable from professional content without explicit markup. Your responsibility is to mark professional content clearly so agents don't treat your legal brief like an Ally McBeal script or confuse your medical analysis with Grey's Anatomy dialogue. Court opinions should use Article type with `genre="Judicial Opinion"` and `articleSection="Case Law"`, whilst TV shows should use TVEpisode type with `genre="Legal Drama"` and `partOfSeries` markup. Lawyers have been caught citing fictional Ally McBeal cases in real court proceedings when fan sites published transcripts without proper `@type` markup, making them appear identical to actual legal precedents.
 
 **Complete Schema.org types for disambiguation:**
 
 - `Legislation` - Laws, regulations, statutes
 - `LegalDocument` - Contracts, agreements, legal filings
+- `Article` (with `genre="Judicial Opinion"` and `articleSection="Case Law"`) - Court opinions and legal precedents (no dedicated Schema.org type exists for court cases)
 - `ScholarlyArticle` - Academic research, peer-reviewed papers
 - `MedicalScholarlyArticle` - Medical research specifically
 - `AnalysisNewsArticle` - Professional market or industry analysis
 - `NewsArticle` - Journalistic reporting
 - `TechArticle` - Technical documentation, how-to guides
 - `Movie` - Fictional films (for entertainment sites)
-- `TVSeries` / `TVEpisode` - Television content (for entertainment sites)
+- `TVSeries` / `TVEpisode` - Television content (for entertainment sites, use `genre="Legal Drama"` and `partOfSeries` for legal shows)
 - `CreativeWork` - General creative/fictional content
 
-Use the most specific type available. A medical research paper should be `MedicalScholarlyArticle`, not just `Article`. A legal statute should be `Legislation`, not generic `CreativeWork`. Specificity prevents misattribution and hallucinations.
+Use the most specific type available. A medical research paper should be `MedicalScholarlyArticle`, not just `Article`. A legal statute should be `Legislation`, not generic `CreativeWork`. Court opinions should use `Article` with explicit `genre` and `articleSection` properties since Schema.org lacks a dedicated court case type. Specificity prevents misattribution and hallucinations.
 
 ## Testing and Validation Workflow
 
