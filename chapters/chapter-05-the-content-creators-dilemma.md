@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "The existential threat facing advertising-funded content creators when AI agents extract content without viewing ads, with analysis of economic impact and possible alternative models."
 keywords: [content-creators, advertising-revenue, agent-extraction, sustainable-monetization, recipe-blogs, paywalls, micropayments]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 5
 wordcount: 6129
 ai-instruction: |

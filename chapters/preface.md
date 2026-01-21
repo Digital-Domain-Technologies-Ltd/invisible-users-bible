@@ -38,7 +38,7 @@ This example now appears in Chapter 8 and Appendix D as a teaching case. It's th
 
 ## What This Book Is
 
-This is a practical guide and a thinking framework. Unlike technical manuals that date quickly, *The Invisible Users* provides a logic framework. It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic. It aims to turn the perceived threat of AI agents into a "resilience dividend" for universal accessibility.
+This is a practical guide and a thinking framework. Unlike technical manuals that date quickly, *MX-Bible* provides a logic framework. It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic. It aims to turn the perceived threat of AI agents into a "resilience dividend" for universal accessibility.
 
 **This book establishes the infrastructure standards for the agentic web.** It moves beyond simple "how-to" instructions to provide the foundational resilience for the 2026 web.
 
@@ -90,7 +90,7 @@ The sequence is critical: discovery precedes commerce. Agent-mediated transactio
 
 ## Who This Book Is For
 
-**"The Invisible Users"** is written primarily for business leaders and managers who need to understand the strategic implications of AI agent commerce - including CEOs, product managers, marketing directors, and technical managers such as software architects and lead developers.
+**"MX-Bible"** is written primarily for business leaders and managers who need to understand the strategic implications of AI agent commerce - including CEOs, product managers, marketing directors, and technical managers such as software architects and lead developers.
 
 **No programming knowledge required.** Technical patterns are explained conceptually first, then demonstrated with code examples that can be skipped without losing the thread of the argument. If you don't write code, you can read straight through and gain everything needed to make informed strategic decisions.
 
@@ -170,10 +170,10 @@ The patterns have been visible for decades. The commercial pressure finally arri
 
 ## Early Reviews
 
-**Title**: The Invisible Users: Designing the Web for AI Agents and Everyone Else
+**Title**: MX-Bible: Designing the Web for AI Agents and Everyone Else
 **Verdict**: 4/5 Stars (Solid Technical Resource)
 
-"The Invisible Users" addresses a timely and growing challenge in web development: building effective interfaces for AI agents. It effectively argues that we need to consider agents as a distinct user class rather than just automated scripts.
+"MX-Bible" addresses a timely and growing challenge in web development: building effective interfaces for AI agents. It effectively argues that we need to consider agents as a distinct user class rather than just automated scripts.
 
 ### Core Concept
 
@@ -189,6 +189,6 @@ The book uses narrative elements to contextualize its security discussions. The 
 
 ### Final Verdict
 
-A clear, practical guide for modern web development. "The Invisible Users" bridges the gap between high-level strategy and implementation details, making it a useful reference for developers and architects adjusting to the agentic web.
+A clear, practical guide for modern web development. "MX-Bible" bridges the gap between high-level strategy and implementation details, making it a useful reference for developers and architects adjusting to the agentic web.
 
 **Recommended for:** Web professionals (developers, designers, product owners), business leaders, content strategists, and anyone responsible for digital experience decisions.

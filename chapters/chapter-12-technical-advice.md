@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Practical implementation code for agent-friendly patterns, including served vs rendered HTML, progressive enhancement, and testing strategies."
 keywords: [technical-implementation, served-html, rendered-html, progressive-enhancement, agent-testing, code-examples, validation-patterns]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 12
 wordcount: 11607
 ai-instruction: |
@@ -3227,7 +3227,7 @@ For books, e-books, or published works. Combine with Product type for commercial
 {
   "@context": "https://schema.org",
   "@type": ["Product", "Book"],
-  "name": "The Invisible Users",
+  "name": "MX-Bible",
   "author": {
     "@type": "Person",
     "name": "Tom Cranstoun"

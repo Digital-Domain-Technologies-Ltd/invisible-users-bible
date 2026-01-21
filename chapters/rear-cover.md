@@ -8,7 +8,7 @@ AI agents are no longer just reading websites - they're completing purchases, pr
 
 **The opportunity:** The patterns that break AI agents also break screen readers, keyboard navigation, and anyone processing pages sequentially. Fixing your site for agents fixes it for everyone - and there's finally commercial pressure to make it happen.
 
-**The Invisible Users** provides practical guidance for web professionals navigating this shift. From technical patterns to business model implications, from security challenges to legal uncertainties, this book offers frameworks for thinking about an emerging problem and making informed decisions whilst standards are still forming.
+**MX-Bible** provides practical guidance for web professionals navigating this shift. From technical patterns to business model implications, from security challenges to legal uncertainties, this book offers frameworks for thinking about an emerging problem and making informed decisions whilst standards are still forming.
 
 Inside you'll find working code, real examples from production systems, and honest discussion of tensions that don't have clean resolutions. This isn't a manifesto about what should happen - it's a practical guide to what is happening and how to respond effectively.
 
@@ -37,7 +37,7 @@ Tom writes for allabout.network and is on LinkedIn. He's based in the UK and wor
 
 "A clear, practical guide for modern web development."
 
-*The Invisible Users* addresses a timely and growing challenge: building effective interfaces for AI agents. The "Invisible Users" metaphor provides a useful framework for understanding the friction between modern web design and agent capabilities.
+*MX-Bible* addresses a timely and growing challenge: building effective interfaces for AI agents. The "Invisible Users" metaphor provides a useful framework for understanding the friction between modern web design and agent capabilities.
 
 The most valuable aspect is the "Convergence Principle" - demonstrating that optimising for AI agents often reinforces existing accessibility best practices. The technical guidance, particularly the HTML patterns in Appendix D, is practical and grounded in real-world scenarios. Developers will find actionable advice they can implement immediately.
 

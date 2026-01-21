@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "The legal grey zone surrounding AI agents: liability questions, copyright issues, terms of service conflicts, and emerging regulatory frameworks."
 keywords: [legal-landscape, liability, copyright, terms-of-service, gdpr, agent-regulations, jurisdiction, contract-law]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 7
 wordcount: 4395
 ai-instruction: |

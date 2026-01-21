@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "The January 2026 convergence when Amazon, Microsoft, Google, and Anthropic launched agent systems within eight days, and the critical choice between open and closed protocols."
 keywords: [platform-race, agent-commerce, agentic-commerce-protocol, universal-commerce-protocol, amazon-alexa-plus, microsoft-copilot, google-business-agent, open-standards]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 9
 wordcount: 5377
 ai-instruction: |

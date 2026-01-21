@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Security implications of AI agents acting on user behalf, including session inheritance, authentication challenges, and the invisible risks of browser-integrated agents."
 keywords: [security, authentication, session-inheritance, captcha, bot-detection, browser-extensions, cloudflare, two-factor-authentication]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 6
 wordcount: 4385
 ai-instruction: |

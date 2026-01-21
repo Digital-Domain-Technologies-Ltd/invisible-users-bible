@@ -1,4 +1,4 @@
-# The Invisible Users: Designing the Web for AI Agents and Everyone Else
+# MX-Bible: Designing the Web for AI Agents and Everyone Else
 
 **Full comprehensive guide examining how modern web design optimized for human users fails for AI agents, and how fixing this benefits everyone.**
 
@@ -38,7 +38,7 @@ See the parent repository's [CLAUDE.md](../../CLAUDE.md) and [docs/repo/GIT-READ
 
 ## Overview
 
-This is the complete "Bible" version of The Invisible Users, containing:
+This is the complete "Bible" version of MX-Bible, containing:
 
 - **13 chapters** covering business, legal, security, technical, and strategic perspectives
 - **Executive summary** and preface
@@ -51,7 +51,7 @@ This is the complete "Bible" version of The Invisible Users, containing:
 **Word count:** ~82,300 words core manuscript, ~61,600 words appendices
 **Current state:** Complete and ready for publication
 
-**Latest Update (22 January 2026):** Integrated key patterns from "Don't Make AI Think" practical guide into The Bible:
+**Latest Update (22 January 2026):** Integrated key patterns from "MX-Don't Make the AI Think" practical guide into The Bible:
 
 - Enhanced Chapter 10 with AI reader types taxonomy and token budget constraints
 - Enhanced Chapter 11 with four guiding principles framework
@@ -143,7 +143,7 @@ This comprehensive version is designed for:
 - **Content creators** adapting workflows for agent-mediated web
 - **Platform architects** designing for dual audiences
 
-For a focused practical guide, see [Don't Make AI Think](../dont-make-ai-think/).
+For a focused practical guide, see [MX-Don't Make the AI Think](../dont-make-ai-think/).
 
 ## Contributing
 

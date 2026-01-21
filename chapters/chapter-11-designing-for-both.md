@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Design patterns that serve both AI agents and human users through explicit state, semantic structure, and the convergence principle connecting accessibility and agent-friendly design."
 keywords: [designing-for-both, convergence-principle, explicit-state, semantic-html, persistent-feedback, accessibility, universal-patterns]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 11
 wordcount: 6776
 ai-instruction: |

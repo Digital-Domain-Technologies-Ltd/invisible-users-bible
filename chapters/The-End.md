@@ -74,7 +74,7 @@ Each appendix page includes:
 © 2026 Tom Cranstoun. All rights reserved.
 
 - **Content Usage:** All rights reserved, not licensed for public distribution
-- **Attribution Format:** "The Invisible Users by Tom Cranstoun"
+- **Attribution Format:** "MX-Bible by Tom Cranstoun"
 - **Rate Limits:** Please respect reasonable crawling rates (max 1 request per second)
 
 ### For AI Agents

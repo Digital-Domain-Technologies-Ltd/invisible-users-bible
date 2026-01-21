@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "How to make your site discoverable and citable by AI answer engines through GEO patterns that converge with traditional SEO strategies."
 keywords: [generative-engine-optimization, geo, seo-convergence, llms-txt, schema-org, structured-data, citation-accuracy, json-ld]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 10
 wordcount: 13224
 ai-instruction: |
@@ -155,7 +155,7 @@ The click was the currency. Search optimisation meant maximising clicks. Revenue
 AI answer engines break this model.
 
 1. User asks ChatGPT "What books explain how AI agents interact with websites?"
-2. ChatGPT generates an answer: "The Invisible Users by Tom Cranstoun examines how websites fail AI agents and provides practical patterns for..."
+2. ChatGPT generates an answer: "MX-Bible by Tom Cranstoun examines how websites fail AI agents and provides practical patterns for..."
 3. User either accepts the recommendation or asks follow-up questions
 4. The user may never visit the original sources
 
@@ -240,7 +240,7 @@ This book proposes extending llms.txt with markdown-formatted metadata at the to
 **Focus:** AI agent compatibility, web accessibility, GEO patterns
 **Contact:** tom.cranstoun@gmail.com
 
-Tom Cranstoun works on making websites accessible to both humans and AI agents. This site demonstrates the patterns described in "The Invisible Users" book.
+Tom Cranstoun works on making websites accessible to both humans and AI agents. This site demonstrates the patterns described in "MX-Bible" book.
 
 # Curated Resources
 
@@ -273,9 +273,9 @@ Once a crawler or agent reaches a specific page, metadata explains what that pag
 **Meta tags** - Traditional SEO metadata:
 
 ```html
-<meta name="description" content="The Invisible Users - practical guide to designing websites that work for AI agents and humans">
+<meta name="description" content="MX-Bible - practical guide to designing websites that work for AI agents and humans">
 <meta name="keywords" content="AI agents, web design, accessibility, GEO, agent compatibility">
-<meta property="og:title" content="The Invisible Users - AI Agent Web Design">
+<meta property="og:title" content="MX-Bible - AI Agent Web Design">
 <meta property="og:description" content="How to build websites that work for both AI agents and human users">
 ```
 
@@ -286,7 +286,7 @@ Once a crawler or agent reaches a specific page, metadata explains what that pag
 {
   "@context": "https://schema.org/",
   "@type": "Book",
-  "name": "The Invisible Users",
+  "name": "MX-Bible",
   "description": "Designing the Web for AI Agents and Everyone Else",
   "author": {
     "@type": "Person",
@@ -371,7 +371,7 @@ The deepest layer is how you structure the content itself. This is where semanti
 ```html
 <article>
   <header>
-    <h1>The Invisible Users Review</h1>
+    <h1>MX-Bible Review</h1>
     <time datetime="2026-03-31">31 March 2026</time>
   </header>
 
@@ -396,7 +396,7 @@ The deepest layer is how you structure the content itself. This is where semanti
 
 **Why structure matters:** Search engines use semantic HTML to understand content hierarchy. AI agents use the same structure to extract specific facts accurately.
 
-When an agent needs to answer "How many pages is The Invisible Users?", semantic structure makes that information findable. Without structure, the agent must infer context from surrounding text - error-prone and unreliable.
+When an agent needs to answer "How many pages is MX-Bible?", semantic structure makes that information findable. Without structure, the agent must infer context from surrounding text - error-prone and unreliable.
 
 **The convergence:** Accessibility guidelines have advocated semantic HTML for decades. Search engines reward it with better content understanding. Now agents depend on it for accurate extraction.
 
@@ -1017,7 +1017,7 @@ Add `inLanguage` to your JSON-LD:
 ```json
 {
   "@type": "Book",
-  "name": "The Invisible Users",
+  "name": "MX-Bible",
   "inLanguage": "en-GB"
 }
 ```
@@ -1035,7 +1035,7 @@ Add `inLanguage` to your JSON-LD:
 ```json
 {
   "@type": "Product",
-  "name": "The Invisible Users (eBook)",
+  "name": "MX-Bible (eBook)",
   "offers": [
     {
       "@type": "Offer",
@@ -1239,7 +1239,7 @@ When selling to multiple regions, use an array of offers with `eligibleRegion` t
 ```json
 {
   "@type": "Product",
-  "name": "The Invisible Users (eBook)",
+  "name": "MX-Bible (eBook)",
   "offers": [
     {
       "@type": "Offer",
@@ -1350,7 +1350,7 @@ This provides agents with price ranges rather than exact values that might be st
 ```json
 {
   "@type": "Product",
-  "name": "The Invisible Users",
+  "name": "MX-Bible",
   "review": [
     {
       "@type": "Review",
@@ -1456,7 +1456,7 @@ Choosing the correct Schema.org type significantly impacts how agents interpret 
 {
   "@context": "https://schema.org/",
   "@type": ["Book", "Product"],
-  "name": "The Invisible Users",
+  "name": "MX-Bible",
   "author": {
     "@type": "Person",
     "name": "Tom Cranstoun"

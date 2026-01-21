@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Validation layers, confidence scoring, and guardrails that agent creators must implement to prevent pipeline failures like the £203,000 cruise pricing error."
 keywords: [agent-creators, pipeline-failures, validation-layers, confidence-scoring, guardrails, data-extraction, error-detection]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 13
 wordcount: 9440
 ai-instruction: |

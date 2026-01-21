@@ -1,6 +1,6 @@
 # Reading Guide
 
-The Invisible Users is designed to be read sequentially, with each chapter building on concepts introduced earlier. However, you don't need to read everything with equal depth. This guide provides tailored reading paths for different audiences, allowing you to focus on the sections most relevant to your role.
+MX-Bible is designed to be read sequentially, with each chapter building on concepts introduced earlier. However, you don't need to read everything with equal depth. This guide provides tailored reading paths for different audiences, allowing you to focus on the sections most relevant to your role.
 
 ---
 

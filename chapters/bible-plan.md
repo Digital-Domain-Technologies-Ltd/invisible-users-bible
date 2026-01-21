@@ -1,12 +1,12 @@
 # Book Plan
 
-**Title:** The Invisible Users: Designing the Web for AI Agents and Everyone Else
+**Title:** MX-Bible: Designing the Web for AI Agents and Everyone Else
 
 **Author:** Tom Cranstoun
 
 **Current Status:** Complete with 13 chapters + Web Appendices ✅ (~82,300 words core manuscript, ~61,600 words appendices, ~144,000 words total)
 
-**Latest Update (22 January 2026):** Integrated patterns from "Don't Make AI Think" practical guide:
+**Latest Update (22 January 2026):** Integrated patterns from "MX-Don't Make the AI Think" practical guide:
 
 - **Enhanced Chapter 10** - Added Three Types of AI Readers taxonomy and Token Budget constraints (~950 words added)
 - **Enhanced Chapter 11** - Added Four Guiding Principles framework and Strategic Redundancy concept (~1,100 words added)

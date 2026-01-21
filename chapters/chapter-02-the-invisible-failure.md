@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Six common design patterns that silently break for AI agents: toast notifications, hidden content, SPAs, delayed validation, hidden pricing, and ambiguous loading states."
 keywords: [invisible-failure, toast-notifications, pagination, single-page-applications, form-validation, hidden-pricing, loading-states, false-positives]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 2
 wordcount: 5783
 ai-instruction: |

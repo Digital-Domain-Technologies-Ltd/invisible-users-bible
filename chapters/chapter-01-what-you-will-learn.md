@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Introduction to AI agents as website visitors and the convergence between machine-friendly and accessibility-optimised design patterns."
 keywords: [ai-agents, web-accessibility, invisible-users, agent-diversity, convergence-principle, business-implications]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 1
 wordcount: 3008
 ai-instruction: |
@@ -80,7 +80,7 @@ This is occurring at a smaller scale today across the web, and it is growing lar
 
 ---
 
-## The Invisible Users
+## MX-Bible
 
 I refer to AI agents as "invisible users" for two reasons.
 

@@ -3,7 +3,7 @@ author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "The digital divide implications of AI agent adoption, examining who benefits and who gets left behind as agent-mediated web access becomes standard."
 keywords: [human-cost, digital-divide, accessibility, language-exclusion, economic-barriers, capability-gap, elderly-users, developing-countries]
-book: "The Invisible Users Bible"
+book: "MX-Bible Bible"
 chapter: 8
 wordcount: 4153
 ai-instruction: |
