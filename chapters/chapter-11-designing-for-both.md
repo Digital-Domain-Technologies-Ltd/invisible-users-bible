@@ -34,6 +34,79 @@ In Chapter 1, I mentioned that what agents need is mostly what everyone needs. N
 
 ![Designing for Both - the convergence principle of accessibility and agent-friendly design](illustrations/chapter-09-convergence-principle.png)
 
+## Four Guiding Principles
+
+Before exploring specific patterns, establish a framework for making design decisions. These four principles resolve apparent conflicts between human-focused and agent-focused design by showing they're the same goal approached from different angles.
+
+### 1. Semantic Clarity Over Visual Clarity
+
+Visual clarity makes something look like what it is - a button looks clickable, a heading looks important, an error looks urgent. Visual clarity serves humans scanning with their eyes.
+
+Semantic clarity marks something up as what it is - a button uses `<button>`, a heading uses `<h1>`, an error uses `role="alert"`. Semantic clarity serves both humans using assistive technology and agents parsing structure.
+
+The critical insight: you can have both simultaneously. They're not competing approaches - they're complementary layers.
+
+A pricing table demonstrates this principle. Visually, you might use size, colour, and position to emphasize your recommended plan. Semantically, you mark it with explicit text ("Most Popular"), ARIA labels (`aria-label="Recommended plan"`), and emphasis elements (`<strong>`).
+
+Humans see the visual styling. Screen readers hear the ARIA label. Agents read the text content and semantic emphasis. Everyone gets the message, each through their preferred channel.
+
+**Design implication:** Stop treating semantic markup as something that competes with visual design. The HTML structure describes what things are. The CSS styling controls how things look. The two layers work together to serve different consumers of your content.
+
+### 2. Structure Reveals Intent
+
+Your HTML structure tells agents what matters and how things relate. Heading levels create a document outline. Lists show groups of related items. Definition lists connect terms with definitions. Navigation elements mark wayfinding tools.
+
+This isn't just good practice - it's how agents build a mental model of your content.
+
+Consider heading hierarchy. When headings follow a logical sequence (`h1` → `h2` → `h3`), agents understand that `h2` sections are major topics and `h3` sections are subtopics under them. When heading levels jump around randomly (`h1` → `h4` → `h2` → `h3`), structure collapses into noise.
+
+Lists demonstrate relationship. Three `<div>` elements styled to look like bullet points tell agents nothing about whether those items are related. A `<ul>` element containing three `<li>` children explicitly declares "these items are members of a group." An `<ol>` goes further: "these items are a sequence with inherent order."
+
+**Design implication:** Before styling content, ask what the content is and how pieces relate. Mark up the relationships in HTML. Then style the marked-up structure to achieve your visual goals. Don't reverse this process by styling first and adding semantic structure as an afterthought.
+
+### 3. Metadata Makes Promises Explicit
+
+Sometimes content structure isn't sufficient to convey meaning. Metadata provides explicit declarations about what content represents and how it should be interpreted.
+
+Schema.org JSON-LD exemplifies this principle. When you mark a product page with Product type, explicit price, currency code, and availability status, you're making promises: "This is definitely a product. This is definitely the price. This is definitely the currency. This is definitely the current availability."
+
+Without metadata, agents infer. They look for currency symbols, parse text for price-like patterns, guess from context. Inference works until it doesn't - when formatting varies, when multiple prices appear, when your £99 special offer gets confused with your £999 enterprise tier.
+
+Metadata removes ambiguity. It transforms "probably a product with what might be a price" into "definitively a product with an explicit, machine-readable price."
+
+**Design implication:** Identify the most important facts on each page type. Add structured metadata that makes those facts explicit and unambiguous. Don't rely on visual formatting or textual context to convey what can be stated definitively in metadata.
+
+### 4. Redundancy Serves Different Consumers
+
+Software developers learn "Don't Repeat Yourself" (DRY). Duplication creates maintenance problems. Changes in one place must be repeated elsewhere or inconsistencies emerge.
+
+When designing for both humans and agents, strategic redundancy isn't duplication - it's serving different consumers through different channels.
+
+Consider a product page with all three layers:
+
+**Visual layer (for sighted humans):** Image shows the product, styled price is prominently displayed, "Add to Cart" button stands out through colour and position
+
+**Semantic layer (for assistive tech):** Alt text describes the image, heading hierarchy structures information, button has clear text and ARIA label
+
+**Metadata layer (for agents):** JSON-LD provides machine-readable product details, price includes currency code and validity, availability is explicitly stated
+
+Each layer serves specific consumers. The image works for sighted humans but not screen readers. The alt text works for screen readers but provides no visual information. The JSON-LD works for agents but isn't designed for human reading.
+
+This redundancy has purpose. You're not maintaining three versions of your content. You're providing three access points to the same underlying information, each optimized for different consumption patterns.
+
+**Design implication:** Don't let DRY principles prevent you from expressing the same information through multiple channels. Visual, semantic, and metadata layers each serve distinct audiences. Maintain consistency across layers, but don't eliminate redundancy in service of an abstraction that doesn't apply to multi-audience design.
+
+### Using the Principles Together
+
+These principles work as a decision framework. When facing design choices, ask:
+
+- **Semantic clarity:** Have we marked up what things are, not just how they look?
+- **Structure:** Does our HTML hierarchy reveal relationships and priority?
+- **Metadata:** Have we made key facts explicit through structured data?
+- **Redundancy:** Are we serving all consumers - visual, assistive tech, and agents?
+
+When a design satisfies all four principles, it typically works for both humans and agents. When it violates one or more principles, investigate whether the human experience truly requires compromising agent compatibility, or whether you're making assumptions about constraints that don't exist.
+
 ## Convergence Principle
 
 Screen readers need semantic HTML to understand page structure. So do agents.

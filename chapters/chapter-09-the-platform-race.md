@@ -1,7 +1,7 @@
 ---
 author: "Tom Cranstoun"
 date: "2026-01-22"
-description: "The January 2026 convergence when Amazon, Microsoft, and Google launched agent commerce systems within seven days, and the critical choice between open and closed protocols."
+description: "The January 2026 convergence when Amazon, Microsoft, Google, and Anthropic launched agent systems within eight days, and the critical choice between open and closed protocols."
 keywords: [platform-race, agent-commerce, agentic-commerce-protocol, universal-commerce-protocol, amazon-alexa-plus, microsoft-copilot, google-business-agent, open-standards]
 book: "The Invisible Users Bible"
 chapter: 9
@@ -24,11 +24,11 @@ When I began writing this book, AI agent compatibility was a gradual concern. Bu
 
 Then January 2026 happened.
 
-In seven days, three of the world's largest technology companies launched agent commerce systems. Amazon on January 5th. Microsoft on January 8th. Google on January 11th.
+In eight days, four of the world's most influential technology companies launched agent systems. Amazon on January 5th with Alexa+ for commerce. Microsoft on January 8th with Copilot Checkout. Google on January 11th with Universal Commerce Protocol. Anthropic on January 12th with Claude Cowork for autonomous workflows.
 
 This wasn't coincidence. This was consensus.
 
-Every major platform simultaneously betting that AI agents will mediate how humans shop online. Every major platform racing to establish their solution as the standard. Every major platform acknowledging that the shift from direct human interaction to agent-mediated commerce is happening now, not in some distant future.
+Every major platform simultaneously betting that AI agents will mediate how humans interact with digital systems - whether shopping, working, or managing complex tasks. Every major platform racing to establish their solution as the standard. Every major platform acknowledging that the shift from passive assistants to active agents is happening now, not in some distant future.
 
 The timeline just compressed dramatically. And with it, the urgency for businesses to adapt.
 
@@ -44,7 +44,9 @@ This chapter examines what happened in that remarkable week, what it means for t
 
 **January 11, 2026:** Google announced two interconnected products at the National Retail Federation conference. First, the Universal Commerce Protocol (UCP) - an open standard for agent-mediated commerce developed in collaboration with Shopify, Etsy, Wayfair, Target, and Walmart. Second, Business Agent - a branded AI assistant for retailers that surfaces directly in Google Search results. Users searching for products can interact with retailers' AI assistants without leaving Google. Transactions happen within the search interface, with Google Pay handling payment (and PayPal support coming soon).
 
-Three platforms. Seven days. Each betting billions that this is how commerce will work.
+**January 12, 2026:** Anthropic launched Claude Cowork, taking a fundamentally different approach from the commerce-focused platforms. Rather than building transaction protocols, Anthropic created the first truly autonomous digital colleague. Cowork manages local file systems, orchestrates complex project workflows, and executes multi-step tasks without constant human prompting. Built on a multi-agent architecture where Claude 4 Opus acts as lead planner whilst Claude 4.5 Sonnet models handle parallel sub-tasks, the system operates as a coworker rather than a tool. Remarkably, the entire feature was built in approximately a week and a half using Claude Code itself. Whilst not explicitly designed for commerce, Cowork's agentic architecture demonstrates the broader shift: AI systems are moving from passive assistants to active agents that operate autonomously on behalf of humans.
+
+Four platforms. Eight days. Each betting billions that this is how humans will interact with digital systems.
 
 But they chose different approaches.
 
@@ -52,7 +54,7 @@ But they chose different approaches.
 
 ## Open Versus Closed: A Fork in the Road
 
-The remarkable aspect isn't that three platforms launched simultaneously. It's that two chose fundamentally incompatible strategies.
+The remarkable aspect isn't just that four platforms launched within eight days. It's that whilst three focused on commerce transactions, they chose fundamentally incompatible strategies - and the fourth demonstrated that the shift to autonomous agents extends far beyond shopping.
 
 **OpenAI and Stripe** launched the Agentic Commerce Protocol (ACP) in September 2024 - an open specification for agent-mediated transactions. Any agent can implement it. Any merchant can support it. The protocol handles authentication, authorisation, and transaction verification through standardised methods. Over 1 million merchants on Shopify and Etsy already support it.
 
@@ -500,7 +502,7 @@ This book originally assumed 12 months before agent-mediated commerce reached 10
 
 January 2026 invalidated those assumptions.
 
-Three platforms launching simultaneously creates cross-platform momentum. Google's search distribution accelerates discovery. Microsoft's enterprise integration drives B2B adoption. Amazon's commerce dominance forces retailer response. Each platform's launch amplifies the others.
+Four platforms launching within eight days creates cross-platform momentum. Google's search distribution accelerates discovery. Microsoft's enterprise integration drives B2B adoption. Amazon's commerce dominance forces retailer response. Anthropic's autonomous workflow capabilities demonstrate broader applicability. Each platform's launch amplifies the others.
 
 The new timeline: **6-9 months, possibly less,** before agent-mediated commerce reaches meaningful scale.
 
@@ -584,7 +586,7 @@ I wrote this chapter last.
 
 The manuscript was nearly complete when January 2026 happened. I had to stop, revise the timeline assumptions, and add this chapter to explain why everything that follows matters more urgently than originally planned.
 
-The book predicted this shift would happen. But I expected gradual adoption over 12-18 months, not simultaneous platform launches in seven days.
+The book predicted this shift would happen. But I expected gradual adoption over 12-18 months, not four major platform launches within eight days.
 
 **What changed:**
 

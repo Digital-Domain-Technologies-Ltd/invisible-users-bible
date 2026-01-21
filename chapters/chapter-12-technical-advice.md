@@ -1525,6 +1525,215 @@ For practical implementation, monitor emerging standards rather than building cu
 
 Before deploying changes, test them from an agent's perspective. Then measure whether they work.
 
+### Testing for AI Readability
+
+Before implementing complex agent integrations or automated testing, validate the fundamentals with simple, immediate tests. These methods require no special tools and reveal most compatibility problems within minutes.
+
+#### The Morning-After Test
+
+The most effective early validation: copy your page's HTML and paste it into Claude or ChatGPT. Ask "What is this page about? What actions can I take?"
+
+This test simulates how raw parsers consume your content. If the AI cannot answer accurately, your semantic structure needs improvement.
+
+**Procedure:**
+
+1. Navigate to your page in a browser
+2. View page source (not inspect element - you need served HTML)
+3. Copy the entire HTML
+4. Paste into a conversation with Claude, ChatGPT, or Gemini
+5. Ask specific questions:
+   - "What product is this?"
+   - "What is the price?"
+   - "How do I purchase this?"
+   - "What are the key features?"
+
+**What to look for:**
+
+- **Accurate answers:** AI correctly identifies product name, price, key information
+- **Missing context:** AI says "I can see HTML but cannot determine..." - signals missing semantic structure
+- **Hallucinated details:** AI invents information - signals ambiguous markup that invites inference
+- **Action confusion:** AI cannot identify purchase path - signals unclear state or navigation
+
+**Common failures revealed:**
+
+- Pricing in images or CSS ::before content
+- Product name in h4 whilst "Related Products" uses h2
+- JavaScript-only navigation (empty nav in served HTML)
+- Key specifications hidden in collapsed accordions
+
+This test costs nothing, runs in 30 seconds, and identifies 80% of agent-readability problems before any code changes.
+
+#### Disable JavaScript Test
+
+AI agents running without JavaScript see your site as browsers see it with JavaScript disabled. This reveals whether your core content and functionality survive without JavaScript execution.
+
+**Procedure:**
+
+1. Open your site in Chrome or Firefox
+2. Open Developer Tools (F12)
+3. Open Command Palette (Ctrl+Shift+P or Cmd+Shift+P)
+4. Type "Disable JavaScript" and select it
+5. Refresh the page
+6. Attempt to use core features
+
+**What to test:**
+
+- Can you read the main content?
+- Is navigation visible and functional?
+- Do forms appear with labels?
+- Are images showing with alt text?
+- Can you identify the page purpose?
+
+**Green flags (working without JS):**
+
+- Content is fully readable
+- Navigation links are HTML `<a>` elements with href attributes
+- Forms have visible labels and submit buttons
+- Essential information appears in HTML
+
+**Red flags (broken without JS):**
+
+- Empty `<div id="root">` or `<div id="app">` - React/Vue/Angular client-side rendering
+- "Loading..." message that never resolves
+- Empty navigation bar
+- Blank product details section
+- Forms that don't appear
+
+**Why this matters:** Raw parsers and many server-based agents don't execute JavaScript. If your site fails this test, an entire category of agents cannot use it.
+
+#### View Source Test
+
+Inspect element shows the DOM after JavaScript modifications. View source shows the HTML as delivered by your server - what raw parsers actually receive.
+
+**Procedure:**
+
+1. Navigate to your page
+2. Right-click and select "View Page Source" (or Ctrl+U / Cmd+Option+U)
+3. Search (Ctrl+F) for your essential content
+4. Check if key information appears in the source
+
+**What to look for:**
+
+- **Product name:** Should appear in HTML, ideally in an `<h1>` or semantic heading
+- **Price:** Should be in HTML with clear currency indication
+- **Key specs:** Essential product details should be visible in source
+- **Navigation:** Links should exist as `<a href="...">` elements
+- **Structured data:** JSON-LD scripts should be present in `<head>` or `<body>`
+
+**Red flags:**
+
+- `<div id="product-details"></div>` - empty container populated by JavaScript
+- `fetch('/api/products/123')` visible but no product data in HTML
+- Navigation constructed entirely in JavaScript
+- No JSON-LD structured data in source
+
+**Why this matters:** If essential content doesn't appear in view source, raw parsers cannot access it. Even browser-based agents may struggle if content loads asynchronously after initial page render.
+
+#### Link Text Extraction Test
+
+Extract all links from your page and read them as a list. Each should be self-explanatory without surrounding context.
+
+**Procedure (Browser Console):**
+
+```javascript
+// Extract all link texts
+Array.from(document.querySelectorAll('a'))
+  .map(a => a.textContent.trim())
+  .filter(text => text.length > 0)
+  .forEach((text, i) => console.log(`${i + 1}. ${text}`));
+```
+
+**What good looks like:**
+
+```text
+1. EDS consulting services
+2. Migration guide: AEM to Edge Delivery
+3. Case study: Automotive transformation
+4. Contact our technical team
+5. View pricing and packages
+```
+
+**What bad looks like:**
+
+```text
+1. Click here
+2. Learn more
+3. Read more
+4. See details
+5. Get started
+```
+
+**Why this matters:** Agents often extract links to understand available actions and navigation paths. Generic link text provides no information about destinations. Descriptive link text enables agents to choose appropriate paths without visiting every URL.
+
+**Fix:** Replace generic text with descriptive labels. "Click here" becomes "Download technical specification PDF". "Learn more" becomes "Explore our product integration options".
+
+#### Heading Hierarchy Validation
+
+Verify your heading structure forms a logical outline. Agents use heading levels to understand document structure and content hierarchy.
+
+**Procedure (Browser Console):**
+
+```javascript
+// Display heading hierarchy
+Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+  .forEach(h => {
+    const level = h.tagName[1];
+    const indent = '  '.repeat(parseInt(level) - 1);
+    console.log(`${indent}${h.tagName}: ${h.textContent.trim()}`);
+  });
+```
+
+**What good looks like:**
+
+```text
+H1: Professional Standing Desk
+  H2: Features
+    H3: Height Adjustment
+    H3: Cable Management
+  H2: Specifications
+    H3: Dimensions
+    H3: Weight Capacity
+  H2: Customer Reviews
+```
+
+**What bad looks like:**
+
+```text
+H1: Welcome to Our Site
+  H3: Our Products
+    H2: Standing Desks
+      H4: Professional Model
+  H2: Contact Us
+    H4: Get in Touch
+```
+
+**Why this matters:** Heading hierarchy creates a document outline. When levels jump illogically (h1 → h4 → h2), agents cannot build coherent mental models of your content structure. Navigation becomes ambiguous and content relationships unclear.
+
+**Fix:** Ensure headings follow strict hierarchy. Each page has one h1. Major sections use h2. Subsections under h2 use h3. Never skip levels. If you need different visual sizes, use CSS to style semantic headings appropriately.
+
+#### 10-Point Quick Audit Checklist
+
+Run through this checklist on your most important pages (homepage, key product pages, checkout):
+
+1. **Disable CSS:** Does critical information disappear? (should remain visible)
+2. **Disable JavaScript:** Is the site still usable for core tasks? (should function)
+3. **View source:** Is main content in served HTML? (not JavaScript-generated)
+4. **Extract links:** Are they descriptive and self-explanatory? (not "click here")
+5. **Check headings:** Does hierarchy make logical sense? (proper h1 → h2 → h3 structure)
+6. **Find images:** Do they have meaningful alt text? (not alt="" or alt="image")
+7. **Locate forms:** Do inputs have proper `<label>` elements? (not just placeholders)
+8. **Check tables:** Are they structured with th, caption, and scope? (not layout divs)
+9. **Review sitemap:** Is sitemap.xml current and complete? (all pages included)
+10. **Validate Schema.org:** Does structured data match visible content? (use validator.schema.org)
+
+**Scoring:** Each "yes" answer is one point.
+
+- **8-10 points:** Excellent agent compatibility
+- **5-7 points:** Moderate compatibility with clear improvement areas
+- **0-4 points:** Significant agent-readability problems requiring immediate attention
+
+Run this audit quarterly or whenever making significant site changes. Track your score over time to measure improvement.
+
 ### Multi-Platform Agent Testing
 
 **Critical reality (January 2026):** Multiple proprietary agent platforms are now live and processing real transactions. Amazon Alexa+ (launched 5 January 2026) and Microsoft Copilot Checkout (expanded 8 January 2026) demonstrate that businesses must test against multiple agent systems, not just one.
@@ -2037,6 +2246,287 @@ The WordPress examples use `posts_per_page` instead of the deprecated `numberpos
 See [code-examples/static-site/generate-index.js](../code-examples/static-site/generate-index.js)
 
 All code examples include fixes for deprecated functions and updated user-agent detection for 2025 AI agents (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, google-extended, anthropic-ai, cohere-ai, DeepSeek-Bot, Gemini-Bot).
+
+## Progressive Enhancement for Agents
+
+Build sites that work without JavaScript, then enhance with JavaScript as a layer on top. This ensures raw parsers and browser-based agents both succeed.
+
+### Core Pattern
+
+**Base layer (HTML):** Content and structure that works without JavaScript
+**Enhancement layer (CSS):** Visual presentation
+**Interaction layer (JavaScript):** Enhanced behaviour
+
+When each layer works independently, all three AI reader types (raw parsers, browser-based agents, vision models) can consume your content effectively.
+
+### Skeleton Content
+
+Provide default content, enhance with JavaScript. Don't start with empty containers.
+
+**Bad (empty until JavaScript executes):**
+
+```html
+<div id="product-details"></div>
+<script>
+  fetch('/api/products/123')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('product-details').innerHTML = renderProduct(data);
+    });
+</script>
+```
+
+**Good (server-rendered content with JavaScript enhancement):**
+
+```html
+<section class="product-details">
+  <h1>Professional Standing Desk</h1>
+  <p data-price="599" data-currency="GBP">£599</p>
+  <button type="button" data-product-id="123">Add to Cart</button>
+</section>
+<script>
+  // JavaScript enhances with live stock updates, variant selection
+  // But base content works without it
+</script>
+```
+
+### Modal and Accordion Content
+
+Make content accessible in HTML, enhance with JavaScript interaction.
+
+**Pattern for modals:**
+
+```html
+<!-- Content exists in DOM, initially visible -->
+<section class="modal-content" id="shipping-info">
+  <h2>Shipping Information</h2>
+  <p>Free UK delivery on orders over £50...</p>
+</section>
+
+<script>
+  // JavaScript moves content into modal and adds open/close behaviour
+  // But content remains in HTML for agents that don't execute JavaScript
+</script>
+```
+
+**Pattern for accordions:**
+
+```html
+<!-- All content visible by default -->
+<section class="accordion-section">
+  <h3><button type="button" aria-expanded="true">Specifications</button></h3>
+  <div class="accordion-content">
+    <dl>
+      <dt>Height Range</dt>
+      <dd>70cm - 120cm</dd>
+      <dt>Desktop Size</dt>
+      <dd>120cm × 60cm</dd>
+    </dl>
+  </div>
+</section>
+
+<script>
+  // JavaScript collapses sections after page load
+  // Agents see all content in served HTML
+</script>
+```
+
+### Pagination and Loading
+
+Hybrid approach: traditional pagination in HTML, infinite scroll as JavaScript enhancement.
+
+```html
+<nav aria-label="Product pagination">
+  <a href="/products?page=1" aria-current="page">1</a>
+  <a href="/products?page=2">2</a>
+  <a href="/products?page=3">3</a>
+</nav>
+
+<script>
+  // JavaScript can add infinite scroll for human users
+  // But links work for agents that don't execute JavaScript
+</script>
+```
+
+### Loading States
+
+Provide meaningful fallback content for loading states.
+
+**Bad (spinner only):**
+
+```html
+<div class="spinner"></div>
+```
+
+**Good (explicit state with fallback):**
+
+```html
+<section role="status" aria-busy="true" data-state="loading">
+  <h2>Loading Product Information</h2>
+  <p>Please wait whilst we fetch the latest details...</p>
+  <noscript>
+    <p>JavaScript is required to load dynamic content.
+       <a href="/products/123">View product page directly</a>
+    </p>
+  </noscript>
+</section>
+```
+
+### AJAX Navigation
+
+Real URLs must return complete HTML, not fragments. JavaScript intercepts for smooth UX.
+
+```javascript
+// Handle navigation
+document.addEventListener('click', (e) => {
+  if (e.target.matches('a[href^="/"]')) {
+    e.preventDefault();
+    const url = e.target.href;
+
+    // Fetch and update content via AJAX
+    fetch(url)
+      .then(res => res.text())
+      .then(html => {
+        // Update content
+        // Push state for browser history
+        history.pushState({}, '', url);
+      });
+  }
+});
+```
+
+**Critical:** Each URL must return valid, complete HTML. If JavaScript fails or doesn't execute, the link still works as a standard navigation.
+
+## Implementation Roadmap
+
+A phased approach for making your site agent-compatible without rebuilding everything.
+
+### Phase 0: Assessment (Week 1)
+
+**Goal:** Understand current state and identify priorities.
+
+**Tasks:**
+
+1. **Run Morning-After Test** on 15-25 high-value pages (homepage, key products, checkout)
+2. **Disable JavaScript Test** on the same pages - what breaks?
+3. **View Source Test** - is essential content in served HTML?
+4. **Inventory Schema.org usage** - which types are implemented? Are they accurate?
+5. **Check sitemap.xml** - does it exist? Is it current?
+
+**Output:** Prioritised list of pages ranked by traffic × agent-compatibility score.
+
+### Phase 1: Quick Wins (Weeks 2-3)
+
+**Goal:** Maximum impact with minimal effort.
+
+**Tasks:**
+
+1. **Add Schema.org to top 10 pages** - Product, Article, Organization types
+2. **Fix heading hierarchy** - ensure logical h1 → h2 → h3 structure throughout
+3. **Replace generic link text** - "Click here" becomes descriptive labels
+4. **Add image alt text** - meaningful descriptions for all images
+5. **Create/update sitemap.xml** - include all public pages
+
+**Expected time:** 20-30 hours for typical site
+**Impact:** Solves 60-70% of agent-readability problems
+
+**Real ROI example:** Automotive sector client invested £12,000 in Phase 1 implementation. Three months later: 60% increase in AI agent recommendations, 35% organic search traffic increase, voice search queries doubled, rich search results on 15+ pages.
+
+### Phase 2: Structural Improvements (Weeks 4-6)
+
+**Goal:** Ensure base HTML works without JavaScript dependencies.
+
+**Tasks:**
+
+1. **Audit JavaScript dependencies** - identify content that only appears via JavaScript
+2. **Implement server-side rendering** for critical paths (product pages, checkout)
+3. **Add semantic HTML elements** - nav, main, article, section throughout
+4. **Implement breadcrumbs** with Schema.org BreadcrumbList
+5. **Create llms.txt** with curated resources
+6. **Add robots.txt** guidance for agent access
+
+**Expected time:** 40-60 hours
+**Impact:** Extends compatibility to raw parsers and server-based agents
+
+### Phase 3: Content Patterns (Weeks 7-9)
+
+**Goal:** Standardise patterns across content types.
+
+**Tasks:**
+
+1. **Create page templates** - Article, Product, FAQ, HowTo with semantic structure
+2. **Convert visual lists** to semantic ul/ol elements
+3. **Add definition lists** for key-value pairs (specifications, details)
+4. **Fix form labels** - proper label elements for all inputs
+5. **Add ARIA labels** where semantic HTML insufficient
+6. **Improve table structure** - th, caption, scope attributes
+
+**Expected time:** 50-70 hours
+**Impact:** Consistent patterns make future pages agent-compatible by default
+
+### Phase 4: Testing & Validation (Week 10)
+
+**Goal:** Verify improvements and catch regressions.
+
+**Tasks:**
+
+1. **Set up automated testing** - Playwright tests for key user journeys
+2. **Manual validation** - Run Morning-After Test on all priority pages
+3. **Schema.org validation** - Use validator.schema.org to check structured data
+4. **Create documentation** - Internal guide to agent-compatible patterns
+5. **Team training** - Educate developers and content creators on principles
+
+**Expected time:** 20-30 hours
+**Impact:** Prevents backsliding, ensures new content follows patterns
+
+### Phase 5: Ongoing Maintenance
+
+**Goal:** Sustain improvements over time.
+
+**Weekly:**
+
+- Review automated test results
+- Check Google Search Console for errors
+- Monitor sitemap.xml processing
+
+**Monthly:**
+
+- Audit 5-10 recently published pages
+- Run Morning-After Test on new content types
+- Review AI agent traffic logs
+
+**Quarterly:**
+
+- Full site audit using 10-Point Checklist
+- Update documentation with new patterns
+- Review and update Schema.org implementations
+
+**Continuous:**
+
+- New pages follow documented patterns
+- Code reviews check semantic HTML and metadata
+- Content creators trained on agent-compatible writing
+
+### Impact Timeline Expectations
+
+**Month 1:** Technical improvements visible (better HTML structure, Schema.org added)
+**Month 2:** Search engines begin re-indexing with new structured data
+**Month 3:** Traffic patterns start changing (more AI referrals, improved organic search)
+**Month 6:** Clear ROI visible (measurable increases in agent-mediated traffic and conversions)
+
+### Cost and Resource Planning
+
+**Small site (10-50 pages):** 80-120 hours total, £8,000-£12,000 at £100/hour
+**Medium site (50-500 pages):** 150-250 hours total, £15,000-£25,000
+**Large site (500+ pages):** Phased approach over 6-12 months, £50,000-£150,000
+
+**In-house vs agency:**
+
+- In-house: Longer timeline, knowledge retention, ongoing capability
+- Agency: Faster implementation, external expertise, higher hourly cost
+- Hybrid: Agency for initial implementation, in-house for maintenance
+
+**Don't attempt comprehensive coverage initially.** Focus on high-value pages (20% of pages typically drive 80% of traffic). Establish patterns, document them, then scale.
 
 ## CSS for Agent Mode
 

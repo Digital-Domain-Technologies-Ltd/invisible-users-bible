@@ -4,15 +4,24 @@
 
 **Author:** Tom Cranstoun
 
-**Current Status:** Complete with 13 chapters + Web Appendices ✅ (~78,000 words core manuscript, ~58,600 words appendices, ~140,000 words total)
+**Current Status:** Complete with 13 chapters + Web Appendices ✅ (~82,300 words core manuscript, ~61,600 words appendices, ~144,000 words total)
 
-**Latest Update (15 January 2026):** Added Chapter 10 on Generative Engine Optimization:
+**Latest Update (22 January 2026):** Integrated patterns from "Don't Make AI Think" practical guide:
+
+- **Enhanced Chapter 10** - Added Three Types of AI Readers taxonomy and Token Budget constraints (~950 words added)
+- **Enhanced Chapter 11** - Added Four Guiding Principles framework and Strategic Redundancy concept (~1,100 words added)
+- **Expanded Chapter 12** - Added comprehensive testing methodologies, progressive enhancement patterns, and five-phase implementation roadmap (~2,400 words added, now ~9,900 words total)
+- **New Appendix N** - Anti-Patterns Catalog with all 13 patterns, detection methods, and fixes (~3,000 words)
+- **Enhanced Appendix M** - Added sections on Testing Methodologies, Anti-Patterns Reference, and Terminology Framework (~450 words added)
+- Core manuscript: ~82,300 words (preface + 13 chapters + The End + Glossary)
+- Web appendices: ~61,600 words (13 appendices A-N)
+
+**Previous Update (15 January 2026):** Added Chapter 10 on Generative Engine Optimization:
 
 - **New Chapter 10** - Generative Engine Optimization (~13,076 words)
 - Bridges gap between commercial urgency (Chapter 9) and technical implementation (Chapters 11-13)
 - Establishes discovery as unified strategy for both search engines and AI agents
 - Business decision framework for when to emphasize discoverability vs protect content
-- Core manuscript: ~78,000 words (preface + 13 chapters + The End + Glossary)
 
 **Previous Update (12 January 2026):** Book published with live online appendices:
 
@@ -49,13 +58,13 @@ This book explores the technical, business, ethical, and human implications of t
 | 7 | The Legal Landscape | ~4,395 | ✅ Complete |
 | 8 | The Human Cost | ~4,153 | ✅ Complete |
 | 9 | The Platform Race | ~5,377 | ✅ Complete |
-| 10 | Generative Engine Optimization | ~13,076 | ✅ Complete |
-| 11 | Designing for Both | ~6,773 | ✅ Complete |
-| 12 | Technical Advice | ~11,468 | ✅ Complete + Enhanced |
+| 10 | Generative Engine Optimization | ~14,026 | ✅ Complete + Enhanced |
+| 11 | Designing for Both | ~7,873 | ✅ Complete + Enhanced |
+| 12 | Technical Advice | ~13,868 | ✅ Complete + Enhanced |
 | 13 | What Agent Creators Must Build | ~9,440 | ✅ Complete |
 | The End | Additional Resources Available Online | ~570 | ✅ Complete |
 
-**Core Manuscript:** ~78,000 words (preface + 13 chapters + The End + Glossary)
+**Core Manuscript:** ~82,300 words (preface + 13 chapters + The End + Glossary)
 
 **Web Appendices** (published separately at <https://allabout.network/invisible-users/web/>):
 
@@ -75,8 +84,10 @@ These are LIVE online documents kept up to date as the field evolves. Appendix J
 | J | Industry Developments | ~16,460 | ✅ Published (LIVE - updated as developments occur) |
 | K | Common Page Patterns | ~12,517 | ✅ Published |
 | L | Proposed AI Metadata Patterns | ~2,956 | ✅ Published |
+| M | Index of Metadata | ~5,450 | ✅ Published + Enhanced |
+| N | Anti-Patterns Catalog | ~3,000 | ✅ Complete |
 
-**Total Web Appendices:** ~63,238 words (as of 17 January 2026)
+**Total Web Appendices:** ~61,688 words (as of 22 January 2026)
 
 ---
 

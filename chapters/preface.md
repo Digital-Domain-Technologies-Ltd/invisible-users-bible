@@ -158,7 +158,7 @@ York, England
 
 This isn't a new problem - we've known about it for decades.
 
-My colleague and CMS Experts host friend Janus Boye wrote about machine-readable metadata in May 1998, nearly 27 years ago. His article "RDF - What's in it for us?" explored the Resource Description Framework and the vision of making web content understandable to machines through structured metadata. The principles he described - explicit semantics, machine-readable relationships, standardised vocabularies - directly underpin today's Schema.org structured data that helps AI agents parse content accurately. It's taken a long time for this to become commercially urgent. Why did we not listen the first time?
+My colleague and CMS Experts host friend Janus Boye wrote about machine-readable metadata in May 1998, many years ago. His article "RDF - What's in it for us?" explored the Resource Description Framework and the vision of making web content understandable to machines through structured metadata. The principles he described - explicit semantics, machine-readable relationships, standardised vocabularies - directly underpin today's Schema.org structured data that helps AI agents parse content accurately. It's taken a long time for this to become commercially urgent. Why did we not listen the first time?
 
 His original article is here: <https://www.irt.org/articles/js086/>
 

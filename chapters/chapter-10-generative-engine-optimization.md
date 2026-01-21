@@ -38,6 +38,109 @@ When you optimise for GEO, you're also optimising for SEO. When you make your si
 
 This chapter shows you how. The patterns described here are implemented on this book's own product page at <https://allabout.network/invisible-users> - a working example of GEO principles in practice.
 
+## Understanding AI Reader Types
+
+Before implementing GEO patterns, you need to understand how different AI agents consume web content. Not all agents read websites the same way, and your implementation strategy depends on serving all three types effectively.
+
+### The Three Types of AI Readers
+
+**1. Raw Parsers** (the minimalists)
+
+These agents fetch HTML and parse it without executing JavaScript or loading CSS. They read your source code directly as delivered by the server. Search engine crawlers typically work this way for initial discovery. Many LLM-based tools fetch raw HTML to reduce processing costs and improve response speed.
+
+What they see: Pure HTML structure
+What they miss: Anything requiring JavaScript execution, CSS-based visual cues, dynamically loaded content
+Examples: Traditional search crawlers, llms.txt-based agents, some API-based retrieval tools
+
+**2. Browser-Based Agents** (the executors)
+
+These run full browser environments - Chrome, Firefox, or headless versions like Playwright and Puppeteer. They execute JavaScript, load CSS, render animations, and can interact with pages by clicking buttons, filling forms, and scrolling. Some wait for asynchronous content to load.
+
+What they see: The fully rendered page as a human would experience it
+What they miss: Nothing technical - but they still interpret via DOM structure, not visual perception
+Examples: Browser automation frameworks, conversational AI with web interaction capabilities, agent-based browsers
+
+**3. Vision Models** (the screenshot readers)
+
+These capture screenshots of rendered pages and use computer vision to extract information. They perceive visual hierarchy, notice colour-coded warnings, understand layout through spatial relationships, and can see information conveyed purely through styling.
+
+What they see: The complete visual presentation including CSS effects
+What they miss: Link href values (can see buttons but not destinations), underlying HTML structure, non-visual metadata, text within images unless OCR-capable
+Examples: GPT-4 Vision, Claude with image analysis, multimodal AI systems
+
+### Why This Taxonomy Matters for GEO
+
+Your site must work for all three types simultaneously. Here's the convergence principle: **proper semantic HTML serves all three reader types effectively.**
+
+- Raw parsers get clear structure from semantic elements (`<nav>`, `<main>`, `<article>`)
+- Browser-based agents execute your JavaScript but don't depend on it for core content
+- Vision models see proper visual hierarchy because you've styled semantic elements appropriately
+
+This is why the patterns in this chapter emphasise semantic HTML, explicit metadata, and progressive enhancement. These aren't separate strategies for different agent types - they're unified principles that work across the entire AI ecosystem.
+
+When ChatGPT parses your product page as raw HTML, it finds structured JSON-LD data. When a browser-based agent visits, it experiences the full interactive interface whilst still accessing that same structured data. When a vision model screenshots the page, it sees visual hierarchy that matches the semantic hierarchy in the underlying HTML.
+
+**Design for the most constrained consumer.** If your site works for raw parsers (semantic HTML with metadata), it automatically works for browser-based agents and vision models. The reverse isn't true - sites that depend on JavaScript or visual styling alone fail raw parsers entirely.
+
+### Token Budgets and Content Priority
+
+Language models processing web pages face a practical constraint: limited working memory measured in tokens. A token is roughly a word or word fragment - the actual count varies by model and text complexity.
+
+Current AI models have context windows of:
+
+- GPT-4: 128,000 tokens (~96,000 words)
+- Claude: 200,000 tokens (~150,000 words)
+- Gemini: 2,000,000 tokens (~1,500,000 words)
+
+This sounds generous until you consider that a single web page with all its scaffolding can consume 10,000-50,000 tokens:
+
+- Navigation menus: 2,000-5,000 tokens
+- Footer content: 1,000-2,000 tokens
+- Sidebar widgets: 3,000-8,000 tokens
+- Advertisements: 2,000-5,000 tokens
+- Main article content: 3,000-15,000 tokens
+- Comments sections: 5,000-20,000 tokens
+
+When an agent processes your page, it makes choices about what deserves attention. If your main content appears after 30,000 tokens of navigation, sidebar links, and advertisements, it's competing for attention in a crowded context window.
+
+**DOM order is reading order.** AI agents read your HTML tree top to bottom, regardless of how CSS positions elements visually. This creates a critical optimisation opportunity.
+
+Bad pattern (main content buried):
+
+```html
+<nav>Navigation Menu (2,000 tokens)</nav>
+<aside>
+  Sidebar: Related Articles, Ads, Popular Posts (8,000 tokens)
+</aside>
+<main>
+  <h1>Main Article Title</h1>
+  <p>Your actual content... (finally at token 10,000)</p>
+</main>
+```
+
+Optimised pattern (content-first DOM):
+
+```html
+<nav>Navigation Menu (2,000 tokens)</nav>
+<main>
+  <h1>Main Article Title</h1>
+  <p>Your actual content... (starts at token 2,000)</p>
+</main>
+<aside>
+  Sidebar: Related Articles, Ads, Popular Posts
+</aside>
+```
+
+Use CSS Grid or Flexbox to position the sidebar visually wherever you need it. The DOM order now reflects content priority, ensuring agents encounter your main message before processing supplementary material.
+
+This optimisation benefits all three reader types:
+
+- Raw parsers find your content early in the token stream
+- Browser-based agents still render your intended visual layout via CSS
+- Vision models see the visual hierarchy you've designed whilst the DOM structure guides text extraction
+
+**Practical implication:** When implementing GEO patterns, audit your HTML source order. Put essential content - product descriptions, pricing, key facts - before navigation complexity and promotional material. Your visual design remains unchanged, but agents encounter signal before noise.
+
 ## Death of the Click
 
 Traditional search followed a simple flow:
@@ -201,13 +304,51 @@ Once a crawler or agent reaches a specific page, metadata explains what that pag
 </script>
 ```
 
+### Schema.org Type Prioritization
+
+Schema.org defines hundreds of types and properties. Implementing all of them would be impossible and wasteful. Real-world client work reveals that six Schema.org types cover approximately 90% of use cases:
+
+1. **Organization/LocalBusiness** - Company information, contact details, physical locations
+   - Use when: Your site represents a business entity
+   - Key properties: name, address, telephone, url, logo, openingHours
+   - Impact: Enables "find [business type] near me" queries, local search visibility
+
+2. **Article/BlogPosting/NewsArticle** - Written content with authorship and publication context
+   - Use when: Publishing editorial content, blog posts, news, analysis
+   - Key properties: headline, author, datePublished, dateModified, articleBody
+   - Impact: Citation accuracy in AI-generated summaries, proper attribution
+
+3. **Product/Offer** - Items for sale with pricing and availability
+   - Use when: E-commerce, product catalogues, service offerings
+   - Key properties: name, description, offers (with price, priceCurrency, availability)
+   - Impact: Product comparison queries, price citations, purchase facilitation
+
+4. **FAQPage/Question/Answer** - Structured question-answer pairs
+   - Use when: FAQ sections, support documentation, common enquiries
+   - Key properties: mainEntity (array of Question objects with acceptedAnswer)
+   - Impact: Direct answer extraction, "how do I" queries, troubleshooting
+
+5. **HowTo** - Step-by-step instructional content
+   - Use when: Tutorials, installation guides, procedural documentation
+   - Key properties: name, step (array with text, image, url properties)
+   - Impact: Instruction extraction, process understanding, guided assistance
+
+6. **WebPage/WebSite** - General page and site metadata
+   - Use when: Every page benefits from basic WebPage markup at minimum
+   - Key properties: name, description, url, breadcrumb, potentialAction
+   - Impact: Site structure understanding, navigation context
+
+**Implementation priority:** Start with the type that matches your core content. E-commerce sites need Product + Offer immediately. Publishers need Article types. Local businesses need Organization/LocalBusiness. FAQ sections need FAQPage markup.
+
+Don't attempt comprehensive Schema.org coverage initially. Implement the one or two types that describe your primary content, ensure the markup is accurate and complete, then expand to additional types as needed. Incomplete or inconsistent Schema.org markup causes more problems than omitting it entirely - agents cite incorrect information with apparent authority.
+
 **The convergence:** Google's search engine has used structured data for rich snippets since 2009. The same JSON-LD that helps Google show star ratings and prices in search results helps ChatGPT cite your product accurately in answers.
 
 You're not duplicating work. You're extending existing SEO practices to benefit a new discovery channel.
 
-### Historical Perspective: The 27-Year Pattern
+### Historical Perspective: A Decades-Long Pattern
 
-The need for machine-readable content isn't new. In May 1998, nearly 27 years ago, Janus Boye wrote "RDF - What's in it for us?" exploring the Resource Description Framework and the vision of making web content understandable to machines through structured metadata.
+The need for machine-readable content isn't new. In May 1998, many years ago, Janus Boye wrote "RDF - What's in it for us?" exploring the Resource Description Framework and the vision of making web content understandable to machines through structured metadata.
 
 RDF introduced principles that directly underpin today's Schema.org structured data:
 
