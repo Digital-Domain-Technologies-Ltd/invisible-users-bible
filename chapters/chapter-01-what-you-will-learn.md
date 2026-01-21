@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Introduction to AI agents as website visitors and the convergence between machine-friendly and accessibility-optimised design patterns."
+keywords: [ai-agents, web-accessibility, invisible-users, agent-diversity, convergence-principle, business-implications]
+book: "The Invisible Users Bible"
+chapter: 1
+wordcount: 3008
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 1 - What You Will Learn

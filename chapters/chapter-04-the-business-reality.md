@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Commercial implications of agent-mediated commerce, including revenue model collision, business model categorisation, and competitive positioning in the agent era."
+keywords: [business-reality, revenue-models, agent-commerce, competitive-advantage, engagement-metrics, advertising-revenue, recipe-sites]
+book: "The Invisible Users Bible"
+chapter: 4
+wordcount: 10009
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 4 - Business Reality

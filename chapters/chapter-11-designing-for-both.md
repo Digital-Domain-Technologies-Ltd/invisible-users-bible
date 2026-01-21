@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Design patterns that serve both AI agents and human users through explicit state, semantic structure, and the convergence principle connecting accessibility and agent-friendly design."
+keywords: [designing-for-both, convergence-principle, explicit-state, semantic-html, persistent-feedback, accessibility, universal-patterns]
+book: "The Invisible Users Bible"
+chapter: 11
+wordcount: 6776
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 11 - Designing for Both

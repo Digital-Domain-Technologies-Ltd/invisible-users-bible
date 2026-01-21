@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "The digital divide implications of AI agent adoption, examining who benefits and who gets left behind as agent-mediated web access becomes standard."
+keywords: [human-cost, digital-divide, accessibility, language-exclusion, economic-barriers, capability-gap, elderly-users, developing-countries]
+book: "The Invisible Users Bible"
+chapter: 8
+wordcount: 4153
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 8 - Human Cost

@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "The fundamental architectural difference between human cognition and machine parsing, and why patterns optimised for one user type often fail for the other."
+keywords: [architectural-conflict, human-cognition, machine-parsing, progressive-disclosure, semantic-meaning, accessibility-convergence, HATEOAS]
+book: "The Invisible Users Bible"
+chapter: 3
+wordcount: 4198
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 3 - Architectural Conflict

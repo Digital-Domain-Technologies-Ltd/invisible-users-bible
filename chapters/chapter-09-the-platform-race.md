@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "The January 2026 convergence when Amazon, Microsoft, and Google launched agent commerce systems within seven days, and the critical choice between open and closed protocols."
+keywords: [platform-race, agent-commerce, agentic-commerce-protocol, universal-commerce-protocol, amazon-alexa-plus, microsoft-copilot, google-business-agent, open-standards]
+book: "The Invisible Users Bible"
+chapter: 9
+wordcount: 5377
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 9 - Platform Race

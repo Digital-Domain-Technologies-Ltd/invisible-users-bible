@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Validation layers, confidence scoring, and guardrails that agent creators must implement to prevent pipeline failures like the £203,000 cruise pricing error."
+keywords: [agent-creators, pipeline-failures, validation-layers, confidence-scoring, guardrails, data-extraction, error-detection]
+book: "The Invisible Users Bible"
+chapter: 13
+wordcount: 9440
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 13 - What Agent Creators Must Build

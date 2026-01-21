@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "The existential threat facing advertising-funded content creators when AI agents extract content without viewing ads, with analysis of economic impact and possible alternative models."
+keywords: [content-creators, advertising-revenue, agent-extraction, sustainable-monetization, recipe-blogs, paywalls, micropayments]
+book: "The Invisible Users Bible"
+chapter: 5
+wordcount: 6129
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 5 - Content Creator's Dilemma

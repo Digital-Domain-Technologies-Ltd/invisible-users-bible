@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Six common design patterns that silently break for AI agents: toast notifications, hidden content, SPAs, delayed validation, hidden pricing, and ambiguous loading states."
+keywords: [invisible-failure, toast-notifications, pagination, single-page-applications, form-validation, hidden-pricing, loading-states, false-positives]
+book: "The Invisible Users Bible"
+chapter: 2
+wordcount: 5783
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 2 - The Invisible Failure

@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Security implications of AI agents acting on user behalf, including session inheritance, authentication challenges, and the invisible risks of browser-integrated agents."
+keywords: [security, authentication, session-inheritance, captcha, bot-detection, browser-extensions, cloudflare, two-factor-authentication]
+book: "The Invisible Users Bible"
+chapter: 6
+wordcount: 4385
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 6 - Security Maze

@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "Practical implementation code for agent-friendly patterns, including served vs rendered HTML, progressive enhancement, and testing strategies."
+keywords: [technical-implementation, served-html, rendered-html, progressive-enhancement, agent-testing, code-examples, validation-patterns]
+book: "The Invisible Users Bible"
+chapter: 12
+wordcount: 11607
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 12 - Technical Advice

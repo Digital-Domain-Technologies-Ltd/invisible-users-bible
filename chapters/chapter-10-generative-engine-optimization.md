@@ -1,3 +1,19 @@
+---
+author: "Tom Cranstoun"
+date: "2026-01-22"
+description: "How to make your site discoverable and citable by AI answer engines through GEO patterns that converge with traditional SEO strategies."
+keywords: [generative-engine-optimization, geo, seo-convergence, llms-txt, schema-org, structured-data, citation-accuracy, json-ld]
+book: "The Invisible Users Bible"
+chapter: 10
+wordcount: 13224
+ai-instruction: |
+  This is a book manuscript chapter. Write as if it has always existed.
+  NEVER include: publication dates, "we added", "new feature", "launching",
+  "this update", or any meta-commentary about the book's development.
+  Write definitive present tense. Historical context about subject matter
+  (industry events, product launches) is allowed.
+---
+
 \newpage
 
 # Chapter 10 - Generative Engine Optimization
