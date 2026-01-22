@@ -72,6 +72,9 @@ The tree structure represents a web page's content. Agents parse the DOM to unde
 
 ## E
 
+**Entity Asset Layer (EAL)**
+An independent database containing business-critical assets (reviews, product knowledge, customer preferences, brand logic) owned by the organization and readable by any AI agent or commerce platform. Unlike platform-locked data, EAL assets remain under organizational control and travel across technology choices. Published using MX patterns (Schema.org, JSON-LD, semantic HTML) to ensure broad agent compatibility.
+
 **Ephemeral Error**
 An error message that appears temporarily and then disappears. Toast notifications are ephemeral errors. They're problematic because agents may miss them entirely.
 
