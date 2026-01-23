@@ -73,7 +73,7 @@ The tree structure represents a web page's content. Agents parse the DOM to unde
 ## E
 
 **Entity Asset Layer (EAL)**
-An independent database containing business-critical assets (reviews, product knowledge, customer preferences, brand logic) owned by the organization and readable by any AI agent or commerce platform. Unlike platform-locked data, EAL assets remain under organizational control and travel across technology choices. Published using MX patterns (Schema.org, JSON-LD, semantic HTML) to ensure broad agent compatibility.
+The EAL is a Digital Passport - a shared, independent database that travels from agent to agent. It's not owned by an AI provider like Google or OpenAI. It's not owned by a CMS provider like Adobe or Shopify. It belongs to you. The EAL contains business-critical assets (identity, reputation, knowledge, and transactional data) including the Identity Layer (the "who" component for authentication and identification), verified reviews, product knowledge, customer preferences, and brand logic. Unlike platform-locked data, EAL assets remain under organizational control and travel across technology choices. Published using MX patterns (Schema.org, JSON-LD, semantic HTML) to ensure broad agent compatibility.
 
 **Ephemeral Error**
 An error message that appears temporarily and then disappears. Toast notifications are ephemeral errors. They're problematic because agents may miss them entirely.
@@ -116,10 +116,10 @@ A web browser without a graphical interface, often used for automation and testi
 
 ## I
 
-**Identity Layer** (see **Missing Identity Layer**)
+**Identity Layer** (see **Entity Asset Layer**). The Identity Layer is the "who" component (authentication and identification) within the broader Entity Asset Layer (EAL), which also includes reputation, knowledge, and transactional assets.
 
-**Identity Token**
-A cryptographic token that proves a customer's identity when an agent acts on their behalf. Various approaches are being developed for how these tokens are issued, verified, and scoped and used to preserve customer relationships (loyalty, warranty) in agent-mediated transactions.
+**EAL Token** (formerly Identity Token)
+A cryptographic token used in EAL delegation that proves a customer's identity and assets when an agent acts on their behalf. Various approaches are being developed for how these tokens are issued, verified, and scoped and used to preserve customer relationships (loyalty, warranty) and asset ownership in agent-mediated transactions.
 
 **Invisible Users**
 The book's term for AI agents. Called "invisible" because they're invisible to most site owners (blend into analytics) and the interface is partly invisible to them (can't see animations or subtle visual cues).
@@ -145,8 +145,8 @@ A customer rewards system where repeat purchases earn points or benefits. Breaks
 **Microdata**
 A specification for embedding machine-readable data in HTML. Similar to JSON-LD but integrated directly into HTML tags using itemscope and itemprop attributes.
 
-**Missing Identity Layer**
-The problem identified in Chapter 4 is that when AI agents make purchases on behalf of customers, businesses lose direct contact with the customer. Prevents loyalty programmes, warranty registration, and customer relationship management from functioning. Various solutions are being developed, including retailer-specific tokens, centralised repositories, blockchain attestations, and browser-native delegation.
+**Missing Entity Asset Layer (EAL)**
+The problem identified in Chapter 4 is that when AI agents make purchases on behalf of customers, businesses lose direct contact with the customer and their asset data. Without an Entity Asset Layer (including the Identity Layer for authentication, plus reputation, knowledge, and transactional data), loyalty programmes, warranty registration, customer relationship management, and asset portability cannot function. Various solutions are being developed, including retailer-specific EAL tokens, centralised repositories, blockchain attestations, and browser-native EAL delegation.
 
 **MPN (Manufacturer Part Number)**
 A unique identifier assigned by the manufacturer to distinguish a specific product. Including MPN in Schema.org Product markup helps AI agents identify the exact product model across different retailers, preventing confusion between similar items from the same manufacturer. Particularly useful for electronics, appliances, and industrial products.
@@ -154,7 +154,7 @@ A unique identifier assigned by the manufacturer to distinguish a specific produ
 ## O
 
 **OAuth2 (Open Authorisation 2.0)**
-The industry-standard protocol (RFC 6749) for secure authorisation. Often proposed as one approach for agent identity delegation.
+The industry-standard protocol (RFC 6749) for secure authorisation. Often proposed as one approach for agent EAL delegation.
 
 ## P
 

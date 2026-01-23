@@ -75,7 +75,7 @@ Your clients already output Schema.org structured data for SEO. They're already 
 
 - **Content Management Systems (WordPress, Contentful, Kontent.ai, Sanity):** Your clients need llms.txt generation, Schema.org templates, and semantic HTML output
 - **E-commerce platforms (Shopify, WooCommerce, Magento):** Your merchants need ACP/UCP protocol support and structured product data
-- **Payment gateways (Stripe, Square, PayPal):** Agent-mediated transactions need identity delegation patterns (Chapter 13)
+- **Payment gateways (Stripe, Square, PayPal):** Agent-mediated transactions need EAL delegation patterns (Chapter 13)
 - **Web frameworks (Next.js, Nuxt, Gatsby):** Developers need agent-compatibility templates and testing tools
 - **Hosting platforms (Vercel, Netlify, Cloudflare):** Edge functions could validate llms.txt and inject missing structured data
 
@@ -110,7 +110,7 @@ If you're a platform vendor reading this, Chapters 9, 10, 11, and 13 are essenti
 
 ### Priority 4: Advanced Implementation
 
-- Implement identity delegation patterns for agent-mediated purchases (Chapter 13 provides technical guidance)
+- Implement EAL delegation patterns for agent-mediated purchases (Chapter 13 provides technical guidance)
 - Integrate payment protocols: ACP (1M+ merchants) or UCP (20+ major retailers) or both
 - Develop comprehensive agent compatibility testing
 - Create governance frameworks for agent access policies

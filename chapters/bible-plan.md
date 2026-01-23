@@ -546,9 +546,9 @@ What AI agents need is mostly what everyone needs. Solutions that work for agent
 
 Key security insight (Chapter 6): In-browser agents inherit authenticated sessions rather than failing to authenticate. Banks cannot detect AI involvement because agents inherit proof-of-humanity tokens from the authenticated user's session.
 
-### Identity Delegation
+### EAL Delegation
 
-When agents make purchases, businesses lose customer identity. Mentioned briefly as one emerging solution pattern. Multiple approaches acknowledged (retailer-specific tokens, centralised repositories, blockchain attestations, browser-native delegation). Detailed technical specification moved to separate identity-layer repository.
+When agents make purchases, businesses lose customer identity. Mentioned briefly as one emerging solution pattern. Multiple approaches acknowledged (retailer-specific tokens, centralised repositories, blockchain attestations, browser-native delegation). Detailed technical specification moved to separate eal repository.
 
 ---
 

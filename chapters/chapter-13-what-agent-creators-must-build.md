@@ -953,11 +953,13 @@ Chapter 11 showed what websites should publish: structured data, explicit state,
 
 Both sides making their logic explicit. Both sides enabling inspection. That's how reliable systems get built - through transparency, accountability, and collective improvement.
 
-## Missing Identity Layer
+## Missing Entity Asset Layer (EAL)
 
-Here's what agent creators must navigate: the identity delegation landscape has evolved rapidly, but fragmentation remains the challenge. As of January 2026, we have two open protocols and one closed system competing for adoption.
+Here's what agent creators must navigate: the Entity Asset Layer (EAL) delegation landscape has evolved rapidly, but fragmentation remains the challenge. As of January 2026, we have two open protocols and one closed system competing for adoption.
 
-**What's needed:** A universal identity delegation layer that works across platforms and agents. When you authorise an agent to act on your behalf, that authorisation should be portable. You should be able to switch agents without losing access to services. Businesses should be able to verify your identity regardless of which agent you use.
+The Entity Asset Layer (EAL) is a Digital Passport - a shared, independent database that travels from agent to agent. It's not owned by an AI provider like Google or OpenAI. It's not owned by a CMS provider like Adobe or Shopify. It belongs to you. The EAL contains business-critical assets including the Identity Layer (the "who" component for authentication), reputation, knowledge, and transactional data.
+
+**What's needed:** A universal EAL delegation layer that works across platforms and agents. When you authorise an agent to act on your behalf, that authorisation should be portable - not just your identity, but your complete asset profile. You should be able to switch agents without losing access to services. Businesses should be able to verify your identity and assets regardless of which agent you use.
 
 **What we have instead:** Three competing implementations launched within months of each other. OpenAI and Stripe announced the Agentic Commerce Protocol (ACP) in September 2024 - an open standard with over 1 million merchants already integrated. Google followed with the Universal Commerce Protocol (UCP) in January 2026, backed by Target, Walmart, and 20+ major retailers. Microsoft chose differently: Copilot Checkout is proprietary, closed, and incompatible with the open protocols. Two open standards competing against one closed system.
 
@@ -971,7 +973,7 @@ But Microsoft is now competitively isolated. They're the only major platform tha
 
 If you're building an agent now, you face fragmentation, not absence. Open standards exist (ACP and UCP), but there are two of them. Supporting both doubles integration work. Choosing one limits merchant reach. Waiting for convergence risks competitive disadvantage.
 
-The technically correct solution - build on open standards like OAuth, implement portable delegation tokens, and support cross-platform identity - exists in both ACP and UCP. OpenAI and Stripe proved platforms can publish open protocols immediately (ACP, September 2024). Google followed with UCP four months later. Both protocols provide the interoperability this section advocates. The challenge isn't getting platforms to cooperate - it's navigating dual standards whilst hoping for convergence.
+The technically correct solution - build on open standards like OAuth, implement portable EAL delegation tokens, and support cross-platform asset portability - exists in both ACP and UCP. OpenAI and Stripe proved platforms can publish open protocols immediately (ACP, September 2024). Google followed with UCP four months later. Both protocols provide the interoperability this section advocates. The challenge isn't getting platforms to cooperate - it's navigating dual standards whilst hoping for convergence.
 
 **See Chapter 9** for comprehensive analysis of the platform race, competitive dynamics, Microsoft's isolation problem, and convergence prospects.
 
@@ -980,13 +982,13 @@ The technically correct solution - build on open standards like OAuth, implement
 The open protocols exist, so build for them. But build with abstraction to handle dual standards and eventual convergence:
 
 ```javascript
-// Identity delegation architecture that could work across platforms
-class UniversalIdentityLayer {
+// EAL delegation architecture that could work across platforms
+class UniversalEntityAssetLayer {
   async delegateAccess(service, scope, duration) {
-    // Request delegation token from identity provider
-    const token = await this.identityProvider.createDelegationToken({
+    // Request EAL delegation token from provider
+    const token = await this.ealProvider.createDelegationToken({
       service: service,           // Which service gets access
-      scope: scope,               // What permissions granted
+      scope: scope,               // What permissions granted (identity, reputation, knowledge, transactions)
       duration: duration,         // How long token remains valid
       principal: this.userId,     // Who is delegating
       agent: this.agentId         // Which agent receives delegation
@@ -1002,16 +1004,16 @@ class UniversalIdentityLayer {
   }
 
   async revokeAccess(service) {
-    // User can revoke delegation without agent cooperation
-    await this.identityProvider.revokeDelegationToken({
+    // User can revoke EAL delegation without agent cooperation
+    await this.ealProvider.revokeDelegationToken({
       service: service,
       principal: this.userId
     });
   }
 
   async listActiveDelegations() {
-    // User sees all services with active agent access
-    return await this.identityProvider.listDelegations(this.userId);
+    // User sees all services with active agent access to their EAL
+    return await this.ealProvider.listDelegations(this.userId);
   }
 }
 ```
@@ -1028,12 +1030,12 @@ The long-term outcome favours convergence: ACP and UCP will likely merge into a 
 
 **Practical recommendation:**
 
-Build the identity layer as an abstraction. Support both open protocols (ACP and UCP) today, but design the architecture to handle convergence when it happens. Make it possible to swap identity providers without rewriting your agent.
+Build the EAL as an abstraction. Support both open protocols (ACP and UCP) today, but design the architecture to handle convergence when it happens. Make it possible to swap EAL providers without rewriting your agent.
 
 ```javascript
 // Abstraction layer that handles both ACP and UCP
 // and prepares for eventual convergence
-class IdentityAbstraction {
+class EALAbstraction {
   constructor(provider) {
     // Support ACP, UCP, and potentially Microsoft
     // Isolate protocol differences behind standard interface
@@ -1042,6 +1044,7 @@ class IdentityAbstraction {
 
   async authorize(service, scope) {
     // Translate to protocol-specific API (ACP or UCP)
+    // Scope includes identity, reputation, knowledge, transactions
     return await this.provider.delegateAccess(service, scope);
   }
 }
@@ -1053,7 +1056,7 @@ const ucpProvider = new UCPDelegationProvider();
 // Tomorrow: When protocols converge, swap to unified standard
 // without changing agent code
 const unifiedProvider = new UnifiedCommerceProvider();
-const identity = new IdentityAbstraction(unifiedProvider);
+const eal = new EALAbstraction(unifiedProvider);
 ```
 
 This abstraction costs more to build upfront but positions you correctly for protocol convergence and competitive flexibility.
@@ -1062,9 +1065,9 @@ This abstraction costs more to build upfront but positions you correctly for pro
 
 Agent creators need to understand the current landscape. Two open protocols (ACP and UCP) provide the interoperability this section advocates, but fragmentation creates integration burden. Microsoft's proprietary approach is competitively isolated and likely unsustainable. The race isn't about closed versus open anymore - it's about which open protocol(s) to support and how to prepare for convergence.
 
-Your validation layers and confidence scoring (described earlier in this chapter) remain critical for reliability. But your business model depends on identity delegation, and that now means navigating dual open standards whilst preparing for eventual unification.
+Your validation layers and confidence scoring (described earlier in this chapter) remain critical for reliability. But your business model depends on EAL delegation, and that now means navigating dual open standards whilst preparing for eventual unification.
 
-Build validation layers for reliability. Build identity abstraction for protocol flexibility. Support open standards for ecosystem health.
+Build validation layers for reliability. Build EAL abstraction for protocol flexibility. Support open standards for ecosystem health.
 
 ## Agent Architecture Considerations
 
@@ -1391,11 +1394,11 @@ That's how we build a web that works for everyone - human and machine alike.
 
 ## Open Protocol Reality: Platform Race
 
-**As of January 2026:** Three major platforms launched agent commerce systems within seven days, fundamentally changing the competitive landscape for identity delegation. Chapter 9 documents this seven-day acceleration in detail - this section examines the implications for agent creators.
+**As of January 2026:** Three major platforms launched agent commerce systems within seven days, fundamentally changing the competitive landscape for EAL delegation. Chapter 9 documents this seven-day acceleration in detail - this section examines the implications for agent creators.
 
 ### What Actually Happened
 
-The missing piece I described in this chapter - a universal identity delegation layer - now has **three competing implementations:**
+The missing piece I described in this chapter - a universal EAL delegation layer - now has **three competing implementations:**
 
 1. **Agentic Commerce Protocol (ACP)** - OpenAI/Stripe, announced September 2024
    - Open standard (Apache 2.0 license)

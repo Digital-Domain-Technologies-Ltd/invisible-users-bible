@@ -550,7 +550,7 @@ If you're building AI agents, this chapter should clarify your platform strategy
 
 **Support both ACP and UCP if resources permit.** Merchants will integrate whichever protocol their customers use. If your agent supports both, you maximise merchant compatibility whilst standards converge.
 
-**Build identity abstraction layers** so you can swap protocols without rewriting agent logic. When ACP and UCP merge (or when one clearly wins), you'll need to migrate. Design for that inevitability.
+**Build EAL abstraction layers** so you can swap protocols without rewriting agent logic. When ACP and UCP merge (or when one clearly wins), you'll need to migrate. Design for that inevitability.
 
 **Prefer open over closed in every architecture decision.** This isn't ideology, it's pragmatism. Open protocols have longer lifespans, broader compatibility, and stronger ecosystem support. Proprietary systems lock you into platform dependency that rarely benefits anyone except the platform.
 

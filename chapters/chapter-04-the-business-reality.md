@@ -395,11 +395,11 @@ Support systems assume they're talking to the person who made the purchase. Agen
 
 ---
 
-## Identity Delegation Patterns
+## EAL Delegation Patterns
 
 What's missing is a standard way for agents to act on behalf of identified humans whilst preserving that identity for the seller.
 
-When agents make purchases, businesses lose the customer relationship. The problem is solvable using identity delegation protocols, in which agents carry authorisation tokens that identify the principal customer.
+When agents make purchases, businesses lose the customer relationship. The problem is solvable using EAL delegation protocols, in which agents carry authorisation tokens that identify the principal customer.
 
 Imagine this interaction:
 
@@ -456,13 +456,13 @@ Whichever approach succeeds needs to solve:
 
 No standard exists yet. Each approach has advocates and technical trade-offs. Businesses concerned about losing customer relationships should monitor these emerging standards rather than building custom solutions.
 
-OAuth solved similar problems for application authorisation. Agent identity delegation will likely follow a similar path: competing approaches, gradual adoption, and eventual standardisation around the solution that provides the smoothest user experience.
+OAuth solved similar problems for application authorisation. Agent EAL delegation will likely follow a similar path: competing approaches, gradual adoption, and eventual standardisation around the solution that provides the smoothest user experience.
 
-**Identity delegation assumes agents act as intermediaries,** facilitating purchases from retailers on behalf of identified customers. But if agent platforms operate dark warehouses - holding their own inventory and acting as sellers rather than brokers - identity delegation becomes structurally different. The platform isn't passing customer identity to a third-party merchant. It is the merchant. The relationship is direct, not mediated. Dark warehouses, if they emerge, would simplify some identity problems (the platform knows its customers) whilst creating new ones (customers may not realise they're buying from the platform rather than the brands they think they're purchasing from).
+**Identity delegation assumes agents act as intermediaries,** facilitating purchases from retailers on behalf of identified customers. But if agent platforms operate dark warehouses - holding their own inventory and acting as sellers rather than brokers - EAL delegation becomes structurally different. The platform isn't passing customer identity to a third-party merchant. It is the merchant. The relationship is direct, not mediated. Dark warehouses, if they emerge, would simplify some identity problems (the platform knows its customers) whilst creating new ones (customers may not realise they're buying from the platform rather than the brands they think they're purchasing from).
 
 Until then, every agent transaction can sever the customer relationship that businesses have spent decades building. The agent completes the purchase. The customer gets their product. But the business loses something valuable: knowledge of its customers.
 
-Chapters 6, 9, and 10 will cover the technical aspects of identity delegation, where relevant to security, design patterns, and implementation. For now, recognise it as a fundamental challenge in agent-mediated commerce.
+Chapters 6, 9, and 10 will cover the technical aspects of EAL delegation, where relevant to security, design patterns, and implementation. For now, recognise it as a fundamental challenge in agent-mediated commerce.
 
 ---
 
@@ -698,7 +698,7 @@ For investors, agent traffic creates both opportunities and risks:
 
 *Agent marketplaces* - Curated lists of agent-friendly merchants. Agent success rate reviews. Transaction facilitation.
 
-*Identity layer solutions* - Standards and services for agent-mediated identity delegation. Loyalty programme integrations. Warranty registration systems.
+*Identity layer solutions* - Standards and services for agent-mediated EAL delegation. Loyalty programme integrations. Warranty registration systems.
 
 **Value destruction:**
 
@@ -769,7 +769,7 @@ Answer these questions about your business:
 
 - Do customers find you through search and comparison? (Higher agent relevance)
 - Do they arrive with clear purchase intent or do they browse? (Intent = agent-friendly; browsing = vulnerable)
-- How much does your business depend on customer identity and loyalty data? (At risk from identity delegation)
+- How much does your business depend on customer identity and loyalty data? (At risk from EAL delegation)
 - Can customers substitute you easily, or do you have unique differentiation? (Substitutable = vulnerable to agent-driven comparison)
 
 #### 3. Information complexity and transparency
@@ -833,7 +833,7 @@ For each exposure level, consider these approaches:
 **If highly exposed:**
 
 - **Embrace:** Fix agent-hostile patterns urgently - they're costing you conversions
-- **Protect identity:** Implement identity delegation patterns to preserve customer relationships
+- **Protect identity:** Implement EAL delegation patterns to preserve customer relationships
 - **Differentiate:** Build unique value that agents can't easily replicate
 - **Monitor:** Track agent traffic separately and measure impact
 
@@ -978,7 +978,7 @@ If you're an enterprise (£10M+ annual revenue) with significant agent exposure:
 - **Build protocol abstraction layers** so you can add/remove protocols without rewriting checkout logic.
 - **Include agent testing in QA processes** - test checkout flows with agent simulation tools, not just human users.
 - **Track agent traffic separately** in analytics to measure protocol-specific conversion rates and ROI.
-- **Implement identity delegation patterns** (see Chapter 6) to preserve customer relationships in agent-mediated transactions.
+- **Implement EAL delegation patterns** (see Chapter 6) to preserve customer relationships in agent-mediated transactions.
 - **Consider protocol convergence timelines** when planning architecture - over-engineering for permanent dual-protocol support may prove unnecessary if ACP/UCP merge within 6-12 months.
 
 **Timeline:** Q1 2026 for high-exposure enterprises. Competitive pressure and agent traffic volume justify immediate investment.
@@ -1034,7 +1034,7 @@ You're well-positioned. Agent traffic may increase your conversion rates. Focus 
 - Providing precise, structured product data
 - Ensuring price transparency (you'll lose comparison battles anyway)
 - Building agent-specific testing into your QA process
-- Implementing identity delegation to preserve customer relationships
+- Implementing EAL delegation to preserve customer relationships
 
 **If your revenue comes from subscriptions or services:**
 
@@ -1062,7 +1062,7 @@ But transitions always are.
 
 The businesses that thrive will be those that understand their specific economics, identify where agent efficiency helps versus hurts, and design experiences that serve both audiences appropriately.
 
-The identity delegation problem - agents severing customer relationships - is solvable. The Agentic Commerce Protocol (ACP), announced by OpenAI and Stripe in September 2024, provides the first open standard for agent-mediated commerce whilst preserving customer identity. Adoption is still early, but ACP demonstrates that portable delegation is technically feasible. Businesses concerned about losing customer relationships should evaluate ACP adoption alongside proprietary platform solutions. See Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis.
+The EAL delegation problem - agents severing customer relationships - is solvable. The Agentic Commerce Protocol (ACP), announced by OpenAI and Stripe in September 2024, provides the first open standard for agent-mediated commerce whilst preserving customer identity. Adoption is still early, but ACP demonstrates that portable delegation is technically feasible. Businesses concerned about losing customer relationships should evaluate ACP adoption alongside proprietary platform solutions. See Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis.
 
 The following chapters examine specific challenges: content creators facing an existential threat, security risks associated with agent access, legal frameworks still being defined, and the human cost of getting this wrong.
 
@@ -1197,7 +1197,7 @@ Before investing in AI agent optimization, assess the specific value dimensions 
 - Build formal API alongside web interface
 - Implement comprehensive structured data
 - Add delegation token system for purchases
-- Develop identity layer integration
+- Develop Entity Asset Layer (EAL) integration
 
 ### Priority Implementation Decision Framework
 

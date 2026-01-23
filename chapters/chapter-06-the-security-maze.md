@@ -325,9 +325,9 @@ This model differs from session inheritance:
 - **Auditable.** The bank knows an agent is involved and can log it accordingly.
 - **Revocable.** The user can cancel access at any time.
 
-Identity delegation extends this pattern further. Instead of sharing credentials, agents carry tokens that prove they're authorised to act on behalf of a specific customer.
+EAL delegation extends this pattern further. Instead of sharing credentials, agents carry tokens that prove they're authorised to act on behalf of a specific customer.
 
-Chapter 4 discussed various emerging approaches: retailer-specific tokens, centralised identity repositories, blockchain attestations, and browser-native delegation. From a security perspective, whichever solution emerges must implement several critical features:
+Chapter 4 discussed various emerging approaches: retailer-specific tokens, centralised EAL repositories, blockchain attestations, and browser-native delegation. From a security perspective, whichever solution emerges must implement several critical features:
 
 **Cryptographic binding:**
 
@@ -552,7 +552,7 @@ Security in the age of AI agents faces two distinct challenges:
 
 **For in-browser agents:** We need visibility. Sites should be able to detect when AI is processing their content. Users should understand what their extensions can see. Banks should be able to apply different rules when AI is involved.
 
-Identity delegation addresses both. When you authorise an agent to act on your behalf, that authorisation should be explicit, scoped, time-limited, and auditable. The agent carries a verifiable token. Sites can detect agent involvement and apply appropriate rules without distinguishing between legitimate automation and malicious bots.
+EAL delegation addresses both. When you authorise an agent to act on your behalf, that authorisation should be explicit, scoped, time-limited, and auditable. The agent carries a verifiable token. Sites can detect agent involvement and apply appropriate rules without distinguishing between legitimate automation and malicious bots.
 
 Until we build this infrastructure:
 

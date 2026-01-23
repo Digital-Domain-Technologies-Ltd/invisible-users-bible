@@ -801,9 +801,9 @@ Most businesses should start with optimised HTML (it's cheaper and helps SEO) an
 
 **Critical note about existing APIs:** If you already expose an API—even a simple one—ensure it provides equivalent or superior access to your HTML interface. The most costly mistakes occur when teams optimise HTML for agents whilst leaving APIs degraded. Agents using your API will receive inferior data (incomplete pricing, paginated results, missing structured format) compared to agents scraping your improved HTML. This inconsistency creates unpredictable agent behaviour and undermines your optimisation work. See Appendix B (Lesson 13: "API and Web UI Out of Sync") for production failures where exactly this happened.
 
-## Identity Delegation Patterns
+## EAL Delegation Patterns
 
-Chapter 4 described how agents sever customer relationships. When designing agent-friendly interfaces, you'll need to consider identity delegation.
+Chapter 4 described how agents sever customer relationships. When designing agent-friendly interfaces, you'll need to consider EAL delegation.
 
 ### Pattern
 
@@ -1284,7 +1284,7 @@ Systematic platform improvements for long-term benefits.
 **Effort Level:** Multi-person project requiring planning, architectural decisions, and cross-functional collaboration. Involves changes to core application structure, integration with external systems, and potentially business model adjustments. Requires thorough testing, staged rollout, and ongoing monitoring. Budget for technical debt reduction and refactoring. Expect dependencies on legal, product, and business stakeholders.
 
 - **Redesign SPA architecture for URL-based state** - Ensure JavaScript state changes update URLs appropriately
-- **Implement identity delegation patterns** - Allow agents to act on behalf of users whilst preserving customer relationships
+- **Implement EAL delegation patterns** - Allow agents to act on behalf of users whilst preserving customer relationships
 - **Develop agent-specific access policies** - Create clear terms of service that address automated access
 - **Create comprehensive agent testing suite** - Build automated tests that simulate agent interactions
 - **Review business model for agent-mediated commerce** - Assess how agent traffic affects revenue and adjust accordingly

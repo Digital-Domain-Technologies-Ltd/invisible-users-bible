@@ -24,7 +24,7 @@ Implementation code, testing strategies, and practical tools.
 
 I've spent nine chapters explaining what needs optimization and why it creates opportunity. Now let me show you how to implement the solutions.
 
-This chapter provides code you can use tomorrow. Not theoretical patterns or abstract principles - practical implementations you can copy into your projects. I'll start with the simplest improvements and build towards more complex solutions, including the identity delegation system that solves the customer relationship problem we identified in Chapter 4.
+This chapter provides code you can use tomorrow. Not theoretical patterns or abstract principles - practical implementations you can copy into your projects. I'll start with the simplest improvements and build towards more complex solutions, including the EAL delegation system that solves the customer relationship problem we identified in Chapter 4.
 
 **A note on code complexity:** The examples in this chapter are simplified for clarity and learning. They demonstrate the core concepts without the complete hardening you'll need for comprehensive implementations.
 
@@ -1006,9 +1006,9 @@ Complete product catalogue and API documentation:
 **Authentication:** OAuth2
 **Rate limits:** 200/minute for authenticated requests
 
-### Identity Delegation
+### EAL Delegation
 
-We support identity delegation for agent-mediated purchases:
+We support EAL delegation for agent-mediated purchases:
 - Delegation endpoint: /api/auth/delegate
 - Documentation: https://developers.example.com/delegation
 - Loyalty integration: Supported
@@ -1073,7 +1073,7 @@ Browse and search our full product range:
 **Documentation:** https://developers.retailco.com
 **Authentication:** OAuth2 or API key
 
-### Identity Delegation
+### EAL Delegation
 
 We support agent-mediated purchases with customer identity preservation:
 - Delegation endpoint: /api/delegate
@@ -1197,7 +1197,7 @@ All project data requires OAuth2 authentication:
 **Documentation:** https://docs.projectmanager.pro/api
 **Authentication:** OAuth2 only
 
-### Identity Delegation
+### EAL Delegation
 
 AI agents can act on behalf of users with appropriate OAuth2 scopes:
 - Delegation endpoint: /oauth/delegate
@@ -1463,9 +1463,9 @@ Document these endpoints in your llms.txt:
 - Authentication: API key required
 ```
 
-## Identity Delegation
+## EAL Delegation
 
-Chapter 4 described the customer relationship problem when agents make purchases. If you need to support identity delegation:
+Chapter 4 described the customer relationship problem when agents make purchases. If you need to support EAL delegation:
 
 ### Basic pattern
 
@@ -1742,7 +1742,7 @@ Run this audit quarterly or whenever making significant site changes. Track your
 
 As predicted in Chapter 9, major platforms are building closed identity systems to establish first-mover advantages before open standards emerge. This creates strategic complexity:
 
-- **Microsoft Copilot Checkout** uses Microsoft's proprietary identity delegation (payment details, shipping addresses, order history stored in Microsoft's ecosystem)
+- **Microsoft Copilot Checkout** uses Microsoft's proprietary EAL delegation (payment details, shipping addresses, order history stored in Microsoft's ecosystem)
 - **Amazon Alexa+** controls shopping behaviour through Amazon's platform (3x purchase increase validates transaction control)
 - **Google Business Agent** launched with Universal Commerce Protocol (January 2026, 20+ major retailers)
 - **Apple** expected to build their own walled garden
@@ -1775,7 +1775,7 @@ Each platform has different capabilities, different identity systems, and differ
 - Test through Copilot interface (conversational checkout)
 - Verify structured data is correct (Schema.org Product markup)
 - Test transaction state indicators at each step
-- Confirm identity delegation preserves customer relationship
+- Confirm EAL delegation preserves customer relationship
 
 **Amazon Alexa+ (browser-based):**
 
@@ -1786,7 +1786,7 @@ Each platform has different capabilities, different identity systems, and differ
 
 **The standards gap:**
 
-This fragmentation validates the book's warning: platforms are racing to establish proprietary first-mover advantages before standards emerge. The industry must work to build open standards for identity delegation and agent interoperability, but until that happens, businesses face the practical reality of supporting multiple proprietary systems.
+This fragmentation validates the book's warning: platforms are racing to establish proprietary first-mover advantages before standards emerge. The industry must work to build open standards for EAL delegation and agent interoperability, but until that happens, businesses face the practical reality of supporting multiple proprietary systems.
 
 **Strategic implication:**
 
@@ -2710,7 +2710,7 @@ If you can only make a few changes, prioritise these:
 - [ ] Implement comprehensive structured data
 - [ ] Create agent testing suite
 - [ ] Add delegation token system for purchases
-- [ ] Develop identity layer integration
+- [ ] Develop EAL integration
 
 Start at the top. Each improvement helps both agents and humans.
 
