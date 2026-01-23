@@ -464,6 +464,62 @@ Only one tab's content exists at a time. Agents miss everything not currently di
 
 The served HTML contains all content. The anchors work without JavaScript - clicking jumps to the relevant section. JavaScript adds the tab interface without removing content from the DOM. Agents parsing the page see everything. Visual users get the organised tab interface.
 
+### Explicit State for Hidden Content
+
+When content is hidden by CSS or collapsed by JavaScript, the served HTML should explicitly declare what's initially hidden. This makes the initial state visible to AI agents - whether they're parsing served HTML directly or executing CSS to understand what will be displayed.
+
+The problem occurs when agents encounter `<details>` elements without knowing if they're collapsed, see elements with `.collapsed` classes without knowing if this is initial state or will be set later, or encounter missing content without knowing if it's intentionally hidden or a parsing failure. Agents that execute CSS need explicit signals about what starts hidden versus what becomes hidden through user interaction.
+
+Use `data-state` attributes to declare initial visibility state explicitly in served HTML:
+
+```html
+<!-- Explicit state: TOC starts collapsed -->
+<details id="index" class="table-of-contents" data-state="initially-collapsed">
+  <summary>Index</summary>
+  <nav aria-label="Table of contents">
+    <ul>
+      <li><a href="#section-1">Section 1</a></li>
+    </ul>
+  </nav>
+</details>
+```
+
+For accordions where all sections start expanded but JavaScript will collapse them:
+
+```html
+<!-- All sections start expanded, JavaScript will collapse -->
+<section class="accordion-item" data-state="initially-expanded">
+  <h3><button aria-expanded="true">Specifications</button></h3>
+  <div class="accordion-content">
+    <p>Technical specifications content here...</p>
+  </div>
+</section>
+
+<script>
+  // JavaScript collapses after page load
+  // Agents saw content in served HTML
+  enhanceAccordion('.accordion-item');
+</script>
+```
+
+For modal dialogs that start closed and open through user interaction:
+
+```html
+<!-- Modal starts closed, opened by user interaction -->
+<dialog id="confirm-dialog" data-state="initially-closed">
+  <h2>Confirm Action</h2>
+  <p>Are you sure you want to proceed?</p>
+  <button type="button">Cancel</button>
+  <button type="submit">Confirm</button>
+</dialog>
+```
+
+For CLI agents, this matters because they see only served HTML. Without explicit state, they cannot distinguish between "content that will be hidden by JavaScript" and "content that should be visible." They parse the raw HTML without executing CSS or JavaScript, so any hiding that occurs through stylesheets or scripts is invisible to them unless explicitly declared through attributes.
+
+For agents that execute CSS and JavaScript, the initial state still matters. Even though they can execute stylesheets to understand visibility, explicit state attributes prevent ambiguity during the brief window before JavaScript executes. The attributes also help with citation - when an agent needs to reference specific content, knowing whether it starts visible or hidden provides context for how users will encounter that information.
+
+The pattern works like this: start with all content visible in served HTML, add `data-state="initially-[collapsed|hidden|closed]"` to elements that will be hidden, then apply CSS hiding or JavaScript toggling as enhancement. CLI agents parse complete content with explicit state signals. CSS-executing agents understand what starts hidden versus what becomes hidden through interaction. Browser agents see the full enhancement whilst maintaining access to the underlying state declaration.
+
 ### Animation Control
 
 When animation must exist, provide controls. Users with motion sensitivity, attention difficulties, or processing delays need them. Agents benefit from the same controls - they signal when content is stable for analysis.
