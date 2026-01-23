@@ -270,6 +270,40 @@ For agent platforms: Same principle. Your platform is subject to the laws of eve
 
 For users: Don't assume your local laws protect you when transacting through agents on foreign platforms that access foreign sites. The enforcement mechanisms might not exist.
 
+## Data Ingestion in Restricted Jurisdictions
+
+The cross-border complexity becomes more profound when we consider where AI agents acquired their knowledge in the first place.
+
+If an LLM ingested training data from a restricted jurisdiction—content from China, Russia, or data subject to GDPR "right to be forgotten" requests in the EU—can that information be used when the LLM operates in an unrestricted jurisdiction?
+
+**The jurisdictional question:**
+
+Training data doesn't stay where it was collected. When an LLM trains on content from websites in China, documents subject to EU privacy law, or material from jurisdictions with content restrictions, that information becomes part of the model's weights. The model then operates globally.
+
+GDPR grants EU citizens the "right to be forgotten"—the right to have their personal data erased. Does this extend to training data already incorporated into an LLM? If a German citizen requests erasure of their blog posts under GDPR, and those posts were used to train an LLM, must the model be retrained without that data?
+
+China restricts certain topics and content domestically. Russia prohibits specific information. If an LLM trained on publicly available content from these jurisdictions, then operates in the US or UK, does it inherit jurisdictional restrictions from its training data? Or does the LLM's operational jurisdiction determine what it can discuss?
+
+**The practical reality:**
+
+No clear legal framework exists. Courts haven't ruled on whether LLM training constitutes "data processing" under GDPR. No precedent establishes whether training data origins impose jurisdictional constraints on deployed models.
+
+Different AI providers take different approaches. Some attempt to filter training data by jurisdiction. Others argue that once data is publicly available, training on it falls under fair use or similar doctrines. Most simply haven't addressed the question publicly.
+
+The technical challenge is substantial. Can you "untrain" an LLM on specific data? Current research suggests removing specific information from trained models without full retraining is extremely difficult. Even if possible, how do you verify the information has been removed when it's distributed across millions of model parameters?
+
+**What this means:**
+
+For content creators: When you publish content online, it may be ingested by LLMs operating under different jurisdictional frameworks than yours. Your ability to control how that content is used depends not just on copyright law, but on where the LLM was trained, where it operates, and which jurisdiction's courts might have authority. If publishing from or about jurisdictions with content restrictions (EU GDPR, China, Russia), consider marking your content with the proposed `ai-jurisdiction-restriction` meta tag (see Appendix L) to signal potential legal constraints to agents. Of course, you could use robots.txt directives or the `noindex` meta tag to prevent AI ingestion entirely, but this is an all-or-nothing approach—your content becomes excluded from all search engines, all AI agents, and all automated discovery mechanisms. The proposed `ai-jurisdiction-restriction` meta tag offers a more nuanced solution: allowing AI agents to access and index your content whilst signaling jurisdictional constraints that might affect how they use it.[^data-sovereignty]
+
+For AI platform providers: You're navigating uncharted legal territory. Training on public web data from multiple jurisdictions creates exposure you can't fully assess. The safest approach is to document your data sources, implement data governance practices, and build systems that could support data removal if legally required—even though the technical capability doesn't fully exist yet. Consider using proposed disclosure mechanisms like the `ai-jurisdiction-restriction` meta tag (see Appendix L) to signal when content originates from jurisdictions with legal constraints, allowing agents to make informed decisions about information use.
+
+For users: The AI agent answering your question may have learned from data that's now subject to legal restrictions. This creates uncertainty about whether the information is reliable, current, or legally permissible in your jurisdiction. When agents cite sources, verify them independently if the information matters.
+
+The legal frameworks are catching up to the technical reality. Expect regulation specifically addressing AI training data jurisdiction in the next 2-3 years. Until then, the uncertainty persists.
+
+[^data-sovereignty]: For a deeper exploration of how data sovereignty intersects with machine-readable content, see "Data Sovereignty and the Web We're Building": <https://allabout.network/blogs/mx/data-sovereignty.html>
+
 ---
 
 ## Risk Categorization Framework
