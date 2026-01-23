@@ -26,6 +26,8 @@ Throughout writing, I updated chapters to reflect events overtaking predictions.
 
 For the latest developments, see <https://allabout.network/invisible-users/news.html> where I track industry events as they unfold.
 
+**This book introduces Machine Experience (MX)** as the comprehensive solution. MX is the practice of adding metadata and instructions to internet assets so AI agents don't have to think. When agents must infer meaning from incomplete context, they hallucinate—generating confident but incorrect answers. MX ensures all context is explicitly present through semantic HTML, Schema.org structured data, and clear state management. The convergence happens automatically: patterns optimizing for machine readers also benefit accessibility users, search engines, and humans in non-ideal conditions.
+
 This book grew from that realisation. It's not a book about AI, HTML, or coding. It's a book for business first, whilst catering for the technical teams who deliver it. AI agents are the focus, but the subject is broader: how do we build digital spaces that work for users we didn't anticipate?
 
 **The irony continued whilst writing this book.** When building the book's own website to demonstrate AI-friendly patterns, I initially used `opacity: 0.9` on header text for visual subtlety. AI agents and screen readers read it perfectly—they parse HTML structure directly and ignore CSS styling. But the low contrast failed WCAG accessibility standards for sighted humans. I'd built an AI-friendly interface that excluded people with low vision, exactly the pattern the book warns against.
@@ -38,7 +40,7 @@ This example now appears in Chapter 8 and Appendix D as a teaching case. It's th
 
 ## What This Book Is
 
-This is a practical guide and a thinking framework. Unlike technical manuals that date quickly, *MX-Bible* provides a logic framework. It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic. It aims to turn the perceived threat of AI agents into a "resilience dividend" for universal accessibility.
+This is a practical guide and a thinking framework. Unlike technical manuals that date quickly, *MX-Bible* provides a logic framework. It teaches readers how to think about "Two-Headed Design"—balancing human emotion with machine logic through Machine Experience patterns. It aims to turn the perceived threat of AI agents into a "resilience dividend" for universal accessibility.
 
 **This book establishes the infrastructure standards for the agentic web.** It moves beyond simple "how-to" instructions to provide the foundational resilience for the 2026 web.
 

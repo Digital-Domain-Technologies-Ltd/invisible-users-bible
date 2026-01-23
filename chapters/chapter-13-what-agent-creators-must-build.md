@@ -74,6 +74,8 @@ This is the category we haven't addressed yet. Website owners cannot fix it. Mod
 
 A hospital triage system that accepts blood pressure readings without range validation would be negligent. If someone enters 1200/800, the system should reject it immediately - not pass it to the doctor for diagnosis. The same principle applies to agents: validate data at extraction, not at decision-making.
 
+**The MX Foundation:** Chapters 9 and 10 describe Machine Experience (MX)—the practice website creators use to add metadata and semantic structure so agents don't have to guess. MX provides the foundation: semantic HTML, Schema.org structured data, explicit state attributes. This chapter addresses what agent creators must build on top of that foundation. Even perfect MX implementation cannot prevent pipeline failures if agents lack validation layers. Website creators provide clear structure. Agent creators must validate that structure before acting on it.
+
 ## Anatomy of the £203,000 Error
 
 Let me show you a real pipeline failure in detail. This isn't theoretical. This happened.
@@ -1353,9 +1355,9 @@ The key insight: start with basic validation immediately. Don't deploy agents wi
 
 ## Conclusion
 
-Chapters 9 and 10 showed website builders what to build. This chapter shows agent creators what to build. Both sides need to improve.
+Chapters 9 and 10 showed website builders what Machine Experience (MX) patterns to implement—semantic HTML, Schema.org structured data, explicit state management, and persistent feedback. This chapter shows agent creators what validation layers to build on top of that foundation. Both sides need to improve.
 
-Websites need to provide clear, semantic HTML with explicit state and persistent feedback. Agents need to validate data extraction, score confidence, and refuse to act when certainty is low.
+Websites implementing MX provide the semantic structure and metadata. Agents need to validate that structure through range checking, multi-source verification, confidence scoring, and graceful degradation when certainty is low.
 
 The £203,000 pricing error occurred because neither side had sufficient safeguards. The website showed ambiguous pricing information. The agent lacked validation layers. Both failures combined to produce the error that a human eventually caught.
 
