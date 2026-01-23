@@ -63,10 +63,10 @@ Each appendix page includes:
 
 ## Access Information
 
-**Last updated:** January 2026
-**Author:** Tom Cranstoun
-**LinkedIn:** <https://www.linkedin.com/in/tom-cranstoun/>
-**Contact:** <tom.cranstoun@gmail.com>
+**Last updated:** January 2026\
+**Author:** Tom Cranstoun\
+**LinkedIn:** <https://www.linkedin.com/in/tom-cranstoun/>\
+**Contact:** <tom.cranstoun@gmail.com>\
 **Website:** <https://allabout.network>
 
 ### Copyright and Usage
