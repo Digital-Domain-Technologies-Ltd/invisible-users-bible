@@ -304,6 +304,8 @@ Once a crawler or agent reaches a specific page, metadata explains what that pag
 </script>
 ```
 
+This example demonstrates strategic redundancy (Chapter 0): the same information appears in both OpenGraph meta tags and Schema.org JSON-LD because you cannot detect which format a visiting agent can parse. Simple crawlers read meta tags. Structured data parsers extract JSON-LD. By providing both, you ensure universal compatibility regardless of agent capabilities.
+
 ### Schema.org Type Prioritization
 
 Schema.org defines hundreds of types and properties. Implementing all of them would be impossible and wasteful. Real-world client work reveals that six Schema.org types cover approximately 90% of use cases:
@@ -776,6 +778,8 @@ The patterns above work when implemented correctly. Here are the mistakes that p
 **Why it fails:** Search engines require certain fields for rich results. Agents need complete information for accurate citations. Missing required fields means your markup doesn't validate and won't be used.
 
 **The fix:** Use Google's Rich Results Test and Schema.org validator to identify missing required fields. Prioritise completing required fields over adding optional ones. A complete, simple implementation beats an incomplete complex one.
+
+Beyond Schema.org completeness, apply strategic redundancy (Chapter 0): pricing should appear in visible text, Schema.org Offer markup, and HTML data attributes. Different agents parse different formats, and you cannot detect their capabilities. Complete information in multiple formats ensures all agents can extract accurate pricing regardless of their parsing sophistication.
 
 ### Missing Content Type Disambiguation
 

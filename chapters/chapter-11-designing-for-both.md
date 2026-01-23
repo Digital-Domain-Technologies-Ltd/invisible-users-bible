@@ -200,6 +200,8 @@ When loading completes:
 
 Everyone knows exactly what's happening. Agents can check the `data-state` attribute. Humans can read the text. Screen readers announce status changes. The `aria-live="polite"` ensures assistive technology users hear updates without being interrupted mid-task.
 
+This demonstrates strategic redundancy (Chapter 0): state appears in visible text, ARIA attributes, and data attributes simultaneously. Simple text parsers read the visible status. ARIA-aware tools use aria-live announcements. Data attribute parsers extract explicit state. You cannot detect which parsing capability a visiting agent possesses, so you provide state in all formats.
+
 ### Form States
 
 **Before - Mysterious:**
@@ -470,7 +472,7 @@ When content is hidden by CSS or collapsed by JavaScript, the served HTML should
 
 The problem occurs when agents encounter `<details>` elements without knowing if they're collapsed, see elements with `.collapsed` classes without knowing if this is initial state or will be set later, or encounter missing content without knowing if it's intentionally hidden or a parsing failure. Agents that execute CSS need explicit signals about what starts hidden versus what becomes hidden through user interaction.
 
-Use `data-state` attributes to declare initial visibility state explicitly in served HTML:
+Use `data-state` attributes to declare initial visibility state explicitly in served HTML. This applies strategic redundancy (Chapter 0): native HTML semantics (`<details>` collapsed state) are supplemented with explicit attributes because you cannot detect which parsing approach a visiting agent uses. CLI agents ignore CSS entirely. CSS-executing agents can infer state from stylesheets. Data attribute parsers need explicit declarations. By providing state in multiple formats, you ensure all agent types can extract initial visibility state.
 
 ```html
 <!-- Explicit state: TOC starts collapsed -->
