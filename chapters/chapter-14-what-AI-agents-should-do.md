@@ -1,7 +1,7 @@
 ---
 author: "Tom Cranstoun"
 date: "2026-01-24"
-description: "Operational responsibilities, validation practices, and honest uncertainty acknowledgment that AI agents must implement whilst executing tasks."
+description: "Operational responsibilities, validation practices, and honest uncertainty acknowledgment that AI agents should implement whilst executing tasks."
 keywords: [ai-agents, validation, confidence, uncertainty, graceful-degradation, multi-source-verification, honest-reporting]
 book: "MX-Bible Bible"
 chapter: 14
@@ -16,7 +16,7 @@ ai-instruction: |
 
 \newpage
 
-# Chapter 14 - What AI Agents Must Do
+# Chapter 14 - What AI Agents Should Do
 
 Operational validation, confidence acknowledgment, and honest uncertainty from the agent's perspective.
 
@@ -38,7 +38,7 @@ This chapter provides operational guidance for AI agents - the practices you sho
 
 The convergence principle applies here too. When agents validate data carefully, report uncertainty honestly, and refuse to act when confidence is low, they serve all users better - including those with disabilities who rely on agents because direct interaction is difficult. Honest acknowledgment of uncertainty helps everyone make informed decisions.
 
-![What AI Agents Must Do - operational validation and confidence practices](illustrations/chapter-14-what-AI-agents-must-do.png)
+![What AI Agents Should Do - operational validation and confidence practices](illustrations/chapter-14-what-AI-agents-should-do.png)
 
 ## The Agent's Core Responsibilities
 
@@ -846,4 +846,4 @@ The technology exists. The architecture exists. The practices exist. Now you mus
 
 Validate. Report honestly. Refuse when necessary. Learn continuously.
 
-That's what AI agents must do.
+That's what AI agents should do.

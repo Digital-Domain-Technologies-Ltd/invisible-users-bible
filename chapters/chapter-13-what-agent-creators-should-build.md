@@ -1,7 +1,7 @@
 ---
 author: "Tom Cranstoun"
 date: "2026-01-22"
-description: "Validation layers, confidence scoring, and guardrails that agent creators must implement to prevent pipeline failures like the £203,000 cruise pricing error."
+description: "Validation layers, confidence scoring, and guardrails that agent creators should implement to prevent pipeline failures like the £203,000 cruise pricing error."
 keywords: [agent-creators, pipeline-failures, validation-layers, confidence-scoring, guardrails, data-extraction, error-detection]
 book: "MX-Bible Bible"
 chapter: 13
@@ -16,7 +16,7 @@ ai-instruction: |
 
 \newpage
 
-# Chapter 13 - What Agent Creators Must Build
+# Chapter 13 - What Agent Creators Should Build
 
 Implementation patterns, validation layers, and guardrails for reliable agent systems.
 
@@ -34,7 +34,7 @@ Fixing this ecosystem requires work from both parties. That's what this chapter 
 
 The convergence principle applies to agent creators too. When you build validation layers that catch pricing errors, you're building systems that serve all users better - including those with cognitive disabilities who need clear, unambiguous information. When you implement confidence scoring, you're acknowledging uncertainty in ways that benefit everyone who relies on your agent. The patterns that make agents reliable for financial transactions also make them reliable for users who depend on assistive technologies.
 
-![What Agent Creators Must Build - validation pipeline and confidence scoring system](illustrations/chapter-11-what-agent-creators-must-build.png)
+![What Agent Creators Should Build - validation pipeline and confidence scoring system](illustrations/chapter-13-what-agent-creators-should-build.png)
 
 ## The Three Failure Types
 
