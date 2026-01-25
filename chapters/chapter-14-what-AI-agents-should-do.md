@@ -776,6 +776,7 @@ When validation checks fail, tell users which checks failed and what that means.
 **Example:**
 
 > "Price extraction failed multiple validation checks:
+>
 > - Range validation: £203,000 exceeds luxury maximum (£15,000) by 13x
 > - Structured data: Conflicts with HTML (shows £2,030 vs £203,000)
 > - Comparative analysis: 100x higher than competitor average
