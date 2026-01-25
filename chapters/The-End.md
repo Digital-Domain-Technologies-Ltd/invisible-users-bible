@@ -2,7 +2,7 @@
 
 # The End
 
-This book examines how modern web design optimised for human users fails for AI agents, and how fixing this benefits everyone. The field of AI agent compatibility is moving rapidly, with new developments emerging regularly.
+This book examined how modern web design optimised for human users failed for AI agents, and how fixing this benefits everyone. The field of AI agent compatibility is moving rapidly, with new developments emerging regularly.
 
 ## Additional Resources Available Online
 
@@ -87,9 +87,18 @@ A production-ready implementation tool is available from Tom Cranstoun, at Digit
 
 The Web Audit Suite implements the patterns described in this book, providing comprehensive website analysis for AI agent compatibility, SEO, accessibility, performance, and security.
 
+## **Epilogue — The Story Continues**
+
+The Machine Experience does not end here. MX was never meant to be a finished doctrine, but a living practice shaped by everyone who steps into it. The future of this discipline will be written by the community — by the MX‑Gathering, by the builders, by the thinkers, and by the machines who join us as peers.
+
+What comes next will be defined by metadata and patterns: the shared grammar that lets humans and machines understand each other, collaborate, and create. We are moving toward a world where prompts, rules, and behaviours form a natural‑language programming language — one readable by people, interpretable by agents, and executable across ecosystems.
+
+Follow the flow. Extend the patterns. Add your voice.
+MX is not a book; it is a beginning. The next chapters belong to all of us.
+
 ---
 
 Thank you for reading. I hope this book helps you design better experiences for both humans and AI agents.
 
 **Tom Cranstoun**
-January 2026
+April 2026
