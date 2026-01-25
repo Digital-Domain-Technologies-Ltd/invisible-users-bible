@@ -1,0 +1,87 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 22px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .section-title { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .code-text { font-family: 'Courier New', monospace; font-size: 11px; }
+      .label { font-family: system-ui, sans-serif; font-size: 12px; fill: #374151; }
+      .note { font-family: system-ui, sans-serif; font-size: 10px; fill: #6b7280; font-style: italic; }
+      .good-color { fill: #059669; }
+      .poor-color { fill: #dc2626; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Heading Hierarchy: Visual vs Semantic</text>
+
+  <!-- Dividing line -->
+  <line x1="400" y1="55" x2="400" y2="480" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Left side: Visual Hierarchy (Misleading) -->
+  <rect x="20" y="55" width="360" height="420" fill="#fef2f2" stroke="#fecaca" stroke-width="2" rx="8"/>
+
+  <text x="200" y="85" text-anchor="middle" class="section-title poor-color">Visual Hierarchy (Misleading)</text>
+  <text x="200" y="105" text-anchor="middle" class="label">What humans see</text>
+
+  <!-- Visual rendering -->
+  <rect x="40" y="125" width="320" height="200" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="4"/>
+
+  <!-- Large styled H3 -->
+  <text x="50" y="155" font-family="system-ui, sans-serif" font-size="28px" font-weight="bold" fill="#1a1a1a">Most Important Section</text>
+  <text x="50" y="175" class="note">(H3 styled with font-size: 28px)</text>
+
+  <!-- Small styled H1 -->
+  <text x="50" y="210" font-family="system-ui, sans-serif" font-size="12px" font-weight="normal" fill="#6b7280">Page Title</text>
+  <text x="50" y="225" class="note">(H1 styled with font-size: 12px, color: grey)</text>
+
+  <!-- Medium styled H2 -->
+  <text x="50" y="260" font-family="system-ui, sans-serif" font-size="20px" font-weight="bold" fill="#1a1a1a">Secondary Section</text>
+  <text x="50" y="280" class="note">(H2 styled with font-size: 20px)</text>
+
+  <!-- HTML structure -->
+  <rect x="40" y="340" width="320" height="120" fill="#fde8e8" stroke="#dc2626" stroke-width="1" rx="4"/>
+  <text x="50" y="360" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#dc2626">Actual HTML (What agents parse):</text>
+
+  <text x="50" y="380" class="code-text">&lt;h3 style="font-size:28px"&gt;</text>
+  <text x="50" y="395" class="code-text">  Most Important Section</text>
+  <text x="50" y="410" class="code-text">&lt;h1 style="font-size:12px"&gt;Page Title</text>
+  <text x="50" y="425" class="code-text">&lt;h2 style="font-size:20px"&gt;</text>
+  <text x="50" y="440" class="code-text">  Secondary Section</text>
+
+  <!-- Right side: Semantic Hierarchy (Correct) -->
+  <rect x="420" y="55" width="360" height="420" fill="#ecfdf5" stroke="#86efac" stroke-width="2" rx="8"/>
+
+  <text x="600" y="85" text-anchor="middle" class="section-title good-color">Semantic Hierarchy (Correct)</text>
+  <text x="600" y="105" text-anchor="middle" class="label">What agents understand</text>
+
+  <!-- Visual rendering -->
+  <rect x="440" y="125" width="320" height="200" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="4"/>
+
+  <!-- Properly styled H1 -->
+  <text x="450" y="155" font-family="system-ui, sans-serif" font-size="24px" font-weight="bold" fill="#1a1a1a">Page Title</text>
+  <text x="450" y="175" class="note">(H1 - semantically most important)</text>
+
+  <!-- Properly styled H2 -->
+  <text x="450" y="210" font-family="system-ui, sans-serif" font-size="20px" font-weight="bold" fill="#1a1a1a">Most Important Section</text>
+  <text x="450" y="230" class="note">(H2 - major section)</text>
+
+  <!-- Properly styled H3 -->
+  <text x="450" y="265" font-family="system-ui, sans-serif" font-size="16px" font-weight="bold" fill="#1a1a1a">Secondary Section</text>
+  <text x="450" y="285" class="note">(H3 - subsection)</text>
+
+  <!-- HTML structure -->
+  <rect x="440" y="340" width="320" height="120" fill="#f0f9f4" stroke="#059669" stroke-width="1" rx="4"/>
+  <text x="450" y="360" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#059669">Correct HTML (Semantic structure):</text>
+
+  <text x="450" y="380" class="code-text">&lt;h1&gt;Page Title&lt;/h1&gt;</text>
+  <text x="450" y="395" class="code-text">&lt;h2&gt;Most Important Section&lt;/h2&gt;</text>
+  <text x="450" y="410" class="code-text">&lt;h3&gt;Secondary Section&lt;/h3&gt;</text>
+  <text x="450" y="430" class="note">Visual styling applied via CSS, not inline</text>
+
+  <!-- Bottom note -->
+  <text x="400" y="490" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11px" fill="#6b7280" font-style="italic">Agents trust semantic structure (H1→H2→H3), not visual appearance</text>
+</svg>

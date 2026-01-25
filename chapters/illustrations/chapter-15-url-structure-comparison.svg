@@ -1,0 +1,87 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 22px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .section-title { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .url-text { font-family: 'Courier New', monospace; font-size: 12px; }
+      .label { font-family: system-ui, sans-serif; font-size: 13px; fill: #374151; }
+      .benefit { font-family: system-ui, sans-serif; font-size: 11px; fill: #4b5563; }
+      .good-color { fill: #059669; }
+      .poor-color { fill: #dc2626; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">URL Structure: Semantic vs Opaque</text>
+
+  <!-- Dividing line -->
+  <line x1="400" y1="55" x2="400" y2="480" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Left side: Semantic URLs (Good) -->
+  <rect x="20" y="55" width="360" height="420" fill="#ecfdf5" stroke="#86efac" stroke-width="2" rx="8"/>
+
+  <text x="200" y="85" text-anchor="middle" class="section-title good-color">Semantic URLs</text>
+  <text x="200" y="105" text-anchor="middle" class="label">Machine-readable hierarchy</text>
+
+  <!-- Example 1 -->
+  <rect x="40" y="125" width="320" height="65" fill="#ffffff" stroke="#059669" stroke-width="1" rx="4"/>
+  <text x="50" y="145" class="url-text good-color">/products/laptops/macbook-pro-2024/</text>
+  <text x="50" y="165" class="benefit">✓ Category path visible</text>
+  <text x="50" y="180" class="benefit">✓ Product identifiable</text>
+
+  <!-- Example 2 -->
+  <rect x="40" y="200" width="320" height="65" fill="#ffffff" stroke="#059669" stroke-width="1" rx="4"/>
+  <text x="50" y="220" class="url-text good-color">/docs/api/authentication/</text>
+  <text x="50" y="240" class="benefit">✓ Section hierarchy clear</text>
+  <text x="50" y="255" class="benefit">✓ Context from path</text>
+
+  <!-- Example 3 -->
+  <rect x="40" y="275" width="320" height="65" fill="#ffffff" stroke="#059669" stroke-width="1" rx="4"/>
+  <text x="50" y="295" class="url-text good-color">/blog/2026/01/machine-experience/</text>
+  <text x="50" y="315" class="benefit">✓ Date organised</text>
+  <text x="50" y="330" class="benefit">✓ Topic in slug</text>
+
+  <!-- Benefits box -->
+  <rect x="40" y="355" width="320" height="105" fill="#f0f9f4" stroke="#059669" stroke-width="1" rx="4"/>
+  <text x="50" y="375" font-family="system-ui, sans-serif" font-size="12px" font-weight="bold" fill="#059669">Benefits for Agents:</text>
+  <text x="50" y="395" class="benefit">• Extract category from path segments</text>
+  <text x="50" y="410" class="benefit">• Understand navigation hierarchy</text>
+  <text x="50" y="425" class="benefit">• Infer parent pages by removing segments</text>
+  <text x="50" y="440" class="benefit">• Build knowledge graphs from structure</text>
+
+  <!-- Right side: Opaque URLs (Poor) -->
+  <rect x="420" y="55" width="360" height="420" fill="#fef2f2" stroke="#fecaca" stroke-width="2" rx="8"/>
+
+  <text x="600" y="85" text-anchor="middle" class="section-title poor-color">Opaque URLs</text>
+  <text x="600" y="105" text-anchor="middle" class="label">Database identifiers only</text>
+
+  <!-- Example 1 -->
+  <rect x="440" y="125" width="320" height="65" fill="#ffffff" stroke="#dc2626" stroke-width="1" rx="4"/>
+  <text x="450" y="145" class="url-text poor-color">/?id=12847&cat=3</text>
+  <text x="450" y="165" class="benefit">✗ No hierarchy visible</text>
+  <text x="450" y="180" class="benefit">✗ Context lost</text>
+
+  <!-- Example 2 -->
+  <rect x="440" y="200" width="320" height="65" fill="#ffffff" stroke="#dc2626" stroke-width="1" rx="4"/>
+  <text x="450" y="220" class="url-text poor-color">/page.php?action=view&type=product</text>
+  <text x="450" y="240" class="benefit">✗ Generic filename</text>
+  <text x="450" y="255" class="benefit">✗ Query parameters opaque</text>
+
+  <!-- Example 3 -->
+  <rect x="440" y="275" width="320" height="65" fill="#ffffff" stroke="#dc2626" stroke-width="1" rx="4"/>
+  <text x="450" y="295" class="url-text poor-color">/ae34f9b2/</text>
+  <text x="450" y="315" class="benefit">✗ Random identifier</text>
+  <text x="450" y="330" class="benefit">✗ No semantic meaning</text>
+
+  <!-- Problems box -->
+  <rect x="440" y="355" width="320" height="105" fill="#fde8e8" stroke="#dc2626" stroke-width="1" rx="4"/>
+  <text x="450" y="375" font-family="system-ui, sans-serif" font-size="12px" font-weight="bold" fill="#dc2626">Problems for Agents:</text>
+  <text x="450" y="395" class="benefit">• Cannot infer content from URL</text>
+  <text x="450" y="410" class="benefit">• No navigation hierarchy visible</text>
+  <text x="450" y="425" class="benefit">• Cannot determine parent pages</text>
+  <text x="450" y="440" class="benefit">• Must parse content to understand context</text>
+</svg>

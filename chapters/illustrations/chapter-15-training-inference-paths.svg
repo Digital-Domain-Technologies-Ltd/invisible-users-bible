@@ -1,0 +1,135 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 24px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .section-title { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 700; }
+      .label { font-family: system-ui, sans-serif; font-size: 12px; fill: #374151; }
+      .box-label { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .path-label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+      .time-label { font-family: system-ui, sans-serif; font-size: 11px; fill: #6b7280; font-style: italic; }
+      .benefit-text { font-family: system-ui, sans-serif; font-size: 11px; fill: #166534; }
+    </style>
+    <marker id="arrow-training" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0891b2"/>
+    </marker>
+    <marker id="arrow-inference" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Two Mechanisms of Agent Website Access</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">Training-time ingestion vs inference-time interaction</text>
+
+  <!-- Dividing line -->
+  <line x1="450" y1="85" x2="450" y2="460" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Left side: Training-Time Path -->
+  <rect x="20" y="85" width="410" height="370" fill="#ecfdf5" stroke="#0891b2" stroke-width="2" rx="8"/>
+
+  <text x="225" y="115" text-anchor="middle" class="section-title" fill="#0891b2">Training-Time Ingestion</text>
+  <text x="225" y="135" text-anchor="middle" class="time-label">Historical (months/years before deployment)</text>
+
+  <!-- Website box -->
+  <rect x="160" y="160" width="130" height="50" fill="#ffffff" stroke="#0891b2" stroke-width="2" rx="6"/>
+  <text x="225" y="185" text-anchor="middle" class="box-label">Your Website</text>
+  <text x="225" y="200" text-anchor="middle" class="label">sitemap.xml</text>
+
+  <!-- Arrow to Common Crawl -->
+  <path d="M 225 210 L 225 240" stroke="#0891b2" stroke-width="3" fill="none" marker-end="url(#arrow-training)"/>
+  <text x="245" y="230" class="label" fill="#0891b2">Crawled</text>
+
+  <!-- Common Crawl box -->
+  <rect x="160" y="250" width="130" height="50" fill="#cffafe" stroke="#0891b2" stroke-width="2" rx="6"/>
+  <text x="225" y="270" text-anchor="middle" class="box-label">Common Crawl</text>
+  <text x="225" y="285" text-anchor="middle" class="label">Archive Dataset</text>
+
+  <!-- Arrow to Training -->
+  <path d="M 225 300 L 225 330" stroke="#0891b2" stroke-width="3" fill="none" marker-end="url(#arrow-training)"/>
+  <text x="245" y="320" class="label" fill="#0891b2">Ingested</text>
+
+  <!-- Model Training box -->
+  <rect x="160" y="340" width="130" height="50" fill="#a5f3fc" stroke="#0891b2" stroke-width="2" rx="6"/>
+  <text x="225" y="360" text-anchor="middle" class="box-label">Model Training</text>
+  <text x="225" y="375" text-anchor="middle" class="label">LLM learns</text>
+
+  <!-- Arrow to Knowledge Base -->
+  <path d="M 225 390 L 225 420" stroke="#0891b2" stroke-width="3" fill="none" marker-end="url(#arrow-training)"/>
+
+  <!-- Knowledge Base box -->
+  <rect x="160" y="395" width="130" height="45" fill="#67e8f9" stroke="#0891b2" stroke-width="2" rx="6"/>
+  <text x="225" y="415" text-anchor="middle" class="box-label">Knowledge Base</text>
+  <text x="225" y="430" text-anchor="middle" class="label">Static snapshot</text>
+
+  <!-- Characteristics box -->
+  <rect x="40" y="155" width="100" height="95" fill="#f0fdfa" stroke="#0891b2" stroke-width="1" rx="4"/>
+  <text x="50" y="173" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#0891b2">Characteristics:</text>
+  <text x="50" y="190" font-family="system-ui, sans-serif" font-size="10px" fill="#0f766e">• Indirect</text>
+  <text x="50" y="205" font-family="system-ui, sans-serif" font-size="10px" fill="#0f766e">• Historical</text>
+  <text x="50" y="220" font-family="system-ui, sans-serif" font-size="10px" fill="#0f766e">• Comprehensive</text>
+  <text x="50" y="235" font-family="system-ui, sans-serif" font-size="10px" fill="#0f766e">• robots.txt</text>
+  <text x="62" y="247" font-family="system-ui, sans-serif" font-size="9px" fill="#0f766e">respected</text>
+
+  <!-- Right side: Inference-Time Path -->
+  <rect x="470" y="85" width="410" height="370" fill="#ecfdf5" stroke="#059669" stroke-width="2" rx="8"/>
+
+  <text x="675" y="115" text-anchor="middle" class="section-title" fill="#059669">Inference-Time Interaction</text>
+  <text x="675" y="135" text-anchor="middle" class="time-label">Real-time (during user queries)</text>
+
+  <!-- User Query box -->
+  <rect x="610" y="160" width="130" height="50" fill="#d1fae5" stroke="#059669" stroke-width="2" rx="6"/>
+  <text x="675" y="180" text-anchor="middle" class="box-label">User Query</text>
+  <text x="675" y="195" text-anchor="middle" class="label">"What laptops..."</text>
+
+  <!-- Arrow to LLM Inference -->
+  <path d="M 675 210 L 675 240" stroke="#059669" stroke-width="3" fill="none" marker-end="url(#arrow-inference)"/>
+  <text x="695" y="230" class="label" fill="#059669">Triggers</text>
+
+  <!-- LLM Inference box -->
+  <rect x="610" y="250" width="130" height="50" fill="#a7f3d0" stroke="#059669" stroke-width="2" rx="6"/>
+  <text x="675" y="270" text-anchor="middle" class="box-label">LLM Inference</text>
+  <text x="675" y="285" text-anchor="middle" class="label">Processes query</text>
+
+  <!-- Arrow to Browser Automation -->
+  <path d="M 675 300 L 675 330" stroke="#059669" stroke-width="3" fill="none" marker-end="url(#arrow-inference)"/>
+  <text x="695" y="320" class="label" fill="#059669">Accesses</text>
+
+  <!-- Browser Automation box -->
+  <rect x="610" y="340" width="130" height="50" fill="#6ee7b7" stroke="#059669" stroke-width="2" rx="6"/>
+  <text x="675" y="360" text-anchor="middle" class="box-label">Browser Agent</text>
+  <text x="675" y="375" text-anchor="middle" class="label">Direct fetch</text>
+
+  <!-- Arrow to Website -->
+  <path d="M 675 390 L 675 420" stroke="#059669" stroke-width="3" fill="none" marker-end="url(#arrow-inference)"/>
+
+  <!-- Website box (live) -->
+  <rect x="610" y="395" width="130" height="45" fill="#34d399" stroke="#059669" stroke-width="2" rx="6"/>
+  <text x="675" y="415" text-anchor="middle" class="box-label">Your Website</text>
+  <text x="675" y="430" text-anchor="middle" class="label">Current state</text>
+
+  <!-- Characteristics box -->
+  <rect x="755" y="155" width="105" height="95" fill="#f0fdf4" stroke="#059669" stroke-width="1" rx="4"/>
+  <text x="765" y="173" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#059669">Characteristics:</text>
+  <text x="765" y="190" font-family="system-ui, sans-serif" font-size="10px" fill="#166534">• Direct</text>
+  <text x="765" y="205" font-family="system-ui, sans-serif" font-size="10px" fill="#166534">• Real-time</text>
+  <text x="765" y="220" font-family="system-ui, sans-serif" font-size="10px" fill="#166534">• Specific</text>
+  <text x="765" y="235" font-family="system-ui, sans-serif" font-size="10px" fill="#166534">• robots.txt may</text>
+  <text x="772" y="247" font-family="system-ui, sans-serif" font-size="9px" fill="#166534">not constrain</text>
+
+  <!-- Bottom: Three-Layer IA Framework -->
+  <rect x="50" y="480" width="800" height="100" fill="#f0f9f4" stroke="#059669" stroke-width="2" rx="8"/>
+
+  <text x="450" y="505" text-anchor="middle" class="path-label" fill="#059669">Three-Layer IA Framework Serves Both Mechanisms</text>
+
+  <text x="100" y="530" class="benefit-text">Layer 1 (Site): Sitemap enables crawling AND real-time discovery</text>
+  <text x="100" y="548" class="benefit-text">Layer 2 (Page): Semantic structure benefits training data AND live parsing</text>
+  <text x="100" y="566" class="benefit-text">Layer 3 (Content): llms.txt guides both historical ingestion AND inference access</text>
+
+  <!-- Connection arrows from framework to both paths -->
+  <path d="M 225 480 L 225 445" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  <path d="M 675 480 L 675 445" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+</svg>

@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 24px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .layer-label { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: #ffffff; }
+      .layer-desc { font-family: system-ui, sans-serif; font-size: 13px; fill: #ffffff; line-height: 1.4; }
+      .layer-examples { font-family: system-ui, sans-serif; font-size: 11px; fill: #ffffff; opacity: 0.9; }
+      .benefit-text { font-family: system-ui, sans-serif; font-size: 12px; fill: #1f2937; }
+      .layer-site { fill: #059669; }
+      .layer-page { fill: #0891b2; }
+      .layer-content { fill: #6366f1; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">The Three-Layer IA Framework</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">Site → Page → Content Architecture</text>
+
+  <!-- Layer 1: Site-Level (Top, widest) -->
+  <polygon points="150,120 750,120 650,230 250,230" class="layer-site"/>
+  <text x="450" y="150" text-anchor="middle" class="layer-label">Layer 1: Site-Level Architecture</text>
+  <text x="450" y="175" text-anchor="middle" class="layer-desc">Discovery and Navigation</text>
+  <text x="450" y="195" text-anchor="middle" class="layer-examples">sitemap.xml • llms.txt • robots.txt • URL structure</text>
+  <text x="450" y="215" text-anchor="middle" class="layer-examples">Domain organisation • Category hierarchy</text>
+
+  <!-- Layer 2: Page-Level (Middle) -->
+  <polygon points="250,230 650,230 550,340 350,340" class="layer-page"/>
+  <text x="450" y="260" text-anchor="middle" class="layer-label">Layer 2: Page-Level Architecture</text>
+  <text x="450" y="285" text-anchor="middle" class="layer-desc">Structure and Landmarks</text>
+  <text x="450" y="305" text-anchor="middle" class="layer-examples">Heading hierarchy • Landmark roles • Breadcrumbs</text>
+  <text x="450" y="325" text-anchor="middle" class="layer-examples">Content ordering • Navigation patterns</text>
+
+  <!-- Layer 3: Content-Level (Bottom, narrowest) -->
+  <polygon points="350,340 550,340 500,430 400,430" class="layer-content"/>
+  <text x="450" y="370" text-anchor="middle" class="layer-label">Layer 3: Content-Level Architecture</text>
+  <text x="450" y="395" text-anchor="middle" class="layer-desc">Information and Semantics</text>
+  <text x="450" y="415" text-anchor="middle" class="layer-examples">Information density • Lists vs prose • Inline semantics</text>
+
+  <!-- Convergence Principle Box -->
+  <rect x="100" y="460" width="700" height="110" fill="#f0f9f4" stroke="#059669" stroke-width="2" rx="8"/>
+  <text x="450" y="485" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14px" font-weight="bold" fill="#059669">The Convergence Principle</text>
+
+  <text x="120" y="510" class="benefit-text">Each layer benefits multiple audiences:</text>
+  <text x="140" y="530" class="benefit-text">• AI Agents: Explicit structure enables parsing and extraction</text>
+  <text x="140" y="548" class="benefit-text">• Screen Readers: Semantic markup improves navigation</text>
+  <text x="500" y="530" class="benefit-text">• Search Engines: Structured data enhances indexing</text>
+  <text x="500" y="548" class="benefit-text">• Mobile Users: Clear hierarchy improves scannability</text>
+</svg>

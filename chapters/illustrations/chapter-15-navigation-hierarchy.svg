@@ -1,0 +1,103 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Georgia, serif; font-size: 24px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+      .nav-label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .nav-desc { font-family: system-ui, sans-serif; font-size: 11px; fill: #ffffff; }
+      .link-text { font-family: system-ui, sans-serif; font-size: 11px; fill: #1f2937; }
+      .code-text { font-family: 'Courier New', monospace; font-size: 9px; fill: #4b5563; }
+      .primary-nav { fill: #059669; }
+      .secondary-nav { fill: #0891b2; }
+      .utility-nav { fill: #6b7280; }
+    </style>
+    <marker id="arrow-grey" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Navigation Architecture Hierarchy</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">Three levels of machine-readable navigation</text>
+
+  <!-- Page structure outline -->
+  <rect x="50" y="80" width="800" height="490" fill="#f9fafb" stroke="#d1d5db" stroke-width="2" rx="8"/>
+
+  <!-- Header area -->
+  <rect x="70" y="100" width="760" height="120" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="4"/>
+  <text x="80" y="120" font-family="system-ui, sans-serif" font-size="12px" font-weight="bold" fill="#6b7280">&lt;header&gt;</text>
+
+  <!-- Primary Navigation -->
+  <rect x="90" y="135" width="720" height="70" class="primary-nav" rx="6"/>
+  <text x="450" y="155" text-anchor="middle" class="nav-label">Primary Navigation</text>
+  <text x="450" y="173" text-anchor="middle" class="nav-desc">&lt;nav aria-label="Main navigation"&gt;</text>
+
+  <text x="150" y="193" class="link-text">Products</text>
+  <text x="250" y="193" class="link-text">Solutions</text>
+  <text x="350" y="193" class="link-text">Documentation</text>
+  <text x="470" y="193" class="link-text">Support</text>
+  <text x="560" y="193" class="link-text">About</text>
+  <text x="640" y="193" class="link-text">Contact</text>
+
+  <!-- Main content area -->
+  <rect x="70" y="240" width="760" height="220" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="4"/>
+  <text x="80" y="260" font-family="system-ui, sans-serif" font-size="12px" font-weight="bold" fill="#6b7280">&lt;main&gt;</text>
+
+  <!-- Breadcrumb Navigation -->
+  <rect x="90" y="275" width="350" height="45" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" rx="4"/>
+  <text x="100" y="293" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#1e40af">Breadcrumb Navigation</text>
+  <text x="100" y="308" class="code-text">&lt;nav aria-label="Breadcrumb"&gt;</text>
+  <text x="265" y="300" font-family="system-ui, sans-serif" font-size="10px" fill="#3b82f6">Home → Products → Laptops</text>
+
+  <!-- Secondary Navigation (Sidebar) -->
+  <rect x="90" y="335" width="200" height="110" class="secondary-nav" rx="6"/>
+  <text x="190" y="355" text-anchor="middle" class="nav-label">Secondary Navigation</text>
+  <text x="190" y="373" text-anchor="middle" class="nav-desc">&lt;nav aria-label="Page sections"&gt;</text>
+
+  <text x="110" y="395" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Specifications</text>
+  <text x="110" y="410" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Pricing</text>
+  <text x="110" y="425" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Reviews</text>
+  <text x="110" y="440" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Delivery</text>
+
+  <!-- Article content -->
+  <rect x="310" y="335" width="470" height="110" fill="#f0f9f4" stroke="#86efac" stroke-width="1" rx="4"/>
+  <text x="320" y="355" font-family="system-ui, sans-serif" font-size="12px" font-weight="bold" fill="#059669">&lt;article&gt;</text>
+  <text x="320" y="375" font-family="system-ui, sans-serif" font-size="11px" fill="#166534">Main content with semantic structure</text>
+  <text x="320" y="395" class="code-text">&lt;h1&gt;Product Name&lt;/h1&gt;</text>
+  <text x="320" y="410" class="code-text">&lt;section&gt;</text>
+  <text x="330" y="425" class="code-text">&lt;h2&gt;Specifications&lt;/h2&gt;</text>
+  <text x="320" y="440" class="code-text">&lt;/section&gt;</text>
+
+  <!-- Footer area -->
+  <rect x="70" y="480" width="760" height="75" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" rx="4"/>
+  <text x="80" y="500" font-family="system-ui, sans-serif" font-size="12px" font-weight="bold" fill="#6b7280">&lt;footer&gt;</text>
+
+  <!-- Utility Navigation -->
+  <rect x="90" y="515" width="720" height="30" class="utility-nav" rx="4"/>
+  <text x="110" y="535" class="nav-label">Utility Navigation</text>
+  <text x="280" y="535" class="nav-desc">&lt;nav aria-label="Footer navigation"&gt;</text>
+
+  <text x="520" y="533" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Privacy</text>
+  <text x="590" y="533" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Terms</text>
+  <text x="650" y="533" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Sitemap</text>
+  <text x="730" y="533" font-family="system-ui, sans-serif" font-size="10px" fill="#ffffff">Contact</text>
+
+  <!-- Legend -->
+  <rect x="675" y="95" width="140" height="110" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="685" y="113" font-family="system-ui, sans-serif" font-size="11px" font-weight="bold" fill="#1a1a1a">Navigation Levels:</text>
+
+  <rect x="685" y="120" width="15" height="12" class="primary-nav" rx="2"/>
+  <text x="705" y="130" font-family="system-ui, sans-serif" font-size="10px" fill="#374151">Primary (Global)</text>
+
+  <rect x="685" y="140" width="15" height="12" class="secondary-nav" rx="2"/>
+  <text x="705" y="150" font-family="system-ui, sans-serif" font-size="10px" fill="#374151">Secondary (Section)</text>
+
+  <rect x="685" y="160" width="15" height="12" class="utility-nav" rx="2"/>
+  <text x="705" y="170" font-family="system-ui, sans-serif" font-size="10px" fill="#374151">Utility (Footer)</text>
+
+  <rect x="685" y="180" width="15" height="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" rx="2"/>
+  <text x="705" y="190" font-family="system-ui, sans-serif" font-size="10px" fill="#374151">Breadcrumb</text>
+</svg>

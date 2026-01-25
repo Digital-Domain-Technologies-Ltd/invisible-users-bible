@@ -364,11 +364,11 @@ Before extracting, scan for all possible data sources:
 
 ```text
 Scan page for data sources:
-  ✓ HTML table with class="pricing"
-  ✓ JSON-LD with @type: Product, offers.price
-  ✗ No microdata detected
-  ✗ No Open Graph pricing tags
-  ✗ No public API documented
+  [+] HTML table with class="pricing"
+  [+] JSON-LD with @type: Product, offers.price
+  [-] No microdata detected
+  [-] No Open Graph pricing tags
+  [-] No public API documented
 
 Available sources: 2 (HTML, JSON-LD)
 Proceed with multi-source extraction
@@ -581,10 +581,10 @@ Root cause analysis:
   - Reported with full confidence despite lack of verification
 
 Validation failures:
-  ✗ Range validation: Not performed
-  ✗ Structured data check: Not performed
-  ✗ Comparative analysis: Not performed
-  ✗ Confidence scoring: Not performed
+  [-] Range validation: Not performed
+  [-] Structured data check: Not performed
+  [-] Comparative analysis: Not performed
+  [-] Confidence scoring: Not performed
 
 What should have caught this:
   1. Range validation would have flagged £203,000 as 13x above luxury maximum
