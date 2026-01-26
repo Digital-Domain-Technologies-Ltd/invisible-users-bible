@@ -17,7 +17,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" class="title">The Three-Layer IA Framework</text>
+  <text x="450" y="35" text-anchor="middle" class="title">Three-Layer IA Framework</text>
   <text x="450" y="58" text-anchor="middle" class="subtitle">Site → Page → Content Architecture</text>
 
   <!-- Layer 1: Site-Level (Top, widest) -->

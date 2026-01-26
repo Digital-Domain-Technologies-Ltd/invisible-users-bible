@@ -16,7 +16,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" class="title">The Human Cost - Who Gets Left Behind</text>
+  <text x="450" y="35" text-anchor="middle" class="title">Human Cost - Who Gets Left Behind</text>
   <text x="450" y="55" text-anchor="middle" class="subtitle">Agent access amplifies existing advantages and disadvantages</text>
   
   <!-- Left side: Those with full access -->

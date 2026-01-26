@@ -15,7 +15,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="450" y="40" font-family="Georgia, serif" font-size="24" fill="#1e293b" text-anchor="middle" font-weight="bold">The Value Extraction Problem</text>
+  <text x="450" y="40" font-family="Georgia, serif" font-size="24" fill="#1e293b" text-anchor="middle" font-weight="bold">Value Extraction Problem</text>
   
   <!-- Dividing line -->
   <line x1="450" y1="70" x2="450" y2="560" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8,4"/>

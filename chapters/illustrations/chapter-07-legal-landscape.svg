@@ -16,7 +16,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" class="title">The Legal Landscape - Who's Liable?</text>
+  <text x="450" y="35" text-anchor="middle" class="title">Legal Landscape - Who's Liable?</text>
   <text x="450" y="55" text-anchor="middle" class="subtitle">When an agent-mediated transaction goes wrong, responsibility is unclear</text>
   
   <!-- Central transaction flow -->

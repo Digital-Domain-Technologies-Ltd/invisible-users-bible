@@ -16,7 +16,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="450" y="40" text-anchor="middle" class="title">The Security Maze - Two Different Problems</text>
+  <text x="450" y="40" text-anchor="middle" class="title">Security Maze - Two Different Problems</text>
   <text x="450" y="65" text-anchor="middle" class="subtitle">External agents are blocked. In-browser agents inherit everything.</text>
   
   <!-- Dividing line -->

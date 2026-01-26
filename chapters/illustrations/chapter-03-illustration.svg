@@ -3,7 +3,7 @@
   <rect width="800" height="500" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="400" y="35" font-family="Georgia, serif" font-size="20" fill="#1a1a1a" text-anchor="middle" font-weight="bold">The Architectural Conflict</text>
+  <text x="400" y="35" font-family="Georgia, serif" font-size="20" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Architectural Conflict</text>
   <text x="400" y="55" font-family="Georgia, serif" font-size="12" fill="#666" text-anchor="middle" font-style="italic">Same interface, fundamentally different processing</text>
   
   <!-- Dividing line -->
@@ -85,7 +85,7 @@
   <!-- Center conflict indicator -->
   <g transform="translate(370, 280)">
     <polygon points="30,0 60,25 30,50 0,25" fill="#dc2626" opacity="0.9"/>
-    <text x="30" y="30" font-family="system-ui, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">≠</text>
+    <text x="30" y="30" font-family="system-ui, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">!=</text>
   </g>
   
   <!-- Bottom insight -->

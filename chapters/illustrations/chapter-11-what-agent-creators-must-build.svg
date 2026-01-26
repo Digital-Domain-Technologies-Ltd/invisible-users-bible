@@ -31,7 +31,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" class="title">The Validation Pipeline</text>
+  <text x="450" y="35" text-anchor="middle" class="title">Validation Pipeline</text>
   <text x="450" y="55" text-anchor="middle" class="subtitle">Multi-layer validation prevents pipeline failures</text>
 
   <!-- Left: Raw Data Input -->

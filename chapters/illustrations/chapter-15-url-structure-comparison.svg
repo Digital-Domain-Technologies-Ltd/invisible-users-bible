@@ -61,13 +61,13 @@
 
   <!-- Example 1 -->
   <rect x="440" y="125" width="320" height="65" fill="#ffffff" stroke="#dc2626" stroke-width="1" rx="4"/>
-  <text x="450" y="145" class="url-text poor-color">/?id=12847&cat=3</text>
+  <text x="450" y="145" class="url-text poor-color">/?id=12847&amp;cat=3</text>
   <text x="450" y="165" class="benefit">✗ No hierarchy visible</text>
   <text x="450" y="180" class="benefit">✗ Context lost</text>
 
   <!-- Example 2 -->
   <rect x="440" y="200" width="320" height="65" fill="#ffffff" stroke="#dc2626" stroke-width="1" rx="4"/>
-  <text x="450" y="220" class="url-text poor-color">/page.php?action=view&type=product</text>
+  <text x="450" y="220" class="url-text poor-color">/page.php?action=view&amp;type=product</text>
   <text x="450" y="240" class="benefit">✗ Generic filename</text>
   <text x="450" y="255" class="benefit">✗ Query parameters opaque</text>
 

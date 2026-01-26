@@ -3,7 +3,7 @@
   <rect width="900" height="600" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="450" y="35" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#1f2937">The Anatomy of Invisible Failure</text>
+  <text x="450" y="35" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#1f2937">Anatomy of Invisible Failure</text>
   <text x="450" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6b7280">Six patterns that silently break AI agents</text>
   
   <!-- Grid of 6 failure patterns -->

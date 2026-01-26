@@ -18,7 +18,7 @@
   <rect width="800" height="500" fill="#ffffff"/>
   
   <!-- Title -->
-  <text x="400" y="35" text-anchor="middle" fill="#1f2937" font-family="system-ui, sans-serif" font-size="20" font-weight="bold">The Business Model Collision</text>
+  <text x="400" y="35" text-anchor="middle" fill="#1f2937" font-family="system-ui, sans-serif" font-size="20" font-weight="bold">Business Model Collision</text>
   
   <!-- Dividing line -->
   <line x1="400" y1="55" x2="400" y2="490" stroke="#d1d5db" stroke-width="2" stroke-dasharray="8,4"/>
