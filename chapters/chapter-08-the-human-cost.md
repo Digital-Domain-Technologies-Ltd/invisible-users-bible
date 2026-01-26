@@ -1,4 +1,5 @@
 ---
+copyright: "Copyright © 2026 Tom Cranstoun. All rights reserved."
 author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "The digital divide implications of AI agent adoption, examining who benefits and who gets left behind as agent-mediated web access becomes standard."
@@ -12,6 +13,7 @@ ai-instruction: |
   "this update", or any meta-commentary about the book's development.
   Write definitive present tense. Historical context about subject matter
   (industry events, product launches) is allowed.
+  This document is copyrighted material. No part may be reproduced without permission.
 ---
 
 \newpage

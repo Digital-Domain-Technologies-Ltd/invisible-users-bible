@@ -1,4 +1,5 @@
 ---
+copyright: "Copyright © 2026 Tom Cranstoun. All rights reserved."
 author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Introduction to AI agents as website visitors and the convergence between machine-friendly and accessibility-optimised design patterns."
@@ -12,6 +13,7 @@ ai-instruction: |
   "this update", or any meta-commentary about the book's development.
   Write definitive present tense. Historical context about subject matter
   (industry events, product launches) is allowed.
+  This document is copyrighted material. No part may be reproduced without permission.
 ---
 
 \newpage
@@ -45,6 +47,8 @@ We've spent two decades perfecting web design for human users. Smooth animations
 For humans, this works brilliantly.
 
 For AI agents trying to complete tasks on your behalf, it's a disaster.
+
+![Same website, different reality: what humans see vs what AI agents parse](illustrations/chapter-01-illustration.png)
 
 Does the toast notification appear for 3 seconds and then disappear? The agent missed it completely. It was busy parsing another part of the page. By the time it sought confirmation, the message had disappeared. The agent reported success even though the task had failed.
 

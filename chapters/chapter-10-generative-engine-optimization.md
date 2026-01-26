@@ -1,4 +1,5 @@
 ---
+copyright: "Copyright © 2026 Tom Cranstoun. All rights reserved."
 author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "How to make your site discoverable and citable by AI answer engines through GEO patterns that converge with traditional SEO strategies."
@@ -12,6 +13,7 @@ ai-instruction: |
   "this update", or any meta-commentary about the book's development.
   Write definitive present tense. Historical context about subject matter
   (industry events, product launches) is allowed.
+  This document is copyrighted material. No part may be reproduced without permission.
 ---
 
 \newpage
@@ -2320,6 +2322,287 @@ Adding AI-specific summaries? Helps with discoverability. More effective - add s
 **The question isn't whether edge optimization works - it does. The question is whether it's the right long-term approach for your content strategy, or whether it's a workaround that lets you avoid addressing fundamental content quality issues.**
 
 This connects directly to the convergence principle: patterns that help AI agents also help humans. Edge optimization lets you bypass that convergence, serving different content to different visitors. Sometimes that's necessary. But it shouldn't be the goal.
+
+---
+
+## GEO Pattern Summary
+
+The GEO implementation guidance throughout this chapter represents documented patterns following the Architecture Decision Record (ADR) format detailed in Appendix O. This section extracts the key patterns for quick reference, with each pattern providing a solution to specific discovery and citation challenges.
+
+These patterns follow the pattern philosophy established in Chapter 11: they layer on each other, reinforce common goals, and demonstrate the convergence principle—optimising for AI agents whilst improving outcomes for all users.
+
+### Pattern 25: Three Layers of Discovery
+
+**Pattern ID:** `mx.pattern.geo.three-layer-discovery`
+**Status:** Adopted
+
+**Intent:** Provide comprehensive, redundant discovery signals across site-wide guidance, page-level metadata, and content structure to ensure both search engines and AI agents can find, understand, and cite content accurately.
+
+**Context:** AI agents and search engines need different levels of granularity to discover and process web content effectively. Site-wide files guide initial crawling, page-level metadata provides extraction targets, and content structure enables accurate fact extraction.
+
+**Solution:**
+
+Implement three concentric layers of discovery information:
+
+1. **Layer 1 - Site-Wide Guidance:**
+   - robots.txt for search engine crawlers
+   - llms.txt for AI agent resource discovery
+   - Sitemap.xml for comprehensive URL listings
+
+2. **Layer 2 - Page-Level Metadata:**
+   - OpenGraph meta tags for social platforms
+   - JSON-LD structured data with Schema.org types
+   - HTML meta tags for traditional SEO
+
+3. **Layer 3 - Content Structure:**
+   - Semantic HTML elements (`<article>`, `<section>`, `<nav>`)
+   - Proper heading hierarchy (H1 → H2 → H3)
+   - Explicit content relationships via ARIA and microdata
+
+**Resulting Context:** Search engines and agents can discover content through multiple pathways. If one layer fails or isn't supported, other layers provide fallback discovery routes. Citation accuracy improves because structured data supplements semantic HTML.
+
+**Related Patterns:**
+
+- Pattern 5: Semantic HTML Structure (Chapter 12.5) - Provides Layer 3 implementation details
+- Pattern 18: Schema.org Metadata (Appendix M) - Covers Layer 2 JSON-LD implementation
+- Anti-pattern 7: No/Outdated Sitemap (Appendix N) - Documents the failure case
+
+**See also:** Implementation Priorities section (this chapter, page 593), Appendix H (llms.txt examples)
+
+### Pattern 26: Content-First DOM Order
+
+**Pattern ID:** `mx.pattern.geo.content-first-dom`
+**Status:** Adopted
+
+**Intent:** Position main content early in DOM tree structure to ensure AI agents with limited token budgets encounter essential information before processing supplementary elements.
+
+**Context:** Language models process HTML sequentially with finite context windows (128K-2M tokens). Sites with complex navigation, sidebars, and advertising place main content after 10,000-50,000 tokens of scaffolding, reducing the attention and processing capacity available for actual content.
+
+**Solution:**
+
+Order DOM elements by content priority, not visual layout:
+
+```html
+<nav>Compact navigation (2,000 tokens)</nav>
+<main>
+  <h1>Primary content starts immediately</h1>
+  <!-- Essential content at token 2,000 -->
+</main>
+<aside>
+  <!-- Sidebars, ads, related content -->
+</aside>
+```
+
+Use CSS Grid or Flexbox to maintain visual layouts whilst prioritising content in source order. Agents read DOM top-to-bottom; CSS positions elements visually without affecting parse order.
+
+**Resulting Context:** Raw parsers encounter content immediately. Browser-based agents still render intended visual layout. Vision models see appropriate visual hierarchy whilst DOM structure guides text extraction. All three AI reader types benefit simultaneously.
+
+**Related Patterns:**
+
+- Pattern 5: Semantic HTML Structure (Chapter 12.5) - Semantic elements support content prioritization
+- Pattern 23: Progressive Enhancement (Appendix M) - CSS-based layout ensures visual design independence
+
+**See also:** Token Budgets and Content Priority section (this chapter, page 86)
+
+### Pattern 27: Schema.org Type Prioritization
+
+**Pattern ID:** `mx.pattern.geo.schema-prioritization`
+**Status:** Adopted
+
+**Intent:** Focus Schema.org implementation on six high-impact types that cover 90% of use cases, ensuring complete and accurate markup rather than incomplete comprehensive coverage.
+
+**Context:** Schema.org defines hundreds of types and thousands of properties. Attempting comprehensive implementation creates maintenance burden, introduces errors, and dilutes focus from business-critical structured data. Real-world client work reveals that most businesses need only 3-4 types for effective agent discovery.
+
+**Solution:**
+
+Prioritise these six Schema.org types based on content:
+
+1. **Organization/LocalBusiness** - Company information, locations, contact details
+2. **Article/BlogPosting** - Editorial content with authorship and publication context
+3. **Product/Offer** - Items for sale with pricing and availability
+4. **FAQPage/Question/Answer** - Structured Q&A content
+5. **HowTo** - Step-by-step instructional content
+6. **WebPage/WebSite** - Basic page metadata (minimum for all pages)
+
+Implement one or two types thoroughly before expanding. Incomplete Schema.org markup causes citation errors; accurate limited implementation beats incomplete comprehensive coverage.
+
+**Resulting Context:** Agents cite your content accurately within your core business domain. Search engines reward complete structured data with rich snippets. Maintenance remains manageable because you're validating only the types you actually use.
+
+**Related Patterns:**
+
+- Pattern 18: Schema.org Metadata (Appendix M) - Complete Schema.org implementation guidance
+- Anti-pattern 8: Inconsistent Schema.org (Appendix N) - Documents incomplete implementation failures
+
+**See also:** Schema.org Type Selection Guide section (this chapter, page 1407)
+
+### Pattern 28: Strategic Redundancy for Discovery
+
+**Pattern ID:** `mx.pattern.geo.strategic-redundancy`
+**Status:** Adopted
+
+**Intent:** Provide the same information in multiple formats (OpenGraph meta tags, Schema.org JSON-LD, HTML data attributes) because you cannot detect which formats visiting agents can parse.
+
+**Context:** Different AI agents support different metadata extraction methods. Simple crawlers read meta tags. Structured data parsers extract JSON-LD. Some agents parse HTML data attributes. You cannot detect agent capabilities before they request your content, so you cannot tailor responses to their specific parsing abilities.
+
+**Solution:**
+
+Duplicate critical information across multiple formats:
+
+```html
+<!-- OpenGraph meta tags -->
+<meta property="og:title" content="MX-Bible">
+<meta property="og:description" content="AI Agent Web Design Guide">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Book",
+  "name": "MX-Bible",
+  "description": "AI Agent Web Design Guide"
+}
+</script>
+
+<!-- HTML visible content -->
+<h1>MX-Bible</h1>
+<p>AI Agent Web Design Guide</p>
+```
+
+This ensures universal compatibility regardless of agent parsing sophistication.
+
+**Resulting Context:** All agents can extract accurate information regardless of their technical capabilities. No agent is excluded because it doesn't support your chosen metadata format. Citation accuracy improves because agents always find data in a format they understand.
+
+**Related Patterns:**
+
+- Pattern 0: Strategic Redundancy (Chapter 0) - Core redundancy principle
+- Pattern 18: Schema.org Metadata (Appendix M) - JSON-LD implementation
+- Pattern 5: Semantic HTML Structure (Chapter 12.5) - HTML content structure
+
+**See also:** Layer 2 - Page-Level Metadata section (this chapter, page 270)
+
+### Pattern 29: Content Type Disambiguation
+
+**Pattern ID:** `mx.pattern.geo.content-disambiguation`
+**Status:** Adopted
+
+**Intent:** Use precise Schema.org types to prevent AI agents from confusing professional content (legal analysis, medical research, business reporting) with fictional content from training data (TV scripts, film dialogue, creative writing).
+
+**Context:** AI systems train on extensive entertainment content collections—film subtitles, TV episode transcripts, fictional dialogue. When agents encounter professional content without explicit type signals, they may treat legal arguments as courtroom drama dialogue, medical research as TV show scripts, or business analysis as fictional scenarios, causing hallucinations and misattribution.
+
+**Solution:**
+
+Implement specific Schema.org types that disambiguate professional content:
+
+**For legal content:**
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "Article",
+  "articleSection": "Legal Analysis",
+  "genre": "Judicial Opinion",
+  "about": {
+    "@type": "Legislation",
+    "legislationIdentifier": "Contract Act 1994"
+  }
+}
+```
+
+**For medical/scientific content:**
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "MedicalScholarlyArticle",
+  "medicalSpecialty": "Cardiology"
+}
+```
+
+**For business analysis:**
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "AnalysisNewsArticle",
+  "articleSection": "Market Analysis"
+}
+```
+
+Use the most specific type available. Include professional context (publisher, author affiliation, credentials) to strengthen disambiguation signals.
+
+**Resulting Context:** Agents distinguish professional content from fictional entertainment. Citation accuracy improves for legal, medical, academic, and business content. Hallucination risk decreases because agents have explicit context signals rather than inferring content type from text patterns that may match their fiction training data.
+
+**Related Patterns:**
+
+- Pattern 18: Schema.org Metadata (Appendix M) - Complete Schema.org implementation
+- Pattern 27: Schema.org Type Prioritization (this chapter) - Type selection guidance
+
+**See also:** Missing Content Type Disambiguation section (this chapter, page 786)
+
+### Pattern 30: Skip Links for Universal Navigation
+
+**Pattern ID:** `mx.pattern.geo.skip-links-navigation`
+**Status:** Adopted
+
+**Intent:** Provide explicit navigation shortcuts that serve keyboard users, screen reader users, assistive technology users, and AI agents simultaneously, demonstrating the convergence principle in practice.
+
+**Context:** People using keyboards, screen readers, switch controls, and other assistive technologies need to bypass repeated navigation to reach main content efficiently. AI agents parsing HTML structure benefit from explicit semantic landmarks indicating where primary content begins. This is a perfect convergence pattern—a single implementation serves multiple user types.
+
+**Solution:**
+
+Add skip links as the first interactive element on every page:
+
+```html
+<body>
+  <a href="#main" class="skip">Skip to main content</a>
+
+  <header>
+    <nav><!-- Global navigation --></nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Main content starts here -->
+  </main>
+</body>
+```
+
+Style skip links to be visually hidden but focusable:
+
+```css
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+```
+
+**Resulting Context:** Keyboard users reach content immediately. Screen readers announce skip link first. Switch controls and other assistive technologies reduce interaction requirements. AI agents identify the `#main` anchor and `<main>` landmark as unambiguous indicators of primary content location.
+
+**Related Patterns:**
+
+- Pattern 5: Semantic HTML Structure (Chapter 12.5) - Semantic landmarks implementation
+- Pattern 11: Four Guiding Principles (Chapter 11.2) - Convergence principle
+
+**See also:** Skip Links - Navigation for All Users section (this chapter, page 670)
+
+### Using These Patterns
+
+**Pattern composition:** These GEO patterns layer on each other. Content-First DOM Order (Pattern 26) provides efficient token usage. Three Layers of Discovery (Pattern 25) ensures findability. Schema.org Type Prioritization (Pattern 27) enables accurate extraction. Strategic Redundancy (Pattern 28) guarantees universal compatibility. Content Type Disambiguation (Pattern 29) prevents hallucinations. Skip Links (Pattern 30) demonstrate convergence.
+
+**Implementation sequence:** Start with Pattern 25 (Three Layers) as foundation. Add Pattern 27 (Schema.org Prioritization) for structured data. Implement Pattern 28 (Strategic Redundancy) for compatibility. Apply Pattern 26 (Content-First DOM) for performance. Add Pattern 29 (Content Disambiguation) where relevant. Include Pattern 30 (Skip Links) for universal navigation.
+
+**Pattern lifecycle:** All six patterns are in "Adopted" status, validated through real-world implementations and supported by major platforms (Google Search, ChatGPT, Claude, Perplexity). They represent mature patterns with wide industry adoption.
+
+**For complete pattern documentation:** See Appendix O for ADR format templates, Appendix N for anti-patterns that violate these principles, and Chapter 12 for implementation Quick Start Cards.
 
 ---
 

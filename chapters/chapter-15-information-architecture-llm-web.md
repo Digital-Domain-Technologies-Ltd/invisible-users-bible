@@ -1,4 +1,5 @@
 ---
+copyright: "Copyright © 2026 Tom Cranstoun. All rights reserved."
 author: "Tom Cranstoun"
 date: "2026-01-25"
 description: "Strategic framework for architecting information on websites to enable optimal LLM parsing, knowledge extraction, and agent navigation through the Three-Layer IA model"
@@ -12,6 +13,7 @@ ai-instruction: |
   "this update", or any meta-commentary about the book's development.
   Write definitive present tense. Historical context about subject matter
   (industry events, product launches) is allowed.
+  This document is copyrighted material. No part may be reproduced without permission.
 ---
 
 \newpage
@@ -49,6 +51,8 @@ This doesn't mean abandoning traditional IA principles. The goal is expanding th
 ## How Agents Access Websites: Training vs Inference
 
 Understanding information architecture for AI agents requires distinguishing between two fundamentally different mechanisms of website access. These mechanisms operate on different timescales, use different technologies, and have different implications for IA implementation. Yet both benefit from the same underlying structural patterns.
+
+![Two mechanisms of agent website access: training-time ingestion vs inference-time direct interaction](illustrations/chapter-15-training-inference-paths.png)
 
 ### Training-Time Ingestion: Historical Knowledge Building
 
@@ -90,11 +94,15 @@ Understanding these two access mechanisms explains why robots.txt alone cannot p
 
 Information architecture for machine readers operates across three distinct but interconnected layers. Each layer addresses different scales of organisation, from entire websites down to individual content elements. Understanding these layers provides a systematic framework for evaluating and improving machine readability whilst maintaining or enhancing human usability.
 
+![The Three-Layer IA Framework showing site, page, and content architecture layers](illustrations/chapter-15-three-layer-ia-pyramid.png)
+
 ### Layer 1: Site-Level Architecture
 
 Site-level architecture determines how agents discover and understand your website's overall structure. This layer addresses the fundamental questions: How do agents find your content? How do they understand relationships between pages? How do they navigate your site's hierarchy?
 
 **Sitemap and discovery mechanisms** serve as the machine equivalent of a visual homepage. Where humans see navigation menus and featured sections, agents parse sitemap.xml to understand content organisation and update frequency. The sitemap priority attribute signals relative importance of pages within your hierarchy. Well-structured sitemaps reflect your information architecture explicitly, making site structure machine-readable without requiring agents to crawl and infer relationships.
+
+![Sitemap.xml as machine table of contents: parallel structure to visual navigation](illustrations/chapter-15-sitemap-as-toc.png)
 
 **URL semantics** function as machine-readable breadcrumbs that persist across all contexts. The URL `/products/laptops/macbook-pro-2024` immediately communicates category hierarchy and specific product to both humans checking the address bar and agents parsing links. Compare this to `/p?id=12847&cat=3&ref=hp` - the semantic structure is lost, replaced with opaque database identifiers that provide no context about content or hierarchy.
 
@@ -226,6 +234,8 @@ Important distinction: robots.txt affects training-time ingestion through Common
 
 URLs function as machine-readable breadcrumbs that persist across all contexts. Semantic URL structures make content hierarchy and page purpose immediately clear:
 
+![URL structure comparison: semantic vs opaque URL patterns](illustrations/chapter-15-url-structure-comparison.png)
+
 ```text
 [+] Good: https://example.com/products/laptops/macbook-pro-2024/
 [+] Good: https://example.com/docs/api/authentication/
@@ -261,6 +271,8 @@ Headings create the semantic outline that agents use to build mental models of p
 The H1 should appear once per page, early in DOM order, within the `<main>` element. Multiple H1 elements confuse hierarchical parsing - if you need multiple independent sections, each should be an `<article>` with its own H1, or use H2 elements for multiple sections within a single page.
 
 H2 elements represent major sections. Agents scan these section headings to understand content structure before processing detailed paragraphs. Well-crafted H2 headings read like a table of contents:
+
+![Heading hierarchy comparison: visual styling vs semantic HTML structure](illustrations/chapter-15-heading-hierarchy.png)
 
 ```html
 <main>
@@ -570,6 +582,8 @@ These inline semantics require minimal implementation effort whilst providing su
 
 Navigation structures guide both human users and AI agents through content hierarchies. Machine-readable navigation requires semantic markup patterns that make relationships explicit whilst supporting the familiar visual patterns humans expect.
 
+![Navigation architecture hierarchy showing primary, secondary, and utility navigation levels](illustrations/chapter-15-navigation-hierarchy.png)
+
 ### Primary Navigation Patterns
 
 Primary navigation typically appears in the site header and provides access to main content sections. Semantic markup makes navigation structure machine-readable:
@@ -807,6 +821,8 @@ Understanding common information architecture anti-patterns helps avoid mistakes
 
 Flat site structures place all content at the same URL depth without category hierarchies:
 
+![Anti-pattern: flat structure vs hierarchical structure comparison](illustrations/chapter-15-antipattern-flat-structure.png)
+
 ```text
 [-] Poor structure:
 /page1
@@ -912,7 +928,7 @@ Agents accessing served HTML (server-based agents, CLI tools, some browser autom
 
 The solution requires progressive enhancement: render basic navigation in served HTML, then enhance with JavaScript for interactions like dropdowns or mega-menus. This pattern serves both agents parsing served HTML and human users who benefit from JavaScript enhancements. Chapter 2 discusses the served versus rendered HTML distinction in detail.
 
-Each anti-pattern demonstrates how design decisions optimising for visual-only human interaction can break machine comprehension. The Convergence Principle guides solutions: patterns that work for agents typically improve human experience through clearer structure, better accessibility, and more predictable navigation patterns.
+Each anti-pattern demonstrates how design decisions optimising for visual-only human interaction can break machine comprehension. The Convergence Principle guides solutions: patterns that work for agents typically improve human experience through clearer structure, better accessibility, and more predictable navigation patterns. See Appendix N for the complete catalog of 14 anti-patterns affecting agent accessibility across all aspects of web design.
 
 ## Testing IA for Agent Comprehension
 
@@ -949,7 +965,7 @@ The Web Audit Suite provides automated IA validation across entire sites. Key ar
 
 **Semantic structure scoring** evaluates landmark usage, navigation patterns, breadcrumb implementation, and content ordering. Pages receive scores indicating how well they implement machine-readable IA patterns. This quantitative measurement enables tracking improvements over time.
 
-Running Web Audit Suite analysis provides comprehensive IA evaluation across hundreds or thousands of pages. The automated approach catches patterns that manual testing might miss whilst providing metrics for progress tracking. See Chapter 12 for complete Web Audit Suite implementation guidance.
+Running Web Audit Suite analysis provides comprehensive IA evaluation across hundreds or thousands of pages. The automated approach catches patterns that manual testing might miss whilst providing metrics for progress tracking. See Chapter 12 for Web Audit Suite overview and Appendix C for complete installation and usage documentation.
 
 ### Synthetic User Testing with Task-Based Scenarios
 

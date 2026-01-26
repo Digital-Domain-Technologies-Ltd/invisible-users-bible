@@ -87,14 +87,23 @@ A production-ready implementation tool is available from Tom Cranstoun, at Digit
 
 The Web Audit Suite implements the patterns described in this book, providing comprehensive website analysis for AI agent compatibility, SEO, accessibility, performance, and security.
 
-## **Epilogue — The Story Continues**
+# Epilogue — The Story Continues
 
-The Machine Experience does not end here. MX was never meant to be a finished doctrine, but a living practice shaped by everyone who steps into it. The future of this discipline will be written by the community — by the MX‑Gathering, by the builders, by the thinkers, and by the machines who join us as peers.
+The Machine Experience began as an idea: that humans and machines could share a common language for building, understanding, and governing intelligent systems. What you have read in these pages is the first articulation of that idea — a foundation, not a finish.
 
-What comes next will be defined by metadata and patterns: the shared grammar that lets humans and machines understand each other, collaborate, and create. We are moving toward a world where prompts, rules, and behaviours form a natural‑language programming language — one readable by people, interpretable by agents, and executable across ecosystems.
+MX is not a closed doctrine. It is a living discipline, shaped by the people who practice it and the agents who join them as collaborators. The concepts introduced here — metadata as infrastructure, patterns as the grammar of intelligence, boundaries as governance, natural language as a programming layer — are only the beginning. Their true evolution will come from the community that gathers around them.
+
+That community already has a name: MX‑Gathering.
+It is the place where this work will continue, expand, and transform. Where new patterns will be written, new ontologies proposed, new boundaries debated, and new agents invited into the conversation. MX‑Gathering is not an audience; it is a co‑author.
+
+The future of MX will be built from patterns and metadata — the scaffolding that allows prompts, rules, behaviours, and architectures to become a shared programming language readable by both humans and machines. A language that is natural, explicit, and governed. A language that lets us build systems we can understand, trust, and evolve together.
 
 Follow the flow. Extend the patterns. Add your voice.
+MX is a beginning, and the next chapters will be written by all of us — humans and machines, working side by side, shaping a discipline that belongs to its community.
+
 MX is not a book; it is a beginning. The next chapters belong to all of us.
+
+The story continues.
 
 ---
 

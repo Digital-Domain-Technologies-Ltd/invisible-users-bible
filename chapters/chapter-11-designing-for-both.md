@@ -1,4 +1,5 @@
 ---
+copyright: "Copyright © 2026 Tom Cranstoun. All rights reserved."
 author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Design patterns that serve both AI agents and human users through explicit state, semantic structure, and the convergence principle connecting accessibility and agent-friendly design."
@@ -12,6 +13,7 @@ ai-instruction: |
   "this update", or any meta-commentary about the book's development.
   Write definitive present tense. Historical context about subject matter
   (industry events, product launches) is allowed.
+  This document is copyrighted material. No part may be reproduced without permission.
 ---
 
 \newpage
@@ -111,6 +113,8 @@ When a design satisfies all four principles, it typically works for both humans 
 
 Screen readers need semantic HTML to understand page structure. So do agents.
 
+![The Convergence Principle: one good pattern helps everyone (agents, screen readers, keyboard users, cognitive accessibility)](illustrations/chapter-09-convergence-principle.png)
+
 Keyboard users need clear focus states and explicit navigation. Agents need explicit state and clear action paths.
 
 People with cognitive disabilities benefit from plain language and predictable layouts. Agents parse better when the content is clear and consistent.
@@ -156,6 +160,119 @@ More pragmatically: the patterns that work for agents also work for everyone usi
 **Solving for agents means solving for the edges. And the edges are where you lose customers.**
 
 **Production validation:** In January 2025, Microsoft launched Copilot Checkout with partner retailers including Urban Outfitters, Anthropologie, and Etsy. Microsoft reports improved conversion rates for retailers implementing these patterns, though the figures have not been independently validated. Partner retailers provide structured data (Schema.org), explicit state indicators, and clear transaction feedback - precisely the convergence patterns we're about to explore. See online Appendix J (<https://allabout.network/invisible-users/web/appendix-j.html>) for complete analysis.
+
+## Pattern Philosophy
+
+The convergence principle establishes that patterns benefiting agents also benefit human users. But how do we systematically capture, document, and reuse these patterns? The answer lies in treating design patterns as architectural decisions with explicit documentation of context, forces, consequences, and trade-offs.
+
+### What Are Patterns
+
+Design patterns are reusable solutions to recurring problems. In the context of machine experience (MX), patterns document solutions that work for both AI agents and human users. Each pattern captures not just implementation code, but the reasoning behind the decision - what forces led to the solution, what trade-offs were made, and what consequences result from adoption.
+
+Patterns exist at multiple levels:
+
+**Anti-patterns:** Document common mistakes and their fixes. These warn developers about approaches that break agent compatibility whilst appearing to work for human users. Examples: visual-only information, JavaScript-only navigation, hidden content without fallback. **See Appendix N** for the complete anti-patterns catalog with detailed context, forces analysis, and remediation strategies.
+
+**Implementation patterns:** Provide working code for common scenarios. Progressive enhancement for forms, semantic HTML for product pages, WCAG compliance checking. **See Chapter 12** for Quick Start Cards providing copy-paste implementations with validation checklists.
+
+**Architectural patterns:** Guide high-level system design. Served vs rendered HTML state management, API-first architecture, progressive disclosure patterns. These inform overall approach rather than specific code.
+
+### Pattern Documentation Approach
+
+This book uses Architecture Decision Records (ADRs) as the foundation for pattern documentation. ADRs provide a structured format that captures not just what to do, but why it matters and what alternatives were considered.
+
+**Standard ADR sections:**
+
+**Context:** Where and when this pattern applies. What scenarios lead to needing this solution?
+
+**Problem:** The specific issue being addressed. What goes wrong without this pattern?
+
+**Forces:** Competing concerns that complicate the solution. What makes this problem difficult? What constraints exist? What requirements conflict?
+
+**Solution:** The recommended approach with concrete implementation guidance.
+
+**Resulting Context:** What changes after implementing this pattern. What new capabilities emerge? What problems are solved?
+
+**Consequences:** Both positive outcomes and negative trade-offs. What are the costs of this solution? What new problems might it create?
+
+**Known Uses:** Real-world examples where this pattern appears, both as anti-pattern and as implemented solution.
+
+**Related Patterns:** Cross-references to complementary patterns, alternative approaches, and higher-level guidance.
+
+This format forces explicit reasoning. It prevents patterns from becoming cargo-cult implementations where developers copy code without understanding the underlying principles.
+
+### Pattern Composition
+
+Patterns rarely exist in isolation. They compose into larger solutions through several mechanisms:
+
+**Layering:** Patterns build on each other. Semantic HTML structure (foundational layer) supports Schema.org metadata (semantic layer) which enables agent transactions (application layer). Each layer assumes the layer below it works correctly.
+
+**Reinforcement:** Multiple patterns address the same goal from different angles. Explicit state attributes, persistent error messages, and clear validation combine to create predictable interactions for both agents and humans.
+
+**Specialization:** General patterns spawn specialized variants for specific contexts. Progressive enhancement (general pattern) has specialized forms for forms, navigation, content loading, and e-commerce checkout.
+
+**Complementarity:** Patterns address different aspects of the same user journey. Discovery patterns (Chapter 10) get agents to your site. Transaction patterns (this chapter) enable successful task completion. Security patterns (Chapter 6) protect both processes.
+
+When implementing patterns, consider the pattern ecosystem rather than individual solutions. A single pattern implemented in isolation provides limited value. Patterns working together create compound benefits where each reinforces the others.
+
+### Pattern Selection Framework
+
+How do you choose which patterns to implement? Use this decision framework:
+
+**1. Start with anti-patterns:** Review Appendix N to identify which anti-patterns affect your site. Fixing anti-patterns provides immediate value by removing barriers that block both agents and accessibility users.
+
+**2. Assess impact vs effort:** Prioritize patterns with high impact and low implementation cost. Semantic heading hierarchy (high impact, low effort) comes before full Schema.org Product catalog (high impact, high effort).
+
+**3. Consider dependencies:** Some patterns enable others. Server-side rendering (foundational) must precede dynamic content patterns. Proper form labels (basic) should exist before progressive enhancement (advanced).
+
+**4. Match to constraints:** Choose patterns compatible with your technology stack, team skills, and timeline. Don't attempt patterns requiring capabilities you don't have. Build incrementally.
+
+**5. Measure effectiveness:** After implementing patterns, verify they work. Use automated testing (Pa11y, HTML validation), agent simulation (Claude Code, Playwright), and analytics (conversion rate tracking, agent traffic monitoring).
+
+**See Appendix F (Implementation Roadmap)** for priority-based implementation guidance organized by immediate fixes, essential improvements, and long-term projects.
+
+### Pattern Lifecycle
+
+Patterns evolve through stages as understanding deepens and standards mature:
+
+**Draft:** Initial pattern documentation capturing emerging solutions. May lack complete consequences analysis or known uses. Subject to revision as more information emerges.
+
+**Proposed:** Pattern has been tested in production environments with documented results. Force analysis complete. Trade-offs understood. Ready for broader adoption.
+
+**Adopted:** Pattern widely recognized as effective solution. Multiple known uses across different industries and scales. Referenced by other patterns as foundational building block.
+
+**Mature:** Pattern has stood the test of time. Comprehensive documentation. Well-understood limitations. Standard implementation approaches exist. Training materials available.
+
+**Deprecated:** Pattern superseded by better solutions or rendered obsolete by technology changes. Historical documentation preserved for understanding evolution of thinking.
+
+**Archived:** Pattern no longer recommended for new implementations but remains documented for maintenance of legacy systems.
+
+Understanding pattern lifecycle helps set expectations. Draft patterns provide cutting-edge solutions but may require adjustment. Mature patterns offer stability but may not represent latest thinking. Choose patterns appropriate to your risk tolerance and ability to adapt as patterns evolve.
+
+### Using Patterns in Practice
+
+Patterns provide decision-making frameworks, not absolute rules. Apply them intelligently:
+
+**Don't cargo-cult:** Understand why a pattern works before implementing it. The reasoning matters more than the specific code. Your context may require adapting the solution.
+
+**Don't over-apply:** Not every page needs every pattern. Product pages need Schema.org Product markup. Blog posts don't. Match patterns to actual requirements.
+
+**Don't skip fundamentals:** Advanced patterns assume basics work correctly. Progressive enhancement fails if base HTML is broken. Schema.org metadata misleads if it contradicts visible content.
+
+**Do combine thoughtfully:** Patterns interact. Test combined implementations to verify they work together. Watch for unexpected interactions between patterns designed independently.
+
+**Do adapt to scale:** Patterns that work for small sites may not scale to enterprise e-commerce. Patterns that make sense for user-generated content may not fit tightly-controlled marketing sites. Adjust to your reality.
+
+**Do share results:** When you implement patterns, document what worked, what didn't, and what you learned. Contribute to the pattern community. Help refine understanding through real-world validation.
+
+The patterns in this book represent current understanding based on production implementations and agent behavior as of January 2026. They will evolve as agent capabilities advance and new solutions emerge. Treat them as starting points for your own pattern development, not final answers.
+
+**Pattern resources:**
+
+- **Appendix N:** Anti-Patterns Catalog with full ADR documentation for all 14 common anti-patterns
+- **Appendix O:** Pattern Documentation Templates providing standard formats for creating new patterns
+- **Chapter 12:** Quick Start Cards with immediate implementation guidance for three essential patterns
+- **Online resources:** Visit <https://allabout.network/invisible-users/patterns/> for community-contributed patterns and updates
 
 ## Clear State, Always Visible
 
@@ -1143,7 +1260,7 @@ An emerging convention for providing site-wide guidance to AI agents. Similar to
 
 **Real-world example:** Digital Domain Technologies maintains a comprehensive llms.txt file (<https://allabout.network/llms.txt>) that demonstrates practical implementation. Their file organises 91 posts across 6 major categories (Developer Documentation, EDS & Integrations, Core AI/LLM Topics, AEM/CMS Focus, General Blog & Tools, Content Author Resources) with structured access guidelines, rate limits (100 requests per hour per IP), attribution requirements, and precise categorisation. This demonstrates how to structure technical documentation for AI agent consumption whilst maintaining human-readable form.
 
-Chapter 12 covers implementation details and provides templates you can adapt.
+Chapter 12 covers implementation details whilst Appendix H provides complete llms.txt examples and templates you can adapt.
 
 ### Three-Layer Approach
 
@@ -1250,7 +1367,7 @@ See Chapter 9 for detailed analysis of the platform race, competitive positionin
 
 ## Implementation Roadmap
 
-Getting started with agent-friendly design doesn't require a complete rebuild. Focus on priority-based improvements:
+Getting started with agent-friendly design doesn't require a complete rebuild. Focus on priority-based improvements. See Appendix F for the complete implementation roadmap with detailed task sequencing and validation checklists.
 
 ### Priority 1: Critical Quick Wins
 
