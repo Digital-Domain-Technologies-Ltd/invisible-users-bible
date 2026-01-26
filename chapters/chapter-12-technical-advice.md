@@ -1,4 +1,5 @@
 ---
+copyright: "Copyright © 2026 Tom Cranstoun. All rights reserved."
 author: "Tom Cranstoun"
 date: "2026-01-22"
 description: "Practical implementation code for agent-friendly patterns, including served vs rendered HTML, progressive enhancement, and testing strategies."
@@ -12,6 +13,7 @@ ai-instruction: |
   "this update", or any meta-commentary about the book's development.
   Write definitive present tense. Historical context about subject matter
   (industry events, product launches) is allowed.
+  This document is copyrighted material. No part may be reproduced without permission.
 ---
 
 \newpage
@@ -197,7 +199,7 @@ test('price visible in both states', async ({ page }) => {
 
 ## Measuring Your Progress: Web Audit Suite
 
-Before implementing patterns, you need a way to measure your starting point and track improvements. Web Audit Suite (<https://github.com/ddttom/invisible-users/tree/main/web-audit-suite>) provides automated analysis of AI agent compatibility.
+Before implementing patterns, you need a way to measure your starting point and track improvements. Web Audit Suite (<https://github.com/ddttom/invisible-users/tree/main/web-audit-suite>) provides automated analysis of AI agent compatibility. See Appendix C for complete installation, configuration, and usage documentation.
 
 ### What It Measures
 
@@ -810,7 +812,7 @@ Each status code tells agents exactly what happened without parsing response bod
 
 ## Agent Communication Standards
 
-Beyond structured data on individual pages, agents need site-wide guidance. Two files provide this: `robots.txt` (traditional) and `llms.txt` (emerging), along with page-specific meta tags.
+Beyond structured data on individual pages, agents need site-wide guidance. Two files provide this: `robots.txt` (traditional) and `llms.txt` (emerging), along with page-specific meta tags. See Appendix H for complete llms.txt implementation patterns and curated examples.
 
 ### robots.txt: Beyond Basic Compliance
 
@@ -3681,9 +3683,322 @@ This chapter provided implementation guidance integrated with the book's narrati
 
 **Appendix L (Proposed AI Metadata Patterns)** - Formal specifications for experimental patterns with forward-compatibility guarantees and adoption decision framework.
 
+**Appendix P (Blog Generation Workflow)** - Complete metadata-driven content management workflow demonstrating Machine Experience principles in practice. Covers YAML frontmatter schema, state tracking from draft to publication, WCAG 2.1 AA compliance requirements, file organization patterns, and automated HTML generation with semantic structure. A practical example of how explicit metadata, state machines, and validation gates create content that works for humans, AI agents, and build tools simultaneously.
+
 **HTML Patterns for AI Agents (appendix-ai-patterns-quick-reference.md)** - A concise, quick-reference guide (~1,200 words) for AI coding assistants. Contains data attribute standards, form field naming conventions, and ready-to-use HTML snippets for common patterns like authentication state, shopping carts, search results, and order confirmations.
 
 Both guides complement this chapter with additional patterns and examples not covered in the main narrative. The appendix-ai-friendly-html-guide.md file provides the "how to build" prescriptive guidance, whilst appendix-ai-patterns-quick-reference.md serves as a rapid reference for code generation.
+
+## Quick Start Patterns
+
+These rapid-reference cards provide copy-paste implementations for common agent compatibility patterns. Each card gives you working code you can adapt immediately, with validation steps and troubleshooting guidance.
+
+### Pattern Quick Start: Progressive Enhancement for Forms
+
+**Purpose:** Ensure forms work without JavaScript whilst providing enhanced experiences when available.
+
+**Prerequisites:**
+
+- Working HTML form
+- Basic JavaScript knowledge
+- Server-side form processing endpoint
+
+**Implementation Steps:**
+
+1. **Create functional HTML-only form**
+
+   ```html
+   <form action="/contact" method="POST">
+     <label for="email">Email address</label>
+     <input type="email" id="email" name="email" required>
+
+     <label for="message">Message</label>
+     <textarea id="message" name="message" required></textarea>
+
+     <button type="submit">Send Message</button>
+   </form>
+   ```
+
+   Ensure form works with standard HTML submission (no JavaScript required).
+
+2. **Add client-side enhancement with feature detection**
+
+   ```javascript
+   if ('fetch' in window) {
+     const form = document.querySelector('form');
+     form.addEventListener('submit', async (e) => {
+       e.preventDefault();
+
+       const formData = new FormData(form);
+       const response = await fetch(form.action, {
+         method: form.method,
+         body: formData
+       });
+
+       // Show inline success message
+       if (response.ok) {
+         showSuccessMessage();
+       }
+     });
+   }
+   ```
+
+   Detect fetch API support before intercepting form submission.
+
+3. **Provide explicit state feedback**
+
+   ```html
+   <button type="submit" aria-live="polite" aria-busy="false">
+     <span class="button-text">Send Message</span>
+     <span class="button-spinner" hidden aria-label="Sending..."></span>
+   </button>
+   ```
+
+   Use ARIA live regions and explicit state attributes for loading feedback.
+
+**Expected Outcome:**
+
+- Form works without JavaScript (falls back to full page refresh)
+- Enhanced experience when JavaScript available (inline submission)
+- State changes are announced to screen readers
+- AI agents can understand form purpose and fields
+
+**Validation Checklist:**
+
+- [ ] Form submits correctly with JavaScript disabled
+- [ ] Form submits correctly with JavaScript enabled
+- [ ] Loading states are announced by screen readers
+- [ ] No console errors in browser developer tools
+- [ ] Pa11y shows no form-related accessibility issues
+
+**Common Issues:**
+
+- **Form submits twice (JavaScript and HTML):** Ensure `e.preventDefault()` is called before fetch request
+- **Loading state not announced to screen readers:** Add `aria-live="polite"` to container and update `aria-busy` attribute during submission
+- **Error messages not accessible:** Use `aria-describedby` to link error messages to form fields and `role="alert"` for dynamic errors
+
+**Related Patterns:**
+
+- Progressive enhancement approach (see Chapter 11 for pattern philosophy)
+- Pattern 1: Explicit State Attributes (this chapter) - ARIA and loading state implementation
+
+**Related Chapters:**
+
+- [Chapter 11: Designing for Both](chapter-11-designing-for-both.md) - Four Guiding Principles and progressive enhancement philosophy
+- [Chapter 10: Generative Engine Optimization](chapter-10-generative-engine-optimization.md) - Pattern 30 (Skip Links) demonstrates convergence
+
+---
+
+### Pattern Quick Start: Semantic HTML for Product Pages
+
+**Purpose:** Provide structured product information accessible to all agents and users.
+
+**Prerequisites:**
+
+- Basic HTML knowledge
+- Access to product page templates
+- Understanding of semantic HTML5 elements
+
+**Implementation Steps:**
+
+1. **Use semantic HTML5 container elements**
+
+   ```html
+   <article itemscope itemtype="https://schema.org/Product">
+     <header>
+       <h1 itemprop="name">Product Name</h1>
+     </header>
+     <section class="product-details">
+       <!-- Product content -->
+     </section>
+   </article>
+   ```
+
+   Wrap product content in `<article>` with Schema.org Product microdata.
+
+2. **Structure pricing with semantic markup**
+
+   ```html
+   <div class="pricing" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+     <data itemprop="price" value="99.00">£99.00</data>
+     <meta itemprop="priceCurrency" content="GBP">
+     <link itemprop="availability" href="https://schema.org/InStock">
+     <span class="stock-status">In Stock</span>
+   </div>
+   ```
+
+   Use `<data>` elements for prices and explicit availability states.
+
+3. **Add product attributes with definition lists**
+
+   ```html
+   <dl class="product-attributes">
+     <dt>Brand</dt>
+     <dd itemprop="brand">Acme Corp</dd>
+
+     <dt>Colour</dt>
+     <dd>Navy Blue</dd>
+
+     <dt>Material</dt>
+     <dd itemprop="material">100% Cotton</dd>
+   </dl>
+   ```
+
+   Use `<dl>`, `<dt>`, `<dd>` for key-value pairs with Schema.org properties.
+
+**Expected Outcome:**
+
+- AI agents can parse product name, price, availability, and attributes
+- Screen readers announce proper structure and relationships
+- Search engines correctly index product information
+- Automated tests can verify product data presence
+
+**Validation Checklist:**
+
+- [ ] HTML validates with no errors (use W3C Validator)
+- [ ] Schema.org markup validates (use Schema.org Validator)
+- [ ] Screen reader announces product details correctly (test with NVDA/JAWS)
+- [ ] Pa11y shows no critical accessibility issues
+
+**Common Issues:**
+
+- **Schema.org warnings about missing required properties:** Add `description`, `image`, and `offers` properties as minimum requirements
+- **Screen reader skips pricing information:** Ensure `<data>` element has readable fallback text and proper `itemprop` attribute
+
+**Related Patterns:**
+
+- Schema.org metadata patterns (see Appendix M for comprehensive index)
+- Pattern 5: Small Business Template (this chapter) - Demonstrates complete semantic HTML implementation
+- Pattern 27: Schema.org Type Prioritization (Chapter 10) - Focus on six high-impact types
+
+**Related Chapters:**
+
+- [Chapter 11: Designing for Both](chapter-11-designing-for-both.md) - Four Guiding Principles (Semantic First principle)
+- [Chapter 10: Generative Engine Optimization](chapter-10-generative-engine-optimization.md) - GEO Pattern Summary with Schema.org guidance
+
+---
+
+### Pattern Quick Start: WCAG 2.1 AA Compliance Quick Check
+
+**Purpose:** Rapidly verify essential WCAG 2.1 Level AA compliance for AI agent compatibility.
+
+**Prerequisites:**
+
+- Access to website or development environment
+- Browser with developer tools
+- Pa11y or similar accessibility testing tool
+
+**Implementation Steps:**
+
+1. **Run automated accessibility scan**
+
+   ```bash
+   # Install Pa11y globally
+   npm install -g pa11y
+
+   # Run scan on target page
+   pa11y --standard WCAG2AA https://your-site.com/page
+   ```
+
+   Automated scan catches approximately 40% of accessibility issues.
+
+2. **Check colour contrast ratios**
+
+   ```text
+   # Use browser DevTools Accessibility panel
+   # Or: Install axe DevTools browser extension
+   # Minimum ratios:
+   # - Normal text: 4.5:1
+   # - Large text (18pt+): 3:1
+   # - UI components: 3:1
+   ```
+
+   Check all text and interactive elements meet minimum contrast requirements.
+
+3. **Verify keyboard navigation**
+
+   ```text
+   Manual test checklist:
+   1. Tab through entire page
+   2. Verify focus indicator visible on all interactive elements
+   3. Ensure all functionality accessible via keyboard
+   4. Test Escape key closes modals/dropdowns
+   5. Verify Enter/Space activates buttons and links
+   ```
+
+   Test without mouse to ensure keyboard-only access works.
+
+4. **Validate semantic HTML**
+
+   ```bash
+   # Run HTML validator
+   curl -H "Content-Type: text/html; charset=utf-8" \
+        --data-binary @page.html \
+        https://validator.w3.org/nu/?out=json
+
+   # Check for:
+   # - No duplicate IDs
+   # - Proper heading hierarchy (h1 → h2 → h3)
+   # - Form labels linked to inputs
+   # - Alt text on images
+   ```
+
+   Validate HTML structure meets semantic requirements.
+
+5. **Test with screen reader**
+
+   ```text
+   Quick screen reader test (5 minutes):
+   - Windows: NVDA (free)
+   - macOS: VoiceOver (built-in, Cmd+F5)
+   - Test:
+     1. Page title announced
+     2. Headings create proper outline
+     3. Links have descriptive text
+     4. Images have alt text
+     5. Form labels announced
+   ```
+
+   Sample real user experience with assistive technology.
+
+**Expected Outcome:**
+
+- Zero critical Pa11y issues
+- All text meets contrast requirements
+- Full keyboard navigation works
+- HTML validates with no errors
+- Screen reader announces content correctly
+
+**Validation Checklist:**
+
+- [ ] Pa11y scan returns zero WCAG2AA violations
+- [ ] All colour contrast ratios meet or exceed minimums
+- [ ] Keyboard-only navigation reaches all interactive elements
+- [ ] HTML validator shows no errors
+- [ ] Screen reader test completes without confusion
+
+**Common Issues:**
+
+- **Pa11y reports "color-contrast" errors:** Use WebAIM Contrast Checker to find compliant colours
+- **Focus indicator invisible on some elements:** Add explicit focus styles in CSS: `button:focus { outline: 2px solid #0066cc; outline-offset: 2px; }`
+- **Screen reader announces redundant information:** Use `aria-label` or `aria-labelledby` to provide concise alternatives, hide decorative content with `aria-hidden="true"`
+- **Skip links not working:** Ensure target has `id` attribute and is programmatically focusable (use `tabindex="-1"` on target container)
+
+**Related Patterns:**
+
+- WCAG 2.1 AA compliance patterns (see this chapter, Patterns 1-10)
+- Accessibility testing methodology (see Pattern 8 and 9 in this chapter)
+- Pattern 30: Skip Links for Universal Navigation (Chapter 10) - Example of convergence principle
+
+**Related Chapters:**
+
+- [Chapter 11: Designing for Both](chapter-11-designing-for-both.md) - Convergence Principle (how accessibility helps agents)
+- [Chapter 10: Generative Engine Optimization](chapter-10-generative-engine-optimization.md) - Pattern 30 demonstrates skip links implementation
+- [Chapter 1: What You Will Learn](chapter-01-what-you-will-learn.md) - Accessibility imperative and business case
+
+---
+
+These quick start patterns provide immediate implementation paths for the most common agent compatibility scenarios. For complete pattern documentation including forces analysis, consequences, and known uses, see Appendix N (Anti-Patterns Catalog) and the related chapters referenced in each card.
 
 ## Path Forward
 
